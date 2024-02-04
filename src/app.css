@@ -2,63 +2,64 @@
 @import '@fontsource/jetbrains-mono';
 
 html {
-	/* fonts */
-	--font-family-sans: 'IBM Plex Sans', sans-serif;
-	--font-family-mono: 'JetBrains Mono', monospace;
+  /* fonts */
+  --font-family-sans: 'IBM Plex Sans', sans-serif;
+  --font-family-mono: 'JetBrains Mono', monospace;
 
-	/* shapes */
-	--border-radius: 10px;
+  /* shapes */
+  --border-radius: 10px;
 }
 
 /* colors */
 
 :root {
-	color-scheme: dark;
+  color-scheme: dark;
 
-	--color-text-primary: #000;
-	--color-accent-primary: #007bff;
-	--color-background: #f8f9fa;
+  --color-text-primary: #000;
+  --color-accent-primary: #007bff;
+  --color-background: #f8f9fa;
 }
 
 @media (prefers-color-scheme: light) {
-	:root {
-		color-scheme: light;
+  :root {
+    color-scheme: light;
 
-		--color-text-primary: #000;
-		--color-accent-primary: #007bff;
-		--color-background: #f8f9fa;
-	}
+    --color-text-primary: #000;
+    --color-accent-primary: #007bff;
+    --color-background: #f8f9fa;
+  }
 }
 
 /* explicitely setting a color scheme for an element */
 
 [color-scheme='dark'] {
-	color-scheme: dark;
+  color-scheme: dark;
 
-	--color-text-primary: #000;
-	--color-accent-primary: #007bff;
-	--color-background: #f8f9fa;
+  --color-text-primary: #000;
+  --color-accent-primary: #007bff;
+  --color-background: #f8f9fa;
 }
 
 [color-scheme='light'] {
-	color-scheme: light;
+  color-scheme: light;
 
-	--color-text-primary: #000;
-	--color-accent-primary: #007bff;
-	--color-background: #f8f9fa;
+  --color-text-primary: #000;
+  --color-accent-primary: #007bff;
+  --color-background: #f8f9fa;
 }
 
 html,
 body {
-	height: 100%;
+  height: 100%;
 }
 
 html {
-	color: var(--color-text-primary);
-	font-family: var(--font-family-sans);
-	accent-color: var(--color-accent-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-sans);
+  accent-color: var(--color-accent-primary);
+  background-color: var(--color-background);
 }
 
 img {
-	border-radius: var(--border-radius);
+  border-radius: var(--border-radius);
 }
