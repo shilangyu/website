@@ -1,9 +1,12 @@
 <script lang="ts">
   import '../app.css';
+  import PageTransition from './PageTransition.svelte';
+
+  export let data;
 </script>
 
 <svelte:head>
-  <script lang="ts">
+  <script lang="ts" type="module">
     // Synchronous script in the head to prevent flashing of the theme
     // should be kept in sync with src/lib/theme.ts
     const localStorageKey = 'theme';
@@ -18,4 +21,6 @@
   </script>
 </svelte:head>
 
-<slot />
+<PageTransition url={data.url}>
+  <slot />
+</PageTransition>
