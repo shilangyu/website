@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from '$app/paths';
   import ThemePicker from '$lib/components/ThemePicker.svelte';
   import '../app.css';
   import PageTransition from './PageTransition.svelte';
@@ -7,6 +8,7 @@
 </script>
 
 <svelte:head>
+  <link rel="alternate" type="application/atom+xml" href="{base}/blog/rss.xml" />
   <script lang="ts" type="module">
     // Synchronous script in the head to prevent flashing of the theme
     // should be kept in sync with src/lib/theme.ts
