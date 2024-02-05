@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ThemePicker from '$lib/components/ThemePicker.svelte';
   import '../app.css';
   import PageTransition from './PageTransition.svelte';
 
@@ -21,6 +22,7 @@
   </script>
 </svelte:head>
 
+<ThemePicker />
 <PageTransition url={data.url}>
   <slot />
 </PageTransition>
