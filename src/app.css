@@ -10,35 +10,7 @@ html {
   --border-radius: 10px;
 }
 
-/* colors */
-
-:root {
-  color-scheme: dark;
-
-  --color-text-primary: #000;
-  --color-accent-primary: #007bff;
-  --color-background: #f8f9fa;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color-scheme: light;
-
-    --color-text-primary: #000;
-    --color-accent-primary: #007bff;
-    --color-background: #f8f9fa;
-  }
-}
-
-/* explicitely setting a color scheme for an element */
-
-[color-scheme='dark'] {
-  color-scheme: dark;
-
-  --color-text-primary: #000;
-  --color-accent-primary: #007bff;
-  --color-background: #f8f9fa;
-}
+/* We assume one of these will be set */
 
 [color-scheme='light'] {
   color-scheme: light;
@@ -46,6 +18,14 @@ html {
   --color-text-primary: #000;
   --color-accent-primary: #007bff;
   --color-background: #f8f9fa;
+}
+
+[color-scheme='dark'] {
+  color-scheme: dark;
+
+  --color-text-primary: #fff;
+  --color-accent-primary: #007bff;
+  --color-background: #343a40;
 }
 
 html,
@@ -62,4 +42,12 @@ html {
 
 img {
   border-radius: var(--border-radius);
+}
+
+a {
+  text-decoration-style: dashed;
+}
+
+a:hover {
+  text-decoration-style: solid;
 }

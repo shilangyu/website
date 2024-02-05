@@ -2,7 +2,8 @@
 
 TODO:
 
-- blog generator from svelte-enhanced markdown
+- fallback unknown urls to index/CSR
+- migrate blogs to here
 - SVG of my avatar
   - replace favicon
 - about me
