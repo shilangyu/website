@@ -12,8 +12,8 @@ const postMetadataSchema = z
 export type PostMetadata = z.infer<typeof postMetadataSchema>;
 
 type LoadSvx = {
-  default: any;
-  metadata: any;
+  default: ConstructorOfATypedSvelteComponent;
+  metadata: unknown;
 };
 
 const postsLoad = import.meta.glob<LoadSvx>(`../posts/*.svx`, { eager: true });
