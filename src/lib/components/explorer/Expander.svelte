@@ -1,28 +1,17 @@
 <script lang="ts">
   import { ChevronRight } from 'lucide-svelte';
+  import IconButton from '../IconButton.svelte';
 
   export let expanded: boolean;
 </script>
 
-<button class="expander" on:click>
+<IconButton on:click>
   <div class="icon" class:expanded>
     <ChevronRight />
   </div>
-</button>
+</IconButton>
 
 <style>
-  .expander {
-    all: unset;
-    display: inline-block;
-    line-height: 0px;
-    cursor: pointer;
-  }
-
-  .expander:hover {
-    background-color: var(--color-hover);
-    border-radius: var(--border-radius);
-  }
-
   .icon {
     transition: transform calc(var(--transition-duration) * 1ms);
   }
