@@ -1,15 +1,15 @@
 <script lang="ts">
   import { ChevronRight } from 'lucide-svelte';
-  import IconButton from '../IconButton.svelte';
+  import TextButton from '../TextButton.svelte';
 
   export let expanded: boolean;
 </script>
 
-<IconButton on:click>
+<TextButton icon on:click>
   <div class="icon" class:expanded>
     <ChevronRight />
   </div>
-</IconButton>
+</TextButton>
 
 <style>
   .icon {
