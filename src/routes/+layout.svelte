@@ -1,6 +1,8 @@
 <script lang="ts">
   import { base } from '$app/paths';
+  import DragableWidth from '$lib/components/DragableWidth.svelte';
   import ThemePicker from '$lib/components/ThemePicker.svelte';
+  import Explorer from '$lib/components/explorer/Explorer.svelte';
   import '../app.css';
   import PageTransition from './PageTransition.svelte';
 
@@ -24,7 +26,33 @@
   </script>
 </svelte:head>
 
-<ThemePicker />
-<PageTransition url={data.url}>
-  <slot />
-</PageTransition>
+<div class="parent">
+  <nav>
+    <DragableWidth width={300} maxWidth={600} minWidth={200}>
+      <Explorer />
+    </DragableWidth>
+  </nav>
+  <main>
+    <ThemePicker />
+    <PageTransition url={data.url}>
+      <slot />
+    </PageTransition>
+  </main>
+</div>
+
+<style>
+  .parent {
+    display: flex;
+    flex-direction: row;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+  }
+
+  main {
+    padding: 20px;
+  }
+</style>

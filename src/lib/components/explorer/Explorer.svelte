@@ -17,6 +17,7 @@
             href: routes.blog.post(post),
             children: []
           })),
+          // TODO: clicking does not navigate where needed
           {
             icon: Rss,
             href: routes.blog.rss,

@@ -33,8 +33,10 @@
       --transition-duration={transitionDuration}
     />
   {/if}
-  <div class="icon"><svelte:component this={icon} size={18} /></div>
-  <div class="name">{name}</div>
+  <a {href}>
+    <div class="icon"><svelte:component this={icon} size={14} /></div>
+    {name}
+  </a>
 </div>
 
 {#if expanded}
@@ -46,9 +48,10 @@
 {/if}
 
 <style>
-  .file-entry {
+  .file-entry,
+  a {
     display: flex;
-    align-items: center;
+    align-items: end;
     padding: 1px;
   }
 

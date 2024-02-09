@@ -1,6 +1,8 @@
 @import '@fontsource/ibm-plex-sans';
 @import '@fontsource/jetbrains-mono';
 
+/* TODO: support https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion */
+
 html {
   /* fonts */
   --font-family-sans: 'IBM Plex Sans', sans-serif;
@@ -33,6 +35,7 @@ html {
 html,
 body {
   height: 100%;
+  margin: 0;
 }
 
 html {
