@@ -18,6 +18,7 @@ html {
   --color-text-primary: #000;
   --color-accent-primary: #007bff;
   --color-background: #f8f9fa;
+  --color-hover: #e9ecef;
 }
 
 [color-scheme='dark'] {
@@ -26,6 +27,7 @@ html {
   --color-text-primary: #fff;
   --color-accent-primary: #007bff;
   --color-background: #343a40;
+  --color-hover: #454d55;
 }
 
 html,
