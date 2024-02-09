@@ -1,3 +1,4 @@
+import type { ComponentType } from 'svelte';
 import { z } from 'zod';
 
 const postMetadataSchema = z
@@ -10,9 +11,14 @@ const postMetadataSchema = z
   .strict();
 
 export type PostMetadata = z.infer<typeof postMetadataSchema>;
+export type Post = {
+  name: string;
+  meta: PostMetadata;
+  content: ComponentType;
+};
 
 type LoadSvx = {
-  default: ConstructorOfATypedSvelteComponent;
+  default: ComponentType;
   metadata: unknown;
 };
 
