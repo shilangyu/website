@@ -1,6 +1,6 @@
 <script lang="ts">
   import { base } from '$app/paths';
-  import DragableWidth from '$lib/components/DragableWidth.svelte';
+  import DraggableWidth from '$lib/components/DraggableWidth.svelte';
   import ThemePicker from '$lib/components/ThemePicker.svelte';
   import Explorer from '$lib/components/explorer/Explorer.svelte';
   import '../app.css';
@@ -28,9 +28,9 @@
 
 <div class="parent">
   <nav>
-    <DragableWidth width={300} maxWidth={600} minWidth={200}>
+    <DraggableWidth width={300} maxWidth={600} minWidth={200}>
       <Explorer />
-    </DragableWidth>
+    </DraggableWidth>
   </nav>
   <main>
     <ThemePicker />
