@@ -1,6 +1,7 @@
 <script lang="ts">
   import { base } from '$app/paths';
   import DraggableWidth from '$lib/components/DraggableWidth.svelte';
+  import Footer from '$lib/components/Footer.svelte';
   import ThemePicker from '$lib/components/ThemePicker.svelte';
   import Explorer from '$lib/components/explorer/Explorer.svelte';
   import '../app.css';
@@ -39,6 +40,8 @@
     </PageTransition>
   </main>
 </div>
+
+<Footer />
 
 <style>
   .parent {

@@ -1,10 +1,11 @@
 <script lang="ts">
   export let href: string | undefined = undefined;
+  export let external = false;
   export let icon = false;
 </script>
 
 {#if href}
-  <a {href} class="container" class:padded={!icon}>
+  <a {href} class="container" class:padded={!icon} rel={external ? 'external' : undefined}>
     <slot />
   </a>
 {:else}
