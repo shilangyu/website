@@ -27,7 +27,7 @@
   }
 
   .padded {
-    padding: 2px 4px;
+    padding: 2px 6px;
   }
 
   .container:hover {

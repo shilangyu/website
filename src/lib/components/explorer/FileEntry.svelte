@@ -8,6 +8,7 @@
 </script>
 
 <script lang="ts">
+  import { page } from '$app/stores';
   import { slide } from 'svelte/transition';
 
   import type { ComponentType, SvelteComponent } from 'svelte';
@@ -24,9 +25,12 @@
   let expanded = false;
 </script>
 
-<!-- TODO: href -->
 <!-- TODO: prevent hover effect of file entry when there is hover over expander -->
-<div class="file-entry" style="padding-left: calc({depth} * 1.5rem)">
+<div
+  class="file-entry"
+  style="padding-left: calc({depth} * 1.5rem)"
+  class:highlight={$page.url.pathname === href}
+>
   {#if children.length}
     <Expander
       {expanded}
@@ -56,7 +60,8 @@
     padding: 1px;
   }
 
-  .file-entry:hover {
+  .file-entry:hover,
+  .highlight {
     background-color: var(--color-hover);
   }
 
