@@ -2,6 +2,7 @@
   export type Tree = {
     icon: ComponentType<SvelteComponent<{ size?: number | string }>>;
     href: string;
+    external?: boolean;
     children: Tree[];
   };
 </script>
@@ -15,7 +16,7 @@
   export let tree: Tree;
   export let depth = 0;
 
-  const { icon, href, children } = tree;
+  const { icon, href, children, external = false } = tree;
 
   const name = href.split('/').pop() || '/';
   const transitionDuration = 200;
@@ -33,7 +34,7 @@
       --transition-duration={transitionDuration}
     />
   {/if}
-  <a {href}>
+  <a {href} rel={external ? 'external' : undefined}>
     <div class="icon"><svelte:component this={icon} size={14} /></div>
     {name}
   </a>
