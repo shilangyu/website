@@ -5,7 +5,7 @@
   import ThemePicker from '$lib/components/ThemePicker.svelte';
   import Explorer from '$lib/components/explorer/Explorer.svelte';
   import '../app.css';
-  import PageTransition from './PageTransition.svelte';
+  import PageTransition from '../lib/components/PageTransition.svelte';
 
   export let data;
 </script>
@@ -27,35 +27,40 @@
   </script>
 </svelte:head>
 
-<div class="parent">
-  <nav>
-    <DraggableWidth width={300} maxWidth={600} minWidth={200}>
-      <Explorer />
-    </DraggableWidth>
-  </nav>
-  <main>
-    <ThemePicker />
-    <PageTransition url={data.url}>
-      <slot />
-    </PageTransition>
-  </main>
+<!-- TODO: mobile layout -->
+<div class="container">
+  <div class="body">
+    <nav>
+      <DraggableWidth width={300} maxWidth={600} minWidth={200}>
+        <Explorer />
+      </DraggableWidth>
+    </nav>
+    <main>
+      <ThemePicker />
+      <PageTransition url={data.url}>
+        <slot />
+      </PageTransition>
+    </main>
+  </div>
+
+  <Footer />
 </div>
 
-<Footer />
-
 <style>
-  .parent {
-    display: flex;
-    flex-direction: row;
-  }
-
-  nav {
-    position: sticky;
-    top: 0;
-    left: 0;
-  }
-
   main {
     padding: 20px;
+  }
+
+  .container {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .body {
+    overflow: auto;
+    display: flex;
+    flex: 1;
   }
 </style>

@@ -10,7 +10,9 @@
       <GitBranch size={16} /> main
     </span>
   </TextButton>
+  <!-- TODO: make less static? -->
   <RefreshCw size={16} />
+  <!-- TODO: make less static? -->
   <span class="item">
     <Info size={16} /> 0
     <AlertTriangle size={16} /> 0
@@ -22,9 +24,11 @@
       <Rss size={16} /> RSS
     </span>
   </TextButton>
+  <!-- TODO: make less static? -->
   <span class="item">Ln 17, Col 14</span>
   <span class="item">UTF-8</span>
   <span class="item">LF</span>
+  <!-- TODO: should source code language? -->
 </footer>
 
 <style>
