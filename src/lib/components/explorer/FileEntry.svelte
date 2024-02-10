@@ -22,7 +22,7 @@
   const name = href.split('/').pop() || '/';
   const transitionDuration = 200;
 
-  let expanded = false;
+  let expanded = $page.url.pathname.startsWith(href);
 </script>
 
 <!-- TODO: prevent hover effect of file entry when there is hover over expander -->
