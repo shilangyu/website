@@ -16,4 +16,9 @@ export const routes = {
 export const external = {
   githubPages: (project: string) => `https://github.shilangyu.dev/${project}`,
   repository: 'https://github.com/shilangyu/website',
+  avatarRepository: 'https://github.com/shilangyu/avatar',
+  git: 'https://github.com/shilangyu',
+  reddit: 'https://reddit.com/u/k4kshi',
+  hackerNews: 'https://news.ycombinator.com/user?id=shilangyu',
+  telegram: 'https://t.me/shilangyu',
 };
