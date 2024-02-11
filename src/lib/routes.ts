@@ -9,10 +9,10 @@ export const routes = {
   blog: {
     self: base + '/blog',
     post: (post: Post) => base + `/blog/${post.name}`,
-    rss: base + `/blog/rss.xml`
-  }
+    rss: base + `/blog/rss.xml`,
+  },
 } as const;
 
 export const external = {
-  repository: 'https://github.com/shilangyu/website'
+  repository: 'https://github.com/shilangyu/website',
 };

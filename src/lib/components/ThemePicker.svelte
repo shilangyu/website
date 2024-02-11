@@ -16,7 +16,7 @@
           case 'system':
             return 'dark';
         }
-      })()
+      })(),
     )}
   aria-label="Toggle theme"
 >

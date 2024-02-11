@@ -15,17 +15,17 @@
           ...posts.map((post) => ({
             icon: BookOpenText,
             href: routes.blog.post(post),
-            children: []
+            children: [],
           })),
           {
             icon: Rss,
             href: routes.blog.rss,
             external: true,
-            children: []
-          }
-        ]
-      }
-    ]
+            children: [],
+          },
+        ],
+      },
+    ],
   };
 </script>
 

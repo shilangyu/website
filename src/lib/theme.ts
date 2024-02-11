@@ -7,7 +7,7 @@ const attribute = 'color-scheme';
 const defaultTheme: Theme = 'system';
 
 export const theme = writable<Theme>(
-  (browser ? (localStorage.getItem(localStorageKey) as Theme) : null) ?? defaultTheme
+  (browser ? (localStorage.getItem(localStorageKey) as Theme) : null) ?? defaultTheme,
 );
 
 if (browser) {

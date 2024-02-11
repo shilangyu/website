@@ -12,7 +12,7 @@ export const load: PageLoad = async ({ params }) => {
 
   return {
     content: post.content,
-    meta: post.meta
+    meta: post.meta,
   };
 };
 

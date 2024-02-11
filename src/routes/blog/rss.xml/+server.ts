@@ -23,7 +23,7 @@ export async function GET() {
 							<guid isPermaLink="true">${blogUrl}/${name}</guid>
 							<pubDate>${meta.date.toUTCString()}</pubDate>
 						</item>
-					`
+					`,
           )
           .join('')}
 			</channel>

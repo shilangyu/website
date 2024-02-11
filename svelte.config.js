@@ -8,7 +8,7 @@ import remarkMath from 'remark-math';
 const mdsvexOptions = {
   extensions: ['.svx'],
   remarkPlugins: [remarkMath],
-  rehypePlugins: [rehypeKatexSvelte]
+  rehypePlugins: [rehypeKatexSvelte],
 };
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -22,12 +22,12 @@ const config = {
       assets: 'build',
       fallback: '200.html',
       precompress: false,
-      strict: true
+      strict: true,
     }),
     paths: {
-      base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
-    }
-  }
+      base: process.argv.includes('dev') ? '' : process.env.BASE_PATH,
+    },
+  },
 };
 
 export default config;

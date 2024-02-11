@@ -4,6 +4,6 @@ export const prerender = true;
 
 export const load: LayoutLoad = async ({ url }) => {
   return {
-    url: url.pathname
+    url: url.pathname,
   };
 };
