@@ -14,5 +14,6 @@ export const routes = {
 } as const;
 
 export const external = {
+  githubPages: (project: string) => `https://github.shilangyu.dev/${project}`,
   repository: 'https://github.com/shilangyu/website',
 };
