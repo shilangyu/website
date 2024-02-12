@@ -6,6 +6,7 @@ const postMetadataSchema = z
     title: z.string(),
     description: z.string(),
     date: z.coerce.date(),
+    lastUpdated: z.optional(z.coerce.date()),
     tags: z.array(z.string()),
   })
   .strict();
