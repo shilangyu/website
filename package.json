@@ -28,17 +28,17 @@
     "rehype-katex-svelte": "^1.2.0",
     "remark-math": "^3.0.0",
     "svelte": "^4.2.10",
-    "svelte-check": "^3.6.0",
+    "svelte-check": "^3.6.4",
     "tslib": "^2.4.1",
     "typescript": "^5.0.0",
-    "vite": "^5.0.3"
+    "vite": "^5.1.1"
   },
   "type": "module",
   "dependencies": {
     "@fontsource/ibm-plex-sans": "^5.0.18",
     "@fontsource/jetbrains-mono": "^5.0.18",
-    "lucide-svelte": "^0.323.0",
-    "simple-icons": "^11.3.0",
+    "lucide-svelte": "^0.325.0",
+    "simple-icons": "^11.4.0",
     "zod": "^3.22.4"
   }
 }
