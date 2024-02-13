@@ -7,7 +7,7 @@
 
 <TextButton icon on:click>
   <div class="icon" class:expanded>
-    <ChevronRight />
+    <ChevronRight strokeWidth={1} />
   </div>
 </TextButton>
 

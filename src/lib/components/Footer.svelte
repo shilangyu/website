@@ -37,6 +37,7 @@
     align-items: center;
     gap: 12px;
     padding: 2px 12px;
+    border-top: 1px solid var(--color-divider);
   }
 
   .item {

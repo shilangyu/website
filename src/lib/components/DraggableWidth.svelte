@@ -50,13 +50,14 @@
   }
 
   .divider {
-    width: 2px;
+    width: 1px;
     height: 100%;
-    background-color: var(--color-text-primary);
+    background-color: var(--color-divider);
     cursor: col-resize;
   }
   .divider:hover,
   .dragging {
+    /* TODO: center the expanding width */
     width: 6px;
   }
 </style>
