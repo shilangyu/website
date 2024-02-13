@@ -56,7 +56,7 @@
   .file-entry,
   a {
     display: flex;
-    align-items: end;
+    align-items: center;
     padding: 1px;
   }
 

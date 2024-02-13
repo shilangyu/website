@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Chip from '$lib/components/Chip.svelte';
   import TextButton from '$lib/components/TextButton.svelte';
   import { posts } from '$lib/posts';
   import { routes } from '$lib/routes';
@@ -6,12 +7,28 @@
   import { queryParam } from 'sveltekit-search-params';
 
   const tagsFilter = queryParam<string[]>('tags', {
-    encode: (value) => value?.join(','),
+    encode: (value) => {
+      if (value === null || value.length === 0) return undefined;
+      return value.join(',');
+    },
     decode: (value) => value?.split(',') ?? null,
+  });
+
+  $: filteredPosts = posts.filter((post) => {
+    if ($tagsFilter === null || $tagsFilter.length === 0) return true;
+    return $tagsFilter.some((tag) => post.meta.tags.includes(tag));
   });
 </script>
 
-{#each posts as post}
+<div class="tags-filters">
+  {#each $tagsFilter ?? [] as tag}
+    <Chip onRemove={() => ($tagsFilter = ($tagsFilter ?? []).filter((t) => t !== tag))}>
+      #{tag}
+    </Chip>
+  {/each}
+</div>
+
+{#each filteredPosts as post}
   <h3 class="title"><a href={routes.blog.post(post)}>{post.meta.title}</a></h3>
   • {formatDate(post.meta.date)}
 
@@ -31,6 +48,8 @@
     {/each}
   </div>
   <hr />
+{:else}
+  <span>No posts found.</span>
 {/each}
 
 <style>
@@ -40,6 +59,11 @@
   }
 
   .tags {
+    display: flex;
+    gap: 2px;
+  }
+
+  .tags-filters {
     display: flex;
     gap: 2px;
   }
