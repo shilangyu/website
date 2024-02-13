@@ -7,7 +7,7 @@ const postMetadataSchema = z
     description: z.string(),
     date: z.coerce.date(),
     lastUpdated: z.optional(z.coerce.date()),
-    tags: z.array(z.string()),
+    tags: z.array(z.string()).min(1),
   })
   .strict();
 
