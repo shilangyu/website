@@ -12,7 +12,7 @@
   import { slide } from 'svelte/transition';
 
   import type { ComponentType, SvelteComponent } from 'svelte';
-  import Expander from './Expander.svelte';
+  import Expander, { expanderSize } from './Expander.svelte';
 
   export let tree: Tree;
   export let depth = 0;
@@ -22,16 +22,18 @@
   const name = href.split('/').pop() || '/';
   const transitionDuration = 200;
 
+  const isDirectory = children.length > 0;
+
   let expanded = $page.url.pathname.startsWith(href);
 </script>
 
 <!-- TODO: prevent hover effect of file entry when there is hover over expander -->
 <div
   class="file-entry"
-  style="padding-left: calc({depth} * 1.5rem)"
+  style="padding-left: calc({depth} * 0.75rem + {isDirectory ? 0 : expanderSize}px)"
   class:highlight={$page.url.pathname === href}
 >
-  {#if children.length}
+  {#if isDirectory}
     <Expander
       {expanded}
       on:click={() => (expanded = !expanded)}
