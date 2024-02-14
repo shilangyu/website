@@ -1,18 +1,22 @@
 <script lang="ts">
+  import { building } from '$app/environment';
   import Chip from '$lib/components/Chip.svelte';
   import TextButton from '$lib/components/TextButton.svelte';
   import { posts } from '$lib/posts';
   import { routes } from '$lib/routes';
   import { formatDate } from '$lib/utils';
+  import { writable } from 'svelte/store';
   import { queryParam } from 'sveltekit-search-params';
 
-  const tagsFilter = queryParam<string[]>('tags', {
-    encode: (value) => {
-      if (value === null || value.length === 0) return undefined;
-      return value.join(',');
-    },
-    decode: (value) => value?.split(',') ?? null,
-  });
+  const tagsFilter = building
+    ? writable(null)
+    : queryParam<string[]>('tags', {
+        encode: (value) => {
+          if (value === null || value.length === 0) return undefined;
+          return value.join(',');
+        },
+        decode: (value) => value?.split(',') ?? null,
+      });
 
   $: filteredPosts = posts.filter((post) => {
     if ($tagsFilter === null || $tagsFilter.length === 0) return true;
