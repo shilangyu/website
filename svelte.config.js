@@ -4,23 +4,25 @@ import { mdsvex } from 'mdsvex';
 import rehypeKatexSvelte from 'rehype-katex-svelte';
 import remarkMath from 'remark-math';
 
+const mdsvexExtension = '.svx';
+
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
-  extensions: ['.svx'],
+  extensions: [mdsvexExtension],
   remarkPlugins: [remarkMath],
   rehypePlugins: [rehypeKatexSvelte],
 };
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  extensions: ['.svelte', '.svx'],
+  extensions: ['.svelte', mdsvexExtension],
   preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 
   kit: {
     adapter: adapter({
       pages: 'build',
       assets: 'build',
-      fallback: '200.html',
+      fallback: '404.html',
       precompress: false,
       strict: true,
     }),
