@@ -1,9 +1,9 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import { mdsvex } from 'mdsvex';
+import { escapeSvelte, mdsvex } from 'mdsvex';
 import rehypeKatexSvelte from 'rehype-katex-svelte';
 import remarkMath from 'remark-math';
-
+import { getHighlighter } from 'shiki';
 const mdsvexExtension = '.svx';
 
 /** @type {import('mdsvex').MdsvexOptions} */
@@ -11,6 +11,29 @@ const mdsvexOptions = {
   extensions: [mdsvexExtension],
   remarkPlugins: [remarkMath],
   rehypePlugins: [rehypeKatexSvelte],
+  layout: './src/lib/mdsvex/mdsvex.svelte',
+  // TODO: consider rehype-pretty-code instead, could not get it to escape svelte
+  highlight: {
+    highlighter: async (code, lang = 'text') => {
+      const langs = ['dart'];
+      const [light, dark] = ['solarized-light', 'dracula-soft'];
+      const highlighter = await getHighlighter({
+        themes: [light, dark],
+        langs,
+      });
+      await highlighter.loadLanguage(...langs);
+      const html = escapeSvelte(
+        highlighter.codeToHtml(code, {
+          lang,
+          themes: {
+            dark,
+            light,
+          },
+        }),
+      );
+      return `{@html \`${html}\` }`;
+    },
+  },
 };
 
 /** @type {import('@sveltejs/kit').Config} */

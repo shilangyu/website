@@ -2,7 +2,7 @@
 
 TODO:
 
-- migrate blogs to here
+- custom blog css
 - languages review
 - CV
 - projects
