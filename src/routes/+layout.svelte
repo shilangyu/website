@@ -50,6 +50,8 @@
 <style>
   main {
     padding: 20px;
+    max-width: 56rem;
+    margin: 0 auto;
   }
 
   .container {
