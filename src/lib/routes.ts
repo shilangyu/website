@@ -11,6 +11,8 @@ export const routes = {
     post: (post: Post) => base + `/blog/${post.name}`,
     rss: base + `/blog/rss.xml`,
   },
+  projects: base + '/projects',
+  languages: base + '/languages',
 } as const;
 
 export const external = {
@@ -21,4 +23,5 @@ export const external = {
   reddit: 'https://reddit.com/u/k4kshi',
   hackerNews: 'https://news.ycombinator.com/user?id=shilangyu',
   telegram: 'https://t.me/shilangyu',
+  email: 'mailto:xmarcinmarcin@gmail.com',
 };

@@ -2,6 +2,8 @@
   export type Tree = {
     icon: ComponentType<SvelteComponent<{ size?: number | string }>>;
     href: string;
+    // if not present, href trailing child will be used instead
+    name?: string;
     external?: boolean;
     children: Tree[];
   };
@@ -17,9 +19,8 @@
   export let tree: Tree;
   export let depth = 0;
 
-  const { icon, href, children, external = false } = tree;
+  const { icon, href, children, external = false, name = href.split('/').pop() || '/' } = tree;
 
-  const name = href.split('/').pop() || '/';
   const transitionDuration = 200;
 
   const isDirectory = children.length > 0;

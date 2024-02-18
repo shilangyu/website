@@ -1,7 +1,7 @@
 <script lang="ts">
   import { posts } from '$lib/posts';
   import { routes } from '$lib/routes';
-  import { BookOpen, BookOpenText, Home, Rss } from 'lucide-svelte';
+  import { BookA, BookOpen, BookOpenText, Hammer, Home, Rss } from 'lucide-svelte';
   import FileEntry, { type Tree } from './FileEntry.svelte';
 
   const tree: Tree = {
@@ -15,6 +15,7 @@
           ...posts.map((post) => ({
             icon: BookOpenText,
             href: routes.blog.post(post),
+            name: post.meta.title,
             children: [],
           })),
           {
@@ -24,6 +25,16 @@
             children: [],
           },
         ],
+      },
+      {
+        icon: BookA,
+        href: routes.languages,
+        children: [],
+      },
+      {
+        icon: Hammer,
+        href: routes.projects,
+        children: [],
       },
     ],
   };

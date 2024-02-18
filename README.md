@@ -3,7 +3,7 @@
 TODO:
 
 - migrate blogs to here
-- about me
+- languages review
 - CV
 - projects
 

@@ -20,6 +20,11 @@
   });
 </script>
 
+<p>
+  Here you can find random blog posts with no quality guarantee. I talk about programming languages,
+  mathematics, and more rarely hobbies and tutorials.
+</p>
+
 <div class="tags-filters">
   {#each $tagsFilter ?? [] as tag}
     <Chip onRemove={() => ($tagsFilter = ($tagsFilter ?? []).filter((t) => t !== tag))}>

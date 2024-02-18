@@ -2,8 +2,8 @@
   import Avatar from '$lib/assets/avatar.svg';
   import SimpleIcon from '$lib/components/SimpleIcon.svelte';
   import TextButton from '$lib/components/TextButton.svelte';
-  import { external } from '$lib/routes';
-  import { siGithub, siReddit, siTelegram, siYcombinator } from 'simple-icons';
+  import { external, routes } from '$lib/routes';
+  import { siGithub, siGmail, siReddit, siTelegram, siYcombinator } from 'simple-icons';
 </script>
 
 <h1>Marcin Wojnarowski</h1>
@@ -38,23 +38,41 @@
         shilangyu
       </span>
     </TextButton>
+    <TextButton href={external.email} external>
+      <span class="social">
+        <SimpleIcon data={siGmail} size={16} />
+        xmarcinmarcin
+      </span>
+    </TextButton>
   </div>
 </div>
 
 <p>
   My name is <b title="/ˈmar.t͡ɕin/">Marcin</b> and I enjoy computer science and mathematics. My current
-  interests are around programming languages and compilers.
+  interests are around programming languages, compilers, and more recently formal methods. I am always
+  open to hearing about collaboration opportunities.
+</p>
+
+<p>
+  I am from Warsaw, Poland. It is where I completed my bachelor's at University of Technology.
+  Currently I live in Lausanne, Switzerland where I am doing my master's at EPFL in computer science
+  theory.
+</p>
+
+<p>
+  Feel free to explore my <a href={routes.blog.self}>blog</a>,
+  <a href={routes.projects}>projects</a>, or <a href={routes.languages}>languages review</a>.
 </p>
 
 <style>
-  .avatar {
-    width: 100px;
-    height: 100px;
-  }
-
   .intro {
     display: flex;
     gap: 12px;
+  }
+
+  .avatar {
+    width: 130px;
+    height: 130px;
   }
 
   .social {
