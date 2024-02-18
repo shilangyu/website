@@ -5,6 +5,7 @@
 
 <figure>
   <img {src} {alt} />
+  <!-- TODO: this does not render KaTeX -->
   <figcaption aria-hidden="true">{alt}</figcaption>
 </figure>
 

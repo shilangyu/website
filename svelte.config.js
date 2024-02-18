@@ -2,15 +2,17 @@ import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { escapeSvelte, mdsvex } from 'mdsvex';
 import rehypeKatexSvelte from 'rehype-katex-svelte';
+import rehypeSlug from 'rehype-slug';
 import remarkMath from 'remark-math';
 import { getHighlighter } from 'shiki';
+
 const mdsvexExtension = '.svx';
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
   extensions: [mdsvexExtension],
   remarkPlugins: [remarkMath],
-  rehypePlugins: [rehypeKatexSvelte],
+  rehypePlugins: [rehypeSlug, rehypeKatexSvelte],
   layout: './src/lib/mdsvex/mdsvex.svelte',
   // TODO: consider rehype-pretty-code instead, could not get it to escape svelte
   highlight: {
