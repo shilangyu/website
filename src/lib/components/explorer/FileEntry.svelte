@@ -13,6 +13,7 @@
   import { page } from '$app/stores';
   import { slide } from 'svelte/transition';
 
+  import { isSamePath } from '$lib/utils';
   import type { ComponentType, SvelteComponent } from 'svelte';
   import Expander, { expanderSize } from './Expander.svelte';
 
@@ -28,11 +29,10 @@
   let expanded = $page.url.pathname.startsWith(href);
 </script>
 
-<!-- TODO: prevent hover effect of file entry when there is hover over expander -->
 <div
   class="file-entry"
   style="padding-left: calc({depth} * 0.75rem + {isDirectory ? 0 : expanderSize}px)"
-  class:highlight={$page.url.pathname === href}
+  class:highlight={isSamePath($page.url.pathname, href)}
 >
   {#if isDirectory}
     <Expander
