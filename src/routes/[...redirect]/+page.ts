@@ -1,4 +1,6 @@
-import { external } from '$lib/routes';
+import { posts } from '$lib/posts';
+import { external, routes } from '$lib/routes';
+import { normalizeUrl } from '$lib/utils';
 import { error, redirect } from '@sveltejs/kit';
 import type { EntryGenerator } from './$types';
 
@@ -12,7 +14,9 @@ const redirects: Record<string, string> = {
   'formal-lang': external.githubPages('formal-lang'),
   'register-transformations': external.githubPages('register-transformations'),
   'uni-notes': external.githubPages('uni-notes'),
-  'balanced-parentheses-dart-3': external.githubPages('balanced-parentheses-dart-3'), // TODO: move to blog post
+  'balanced-parentheses-dart-3': routes.blog.post(
+    posts.find((e) => e.name === 'balanced-parentheses-dart-3')!,
+  ),
   'WUT-CG': external.githubPages('WUT-CG'),
   'AaC-pi': external.githubPages('AaC-pi'),
   'AIF-emotion-detection': external.githubPages('AIF-emotion-detection'),
@@ -24,12 +28,12 @@ const redirects: Record<string, string> = {
 };
 
 export function load({ params }) {
-  const [head, ...rest] = params.redirect.split('/');
+  const [head, ...rest] = normalizeUrl(params.redirect).split('/');
   const destination = Object.entries(redirects).find(([src]) => head === src)?.[1];
 
   if (!destination) error(404, 'Not found');
 
-  redirect(301, destination + (rest.length ? '/' + rest.join('/') : ''));
+  redirect(301, normalizeUrl(destination) + (rest.length ? '/' + rest.join('/') : ''));
 }
 
 export const entries: EntryGenerator = () => {
