@@ -6,6 +6,7 @@ description: >
 date: 2023-04-30
 tags:
   - formal languages
+  - programming languages
 discussion:
   reddit: https://www.reddit.com/r/programming/comments/1339oal/solving_balanced_parentheses_problem_using_darts
   hackerNews: https://news.ycombinator.com/item?id=35758247

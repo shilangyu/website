@@ -6,7 +6,7 @@ import type { EntryGenerator } from './$types';
 
 // When changing the URL of this website, some older links got invalidated. This page redirects old links to the new ones.
 const redirects: Record<string, string> = {
-  'SVM-from-scratch': external.githubPages('SVM-from-scratch'), // TODO: move to blog post
+  'SVM-from-scratch': routes.blog.post(posts.find((e) => e.name === 'svm-explained')!),
   TicTacToe: external.githubPages('TicTacToe'),
   'ram-runner': external.githubPages('ram-runner'),
   'genetic.ts': external.githubPages('genetic.ts'),
