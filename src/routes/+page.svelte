@@ -60,7 +60,7 @@
 </p>
 
 <p>
-  Feel free to explore my <a href={routes.blog.self}>blog</a>,
+  Feel free to explore my <a href={routes.blog.self()}>blog</a>,
   <a href={routes.projects}>projects</a>, or <a href={routes.languages}>languages review</a>.
 </p>
 

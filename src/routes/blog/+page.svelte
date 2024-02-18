@@ -1,3 +1,7 @@
+<script lang="ts" context="module">
+  export const tagsFilterName = 'tags';
+</script>
+
 <script lang="ts">
   import Chip from '$lib/components/Chip.svelte';
   import TextButton from '$lib/components/TextButton.svelte';
@@ -6,7 +10,7 @@
   import { formatDate } from '$lib/utils';
   import { queryParam } from 'sveltekit-search-params';
 
-  const tagsFilter = queryParam<string[]>('tags', {
+  const tagsFilter = queryParam<string[]>(tagsFilterName, {
     encode: (value) => {
       if (value === null || value.length === 0) return undefined;
       return value.join(',');
@@ -65,11 +69,11 @@
 
   .tags {
     display: flex;
-    gap: 2px;
+    gap: 8px;
   }
 
   .tags-filters {
     display: flex;
-    gap: 2px;
+    gap: 8px;
   }
 </style>

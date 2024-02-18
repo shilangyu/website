@@ -10,7 +10,7 @@
     children: [
       {
         icon: BookOpen,
-        href: routes.blog.self,
+        href: routes.blog.self(),
         children: [
           ...posts.map((post) => ({
             icon: BookOpenText,

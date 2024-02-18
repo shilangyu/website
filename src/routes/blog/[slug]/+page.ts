@@ -10,10 +10,7 @@ export const load: PageLoad = async ({ params }) => {
     throw error(404, `Could not find ${params.slug}`);
   }
 
-  return {
-    content: post.content,
-    meta: post.meta,
-  };
+  return post;
 };
 
 export const entries: EntryGenerator = () => {

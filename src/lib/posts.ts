@@ -7,6 +7,13 @@ const postMetadataSchema = z
     description: z.string(),
     date: z.coerce.date(),
     lastUpdated: z.optional(z.coerce.date()),
+    repository: z.optional(z.string().url()),
+    discussion: z
+      .object({
+        reddit: z.optional(z.string().url()),
+        hackerNews: z.optional(z.string().url()),
+      })
+      .default({}),
     tags: z.array(z.string()).min(1),
   })
   .strict();
@@ -25,8 +32,11 @@ type LoadSvx = {
 
 const postsLoad = import.meta.glob<LoadSvx>(`../posts/*.svx`, { eager: true });
 
-export const posts = Object.entries(postsLoad).map(([path, raw]) => ({
-  name: path.split('/').at(-1)!.replace('.svx', ''),
-  meta: postMetadataSchema.parse(raw.metadata),
-  content: raw.default,
-}));
+// sorted from newest to oldest
+export const posts = Object.entries(postsLoad)
+  .map(([path, raw]) => ({
+    name: path.split('/').at(-1)!.replace('.svx', ''),
+    meta: postMetadataSchema.parse(raw.metadata),
+    content: raw.default,
+  }))
+  .sort((a, b) => b.meta.date.getTime() - a.meta.date.getTime());

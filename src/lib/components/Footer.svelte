@@ -5,7 +5,7 @@
 </script>
 
 <footer>
-  <TextButton href={external.repository}>
+  <TextButton href={external.repository()}>
     <span class="item">
       <GitBranch size={16} /> main
     </span>

@@ -18,6 +18,7 @@ html {
   color-scheme: light;
 
   --color-text-primary: #000;
+  --color-text-secondary: #6c757d;
   --color-divider: #e5e5e5;
   --color-accent-primary: #007bff;
   --color-background: #f8f9fa;
@@ -28,6 +29,7 @@ html {
   color-scheme: dark;
 
   --color-text-primary: #fff;
+  --color-text-secondary: #adb5bd;
   --color-divider: #2b2b2b;
   --color-accent-primary: #007bff;
   --color-background: #171717;

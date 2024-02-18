@@ -3,6 +3,7 @@
 
 import { base } from '$app/paths';
 import { trailingSlash } from '../routes/+layout';
+import { tagsFilterName } from '../routes/blog/+page.svelte';
 import type { Post } from './posts';
 
 const trailing = trailingSlash === 'always' ? '/' : '';
@@ -10,7 +11,8 @@ const trailing = trailingSlash === 'always' ? '/' : '';
 export const routes = {
   root: base + '/',
   blog: {
-    self: base + '/blog' + trailing,
+    self: (tags: string[] = []) =>
+      base + '/blog' + trailing + (tags.length ? `?${tagsFilterName}=${tags.join(',')}` : ''),
     post: (post: Post) => base + `/blog/${post.name}` + trailing,
     rss: base + `/blog/rss.xml` + trailing,
   },
@@ -20,7 +22,8 @@ export const routes = {
 
 export const external = {
   githubPages: (project: string) => `https://github.shilangyu.dev/${project}`,
-  repository: 'https://github.com/shilangyu/website',
+  repository: (file?: string) =>
+    'https://github.com/shilangyu/website' + (file ? `/blob/main/${file}` : ''),
   avatarRepository: 'https://github.com/shilangyu/avatar',
   git: 'https://github.com/shilangyu',
   reddit: 'https://reddit.com/u/k4kshi',

@@ -12,6 +12,7 @@
     class:padded={!icon}
     class:selected
     rel={external ? 'external' : undefined}
+    target={external ? '_blank' : undefined}
   >
     <slot />
   </a>
