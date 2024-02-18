@@ -73,11 +73,6 @@ a:hover {
   text-decoration-style: solid;
 }
 
-b {
-  /* TODO: weight does not work */
-  font-weight: 900;
-}
-
 svg {
   display: block;
 }
