@@ -48,9 +48,9 @@
 </div>
 
 <p>
-  My name is <b title="/ˈmar.t͡ɕin/">Marcin</b> and I enjoy computer science and mathematics. My current
-  interests are around programming languages, compilers, and more recently formal methods. I am always
-  open to hearing about collaboration opportunities.
+  My name is <strong title="/ˈmar.t͡ɕin/">Marcin</strong> and I enjoy computer science and mathematics.
+  My current interests are around programming languages, compilers, and more recently formal methods.
+  I am always open to hearing about collaboration opportunities.
 </p>
 
 <p>

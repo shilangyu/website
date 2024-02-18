@@ -2,17 +2,20 @@
 // I therefore hardcode things here, hoping this will be improved in the future
 
 import { base } from '$app/paths';
+import { trailingSlash } from '../routes/+layout';
 import type { Post } from './posts';
+
+const trailing = trailingSlash === 'always' ? '/' : '';
 
 export const routes = {
   root: base + '/',
   blog: {
-    self: base + '/blog',
-    post: (post: Post) => base + `/blog/${post.name}`,
-    rss: base + `/blog/rss.xml`,
+    self: base + '/blog' + trailing,
+    post: (post: Post) => base + `/blog/${post.name}` + trailing,
+    rss: base + `/blog/rss.xml` + trailing,
   },
-  projects: base + '/projects',
-  languages: base + '/languages',
+  projects: base + '/projects' + trailing,
+  languages: base + '/languages' + trailing,
 } as const;
 
 export const external = {

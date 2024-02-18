@@ -13,14 +13,20 @@
   import { page } from '$app/stores';
   import { slide } from 'svelte/transition';
 
-  import { isSamePath } from '$lib/utils';
+  import { isSamePath, normalizeUrl } from '$lib/utils';
   import type { ComponentType, SvelteComponent } from 'svelte';
   import Expander, { expanderSize } from './Expander.svelte';
 
   export let tree: Tree;
   export let depth = 0;
 
-  const { icon, href, children, external = false, name = href.split('/').pop() || '/' } = tree;
+  const {
+    icon,
+    href,
+    children,
+    external = false,
+    name = normalizeUrl(href).split('/').pop() || '/',
+  } = tree;
 
   const transitionDuration = 200;
 
