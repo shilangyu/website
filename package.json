@@ -17,29 +17,29 @@
     "@sveltejs/kit": "^2.0.0",
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "@types/eslint": "8.56.2",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "@typescript-eslint/parser": "^7.0.1",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-svelte": "^2.35.1",
     "mdsvex": "^0.11.0",
     "prettier": "^3.1.1",
-    "prettier-plugin-svelte": "^3.1.2",
+    "prettier-plugin-svelte": "^3.2.1",
     "rehype-katex-svelte": "^1.2.0",
     "remark-math": "^3.0.0",
-    "svelte": "^4.2.10",
+    "svelte": "^4.2.11",
     "svelte-check": "^3.6.4",
     "tslib": "^2.4.1",
     "typescript": "^5.0.0",
-    "vite": "^5.1.1"
+    "vite": "^5.1.3"
   },
   "type": "module",
   "dependencies": {
     "@fontsource/ibm-plex-sans": "^5.0.18",
     "@fontsource/jetbrains-mono": "^5.0.18",
-    "lucide-svelte": "^0.325.0",
-    "simple-icons": "^11.4.0",
-    "sveltekit-search-params": "^2.1.0",
+    "lucide-svelte": "^0.331.0",
+    "simple-icons": "^11.5.0",
+    "sveltekit-search-params": "^2.1.1",
     "zod": "^3.22.4"
   }
 }

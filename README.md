@@ -2,7 +2,6 @@
 
 TODO:
 
-- fallback unknown urls to index/CSR
 - migrate blogs to here
 - about me
 - CV
