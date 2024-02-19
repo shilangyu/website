@@ -18,7 +18,7 @@ const mdsvexOptions = {
   highlight: {
     highlighter: async (code, lang = 'text') => {
       const langs = ['dart'];
-      const [light, dark] = ['solarized-light', 'dracula-soft'];
+      const [light, dark] = ['catppuccin-latte', 'dracula-soft'];
       const highlighter = await getHighlighter({
         themes: [light, dark],
         langs,

@@ -43,6 +43,13 @@ html {
   }
 }
 
+pre.shiki {
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  tab-size: 2;
+}
+
 html,
 body {
   height: 100%;
