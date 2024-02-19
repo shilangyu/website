@@ -1,38 +1,51 @@
 <script lang="ts">
+  import { browser } from '$app/environment';
+
   export let minWidth: number;
   export let maxWidth: number;
   export let width: number;
 
   console.assert(minWidth <= width && width <= maxWidth);
 
-  let previousX: number | undefined = undefined;
+  let initial: { width: number; x: number } | undefined = undefined;
+
+  $: {
+    if (browser) {
+      if (initial === undefined) {
+        document.body.style.removeProperty('user-select');
+      } else {
+        document.body.style.userSelect = 'none';
+      }
+    }
+  }
 
   function startDrag(event: MouseEvent) {
-    previousX = event.pageX;
+    initial = { width, x: event.pageX };
   }
 
   function stopDrag() {
-    previousX = undefined;
+    initial = undefined;
   }
 
   function drag(event: MouseEvent) {
-    if (previousX === undefined) return;
-    const delta = event.pageX - previousX;
-    previousX = event.pageX;
-    width += delta;
+    if (initial === undefined) return;
+
+    const dx = event.pageX - initial.x;
+    const newWidth = Math.max(minWidth, Math.min(maxWidth, initial.width + dx));
+    width = newWidth;
   }
 </script>
 
 <svelte:window on:mouseup={stopDrag} on:mousemove={drag} />
 
-<div class="root" style="width: {width}px; min-width: {minWidth}px; max-width: {maxWidth}px">
+<div class="root" style="width: {width}px">
   <div class="content">
     <slot />
   </div>
   <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
   <div
     class="divider"
-    class:dragging={previousX !== undefined}
+    class:dragging={initial !== undefined}
     on:mousedown={startDrag}
     role="separator"
   ></div>
