@@ -2,7 +2,6 @@
   import { base } from '$app/paths';
   import DraggableWidth from '$lib/components/DraggableWidth.svelte';
   import Footer from '$lib/components/Footer.svelte';
-  import ThemePicker from '$lib/components/ThemePicker.svelte';
   import Explorer from '$lib/components/explorer/Explorer.svelte';
   import '../app.css';
   import PageTransition from '../lib/components/PageTransition.svelte';
@@ -37,10 +36,11 @@
       </DraggableWidth>
     </nav>
     <main>
-      <ThemePicker />
-      <PageTransition url={data.url}>
-        <slot />
-      </PageTransition>
+      <div class="main-content">
+        <PageTransition url={data.url}>
+          <slot />
+        </PageTransition>
+      </div>
     </main>
   </div>
 
@@ -50,6 +50,11 @@
 <style>
   main {
     padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  .main-content {
     max-width: 56rem;
     margin: 0 auto;
   }

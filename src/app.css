@@ -45,6 +45,7 @@ html {
 
 pre.shiki {
   overflow-x: auto;
+  /* TODO: right padding does not work when there is overflow */
   padding: 1rem;
   border-radius: var(--border-radius);
   tab-size: 2;
