@@ -12,7 +12,7 @@ const mdsvexExtension = '.svx';
 const mdsvexOptions = {
   extensions: [mdsvexExtension],
   remarkPlugins: [remarkMath],
-  rehypePlugins: [rehypeSlug, rehypeKatexSvelte],
+  rehypePlugins: [rehypeSlug, [rehypeKatexSvelte, { output: 'html' }]],
   layout: './src/lib/mdsvex/mdsvex.svelte',
   // TODO: consider rehype-pretty-code instead, could not get it to escape svelte
   highlight: {
