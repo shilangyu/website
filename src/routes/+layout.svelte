@@ -1,7 +1,7 @@
 <script lang="ts">
   import { base } from '$app/paths';
-  import DraggableWidth from '$lib/components/DraggableWidth.svelte';
   import Footer from '$lib/components/Footer.svelte';
+  import Splitter from '$lib/components/Splitter.svelte';
   import Explorer from '$lib/components/explorer/Explorer.svelte';
   import '../app.css';
   import PageTransition from '../lib/components/PageTransition.svelte';
@@ -30,18 +30,18 @@
 <!-- TODO: mobile layout -->
 <div class="container">
   <div class="body">
-    <nav>
-      <DraggableWidth width={300} maxWidth={600} minWidth={200}>
+    <Splitter width={300} maxWidth={600} minWidth={200}>
+      <nav slot="a">
         <Explorer />
-      </DraggableWidth>
-    </nav>
-    <main>
-      <div class="main-content">
-        <PageTransition url={data.url}>
-          <slot />
-        </PageTransition>
-      </div>
-    </main>
+      </nav>
+      <main slot="b">
+        <div class="main-content">
+          <PageTransition url={data.url}>
+            <slot />
+          </PageTransition>
+        </div>
+      </main>
+    </Splitter>
   </div>
 
   <Footer />
@@ -50,7 +50,6 @@
 <style>
   main {
     padding: 20px;
-    overflow-y: auto;
     flex: 1;
   }
 
@@ -68,7 +67,6 @@
 
   .body {
     overflow: auto;
-    display: flex;
     flex: 1;
   }
 </style>

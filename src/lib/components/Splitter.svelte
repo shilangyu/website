@@ -38,17 +38,18 @@
 
 <svelte:window on:mouseup={stopDrag} on:mousemove={drag} />
 
-<div class="root" style="width: {width}px">
-  <div class="content">
-    <slot />
+<div class="root">
+  <div class="pane-a" style="width: {width}px">
+    <slot name="a" />
   </div>
-  <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-  <div
-    class="divider"
-    class:dragging={initial !== undefined}
-    on:mousedown={startDrag}
-    role="separator"
-  ></div>
+  <div class="divider">
+    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+    <div class="divider-area" on:mousedown={startDrag} role="separator"></div>
+    <div class="divider-indicator" class:dragging={initial !== undefined}></div>
+  </div>
+  <div class="pane-b">
+    <slot name="b" />
+  </div>
 </div>
 
 <style>
@@ -56,21 +57,43 @@
     display: flex;
     flex-direction: row;
     height: 100%;
+
+    --div-width: 6px;
   }
 
-  .content {
+  .pane-b {
     flex: 1;
   }
 
+  .pane-a,
+  .pane-b {
+    overflow-y: auto;
+  }
+
   .divider {
+    position: relative;
+  }
+
+  .divider-area {
+    position: absolute;
+    left: calc(var(--div-width) / -2);
+    width: var(--div-width);
+    height: 100%;
+    cursor: col-resize;
+    z-index: 1;
+  }
+
+  .divider-indicator {
+    position: absolute;
     width: 1px;
     height: 100%;
     background-color: var(--color-divider);
-    cursor: col-resize;
+    z-index: 0;
   }
-  .divider:hover,
+
+  .divider-area:hover + .divider-indicator,
   .dragging {
-    /* TODO: center the expanding width */
-    width: 6px;
+    left: calc(var(--div-width) / -2);
+    width: var(--div-width);
   }
 </style>
