@@ -24,6 +24,10 @@
   });
 </script>
 
+<svelte:head>
+  <title>shilangyu / blog</title>
+</svelte:head>
+
 <p>
   Here you can find random blog posts with no quality guarantee. I talk about programming languages,
   mathematics, and more rarely hobbies and tutorials.

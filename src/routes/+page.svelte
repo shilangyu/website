@@ -6,6 +6,10 @@
   import { siGithub, siGmail, siReddit, siTelegram, siYcombinator } from 'simple-icons';
 </script>
 
+<svelte:head>
+  <title>shilangyu</title>
+</svelte:head>
+
 <h1>Marcin Wojnarowski</h1>
 
 <div class="intro">

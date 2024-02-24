@@ -9,7 +9,6 @@
   export let data;
 </script>
 
-<!-- TODO: set title -->
 <svelte:head>
   <link rel="alternate" type="application/atom+xml" href="{base}/blog/rss.xml" />
   <script lang="ts" type="module">
