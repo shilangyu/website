@@ -48,12 +48,12 @@
 
 <style>
   main {
-    padding: 20px;
+    padding: 2rem;
     flex: 1;
   }
 
   .main-content {
-    max-width: 56rem;
+    max-width: 56em;
     margin: 0 auto;
   }
 

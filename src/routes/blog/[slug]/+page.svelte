@@ -95,7 +95,7 @@
   }
 
   .links {
-    font-size: 16pt;
+    font-size: 1.5em;
 
     display: flex;
     gap: 4px 16px;

@@ -2,7 +2,6 @@
 
 TODO:
 
-- custom blog css
 - languages review
 - CV
 - projects

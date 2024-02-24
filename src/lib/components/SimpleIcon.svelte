@@ -2,7 +2,7 @@
   import type { SimpleIcon } from 'simple-icons';
 
   export let data: SimpleIcon;
-  export let size = 24;
+  export let size: string | number = 24;
 </script>
 
 <svg

@@ -7,21 +7,23 @@
 <footer>
   <TextButton href={external.repository()}>
     <span class="item">
-      <GitBranch size={16} /> main
+      <GitBranch size="1em" /> main
     </span>
   </TextButton>
   <!-- TODO: make less static? -->
-  <RefreshCw size={16} />
+  <span>
+    <RefreshCw size="1em" />
+  </span>
   <!-- TODO: make less static? -->
   <span class="item">
-    <Info size={16} /> 0
-    <AlertTriangle size={16} /> 0
-    <XCircle size={16} /> 0
+    <Info size="1em" /> 0
+    <AlertTriangle size="1em" /> 0
+    <XCircle size="1em" /> 0
   </span>
   <span class="spacer"></span>
   <TextButton href={routes.blog.rss} external>
     <span class="item">
-      <Rss size={16} /> RSS
+      <Rss size="1em" /> RSS
     </span>
   </TextButton>
   <!-- TODO: make less static? -->
