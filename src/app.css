@@ -49,6 +49,23 @@ pre.shiki {
   tab-size: 2;
 }
 
+.linkable-heading {
+  all: unset;
+  position: relative;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:before {
+      content: '§';
+      width: 0;
+      position: absolute;
+      left: -15px;
+    }
+  }
+}
+
 html,
 body {
   height: 100%;

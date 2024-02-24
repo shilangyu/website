@@ -19,7 +19,6 @@
 </svelte:head>
 
 <!-- TODO: vscode-like overview of symbols for sections -->
-<!-- TODO: on hover show anchor for headers (hash links) -->
 
 <article>
   <hgroup class="title-group">

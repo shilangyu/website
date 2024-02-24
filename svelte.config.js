@@ -1,5 +1,6 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { selectAll } from 'hast-util-select';
 import { escapeSvelte, mdsvex } from 'mdsvex';
 import rehypeKatexSvelte from 'rehype-katex-svelte';
 import rehypeSlug from 'rehype-slug';
@@ -8,11 +9,36 @@ import { getHighlighter } from 'shiki';
 
 const mdsvexExtension = '.svx';
 
+// Makes headings with id clickable
+const autoLinkHeadings =
+  (options = {}) =>
+  (tree) => {
+    for (const node of selectAll('h1,h2,h3,h4,h5,h6', tree)) {
+      const id = node.properties.id;
+      if (id) {
+        node.children = [
+          {
+            type: 'element',
+            tagName: 'a',
+            properties: {
+              // make sure this class is styled in global css
+              className: ['linkable-heading'],
+              ariaHidden: 'true',
+              tabIndex: -1,
+              href: `#${id}`,
+            },
+            children: [...node.children],
+          },
+        ];
+      }
+    }
+  };
+
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
   extensions: [mdsvexExtension],
   remarkPlugins: [remarkMath],
-  rehypePlugins: [rehypeSlug, [rehypeKatexSvelte, { output: 'html' }]],
+  rehypePlugins: [rehypeSlug, autoLinkHeadings, [rehypeKatexSvelte, { output: 'html' }]],
   layout: './src/lib/mdsvex/mdsvex.svelte',
   // TODO: consider rehype-pretty-code instead, could not get it to escape svelte
   highlight: {
