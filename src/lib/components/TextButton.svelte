@@ -3,6 +3,7 @@
   export let external = false;
   export let icon = false;
   export let selected = false;
+  export let ariaLabel: string | undefined = undefined;
 </script>
 
 {#if href}
@@ -11,13 +12,14 @@
     class="container"
     class:padded={!icon}
     class:selected
+    aria-label={ariaLabel}
     rel={external ? 'external' : undefined}
     target={external ? '_blank' : undefined}
   >
     <slot />
   </a>
 {:else}
-  <button class="container" class:padded={!icon} class:selected on:click>
+  <button class="container" class:padded={!icon} class:selected on:click aria-label={ariaLabel}>
     <slot />
   </button>
 {/if}

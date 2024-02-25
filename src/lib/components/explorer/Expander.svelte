@@ -9,7 +9,7 @@
   export let expanded: boolean;
 </script>
 
-<TextButton icon on:click>
+<TextButton icon on:click ariaLabel={expanded ? 'Collapse' : 'Expand'}>
   <div class="icon" class:expanded>
     <ChevronRight strokeWidth={1} size={expanderSize} />
   </div>
