@@ -10,7 +10,7 @@ import { getHighlighter } from 'shiki';
 const mdsvexExtension = '.svx';
 
 // Makes headings with id clickable
-// @ts-ignore
+// @ts-expect-error
 const autoLinkHeadings = () => (tree) => {
   for (const node of selectAll('h1,h2,h3,h4,h5,h6', tree)) {
     const id = node.properties.id;
