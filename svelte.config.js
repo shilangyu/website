@@ -10,6 +10,7 @@ import { getHighlighter } from 'shiki';
 const mdsvexExtension = '.svx';
 
 // Makes headings with id clickable
+// @ts-ignore
 const autoLinkHeadings = () => (tree) => {
   for (const node of selectAll('h1,h2,h3,h4,h5,h6', tree)) {
     const id = node.properties.id;
@@ -40,6 +41,7 @@ const mdsvexOptions = {
   layout: './src/lib/mdsvex/mdsvex.svelte',
   highlight: {
     highlighter: async (code, lang = 'text') => {
+      /** @type {Array<import('shiki').BundledLanguage>} */
       const langs = ['dart'];
       const [light, dark] = ['catppuccin-latte', 'dracula-soft'];
       const highlighter = await getHighlighter({
