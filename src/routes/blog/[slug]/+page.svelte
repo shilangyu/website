@@ -76,7 +76,7 @@
   }
   .title {
     margin-bottom: 0.5rem;
-    font-size: xx-large;
+    font-size: 2em;
   }
   .subtitle {
     color: var(--color-text-secondary);
