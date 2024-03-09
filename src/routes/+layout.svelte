@@ -27,10 +27,9 @@
   </script>
 </svelte:head>
 
-<!-- TODO: mobile layout -->
 <div class="container">
   <div class="body">
-    <Splitter width={300} maxWidth={600} minWidth={200}>
+    <Splitter width={300} maxWidth={600} minWidth={200} hideOnSmallScreen>
       <nav slot="a">
         <Explorer />
       </nav>

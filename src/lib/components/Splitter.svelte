@@ -4,6 +4,7 @@
   export let minWidth: number;
   export let maxWidth: number;
   export let width: number;
+  export let hideOnSmallScreen = false;
 
   console.assert(minWidth <= width && width <= maxWidth);
 
@@ -39,10 +40,10 @@
 <svelte:window on:mouseup={stopDrag} on:mousemove={drag} />
 
 <div class="root">
-  <div class="pane-a" style="width: {width}px">
+  <div class="pane-a" style="width: {width}px" class:hide-on-small-screen={hideOnSmallScreen}>
     <slot name="a" />
   </div>
-  <div class="divider">
+  <div class="divider" class:hide-on-small-screen={hideOnSmallScreen}>
     <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
     <div class="divider-area" on:mousedown={startDrag} role="separator"></div>
     <div class="divider-indicator" class:dragging={initial !== undefined}></div>
@@ -72,6 +73,18 @@
 
   .divider {
     position: relative;
+  }
+
+  .pane-a.hide-on-small-screen,
+  .divider.hide-on-small-screen {
+    display: none;
+  }
+
+  @media only screen and (min-width: 480px) {
+    .pane-a,
+    .divider {
+      display: unset !important;
+    }
   }
 
   .divider-area {
