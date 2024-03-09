@@ -1,10 +1,5 @@
-<script lang="ts">
-  import { posts } from '$lib/posts';
-  import { routes } from '$lib/routes';
-  import { BookA, BookOpen, BookOpenText, Hammer, Home, Rss } from 'lucide-svelte';
-  import FileEntry, { type Tree } from './FileEntry.svelte';
-
-  const tree: Tree = {
+<script lang="ts" context="module">
+  export const explorerTree: Tree = {
     icon: Home,
     href: routes.root,
     children: [
@@ -40,4 +35,15 @@
   };
 </script>
 
-<FileEntry {tree} />
+<script lang="ts">
+  import { posts } from '$lib/posts';
+  import { routes } from '$lib/routes';
+  import { BookA, BookOpen, BookOpenText, Hammer, Home, Rss } from 'lucide-svelte';
+  import FileEntry, { type Tree } from './FileEntry.svelte';
+
+  export let entries = [explorerTree];
+</script>
+
+{#each entries as tree}
+  <FileEntry {tree} />
+{/each}

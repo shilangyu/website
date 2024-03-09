@@ -7,6 +7,10 @@
     external?: boolean;
     children: Tree[];
   };
+
+  export function getName(tree: Tree): string {
+    return tree.name || normalizeUrl(tree.href).split('/').pop() || '/';
+  }
 </script>
 
 <script lang="ts">
@@ -20,13 +24,8 @@
   export let tree: Tree;
   export let depth = 0;
 
-  const {
-    icon,
-    href,
-    children,
-    external = false,
-    name = normalizeUrl(href).split('/').pop() || '/',
-  } = tree;
+  const { icon, href, children, external = false } = tree;
+  const name = getName(tree);
 
   const transitionDuration = 200;
 

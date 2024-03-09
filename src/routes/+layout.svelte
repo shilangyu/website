@@ -2,6 +2,7 @@
   import { base } from '$app/paths';
   import Footer from '$lib/components/Footer.svelte';
   import Splitter from '$lib/components/Splitter.svelte';
+  import Breadcrumbs from '$lib/components/breadcrumbs/Breadcrumbs.svelte';
   import Explorer from '$lib/components/explorer/Explorer.svelte';
   import '../app.css';
   import PageTransition from '../lib/components/PageTransition.svelte';
@@ -34,6 +35,8 @@
         <Explorer />
       </nav>
       <main slot="b">
+        <Breadcrumbs />
+
         <div class="main-content">
           <PageTransition url={data.url}>
             <slot />
