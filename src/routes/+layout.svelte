@@ -31,7 +31,7 @@
 
 <div class="container">
   <div class="body">
-    <Splitter width={300} maxWidth={600} minWidth={200} hideOnSmallScreen>
+    <Splitter direction="row" extent={300} maxExtent={600} minExtent={200} hideOnSmallScreen>
       <nav slot="a">
         <Explorer />
       </nav>
