@@ -11,17 +11,7 @@
   export let entry: Tree;
   export let entries: Tree[];
 
-  let treeModal: HTMLDialogElement;
   let showModal = false;
-  $: {
-    if (treeModal) {
-      if (showModal) {
-        treeModal.showModal();
-      } else {
-        treeModal.close();
-      }
-    }
-  }
 </script>
 
 <div class="root">
@@ -37,11 +27,15 @@
     {/if}
   </button>
 
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-  <dialog bind:this={treeModal} on:click|self={() => (showModal = false)}>
-    <Explorer {entries} />
-  </dialog>
+  {#if showModal}
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div class="backdrop" on:click|self={() => (showModal = false)}></div>
+
+    <div class="dialog">
+      <Explorer {entries} />
+    </div>
+  {/if}
 </div>
 
 <style>
@@ -61,19 +55,20 @@
     }
   }
 
-  /* TODO: wrong position on chrome :))))))))))))) */
-  dialog {
-    left: unset;
-    bottom: unset;
-    right: unset;
-    top: unset;
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+  }
+
+  .dialog {
     border: var(--color-text-primary) solid 1px;
-    padding: unset;
+    background-color: var(--color-background);
     position: absolute;
     width: 300px;
-
-    &::backdrop {
-      background-color: unset;
-    }
+    z-index: 9999;
   }
 </style>
