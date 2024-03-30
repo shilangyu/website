@@ -1,10 +1,12 @@
 <script lang="ts">
   import { browser } from '$app/environment';
   import { theme } from '$lib/theme';
+  import { Moon, Sun, SunMoon } from 'lucide-svelte';
   import { fly } from 'svelte/transition';
+  import TextButton from './TextButton.svelte';
 </script>
 
-<button
+<TextButton
   on:click={() =>
     theme.update((val) =>
       (() => {
@@ -18,23 +20,38 @@
         }
       })(),
     )}
-  aria-label="Toggle theme"
+  ariaLabel="Toggle theme"
 >
-  {#if browser}
-    {#if $theme === 'dark'}
-      <div in:fly={{ y: -10 }}>
-        <span>Dark</span>
-      </div>
-    {:else if $theme === 'light'}
-      <div in:fly={{ y: -10 }}>
-        <span>Light</span>
-      </div>
-    {:else if $theme === 'system'}
-      <div in:fly={{ y: -10 }}>
-        <span>System</span>
-      </div>
+  <div class="container">
+    {#if browser}
+      {#if $theme === 'dark'}
+        <span class="icon" in:fly={{ y: -10 }} out:fly={{ y: 10 }}>
+          <Moon size="1em" />
+        </span>
+      {:else if $theme === 'light'}
+        <span class="icon" in:fly={{ y: -10 }} out:fly={{ y: 10 }}>
+          <Sun size="1em" />
+        </span>
+      {:else if $theme === 'system'}
+        <span class="icon" in:fly={{ y: -10 }} out:fly={{ y: 10 }}>
+          <SunMoon size="1em" />
+        </span>
+      {/if}
+    {:else}
+      <span>-</span>
     {/if}
-  {:else}
-    <span>-</span>
-  {/if}
-</button>
+  </div>
+</TextButton>
+
+<style>
+  .container {
+    display: grid;
+  }
+
+  .icon {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+</style>

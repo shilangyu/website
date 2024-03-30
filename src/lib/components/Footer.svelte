@@ -2,6 +2,7 @@
   import { external, routes } from '$lib/routes';
   import { AlertTriangle, GitBranch, Info, RefreshCw, Rss, XCircle } from 'lucide-svelte';
   import TextButton from './TextButton.svelte';
+  import ThemePicker from './ThemePicker.svelte';
 </script>
 
 <footer>
@@ -21,6 +22,7 @@
     <XCircle size="1em" /> 0
   </span>
   <span class="spacer"></span>
+  <ThemePicker />
   <TextButton href={routes.blog.rss} external>
     <span class="item">
       <Rss size="1em" /> RSS
