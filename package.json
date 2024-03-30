@@ -13,11 +13,11 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.1",
-    "@sveltejs/kit": "^2.5.4",
+    "@sveltejs/kit": "^2.5.5",
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "@types/eslint": "^8.56.6",
-    "@typescript-eslint/eslint-plugin": "^7.3.1",
-    "@typescript-eslint/parser": "^7.3.1",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-svelte": "^2.35.1",
@@ -30,12 +30,12 @@
     "rehype-katex-svelte": "^1.2.0",
     "rehype-slug": "^6.0.0",
     "remark-math": "^3.0.0",
-    "shiki": "^1.2.0",
+    "shiki": "^1.2.1",
     "svelte": "^4.2.11",
     "svelte-check": "^3.6.8",
     "tslib": "^2.4.1",
     "typescript": "^5.4.3",
-    "vite": "^5.2.6"
+    "vite": "^5.2.7"
   },
   "type": "module",
   "dependencies": {
