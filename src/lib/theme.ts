@@ -2,7 +2,7 @@ import { browser } from '$app/environment';
 import { get, writable } from 'svelte/store';
 
 export type Theme = 'light' | 'dark' | 'system';
-const localStorageKey = 'theme';
+const localStorageKey = 'theme:v1';
 const attribute = 'color-scheme';
 const defaultTheme: Theme = 'system';
 

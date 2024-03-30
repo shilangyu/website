@@ -4,6 +4,8 @@
   import Splitter from '$lib/components/Splitter.svelte';
   import Breadcrumbs from '$lib/components/breadcrumbs/Breadcrumbs.svelte';
   import Explorer from '$lib/components/explorer/Explorer.svelte';
+  // import for the side-effect prefers-color listener
+  import '$lib/theme';
   import '../app.css';
   import PageTransition from '../lib/components/PageTransition.svelte';
 
@@ -15,7 +17,7 @@
   <script lang="ts" type="module">
     // Synchronous script in the head to prevent flashing of the theme
     // should be kept in sync with src/lib/theme.ts
-    const localStorageKey = 'theme';
+    const localStorageKey = 'theme:v1';
     const attribute = 'color-scheme';
     const defaultTheme = 'system';
 
