@@ -2,14 +2,15 @@
   import { base } from '$app/paths';
   import Footer from '$lib/components/Footer.svelte';
   import Splitter from '$lib/components/Splitter.svelte';
-  import Breadcrumbs from '$lib/components/breadcrumbs/Breadcrumbs.svelte';
   import Explorer from '$lib/components/explorer/Explorer.svelte';
+  import MainBody from './MainBody.svelte';
   // import for the side-effect prefers-color listener
   import '$lib/theme';
   import '../app.css';
-  import PageTransition from '../lib/components/PageTransition.svelte';
 
   export let data;
+
+  let bottomDrawerOpen = false;
 </script>
 
 <svelte:head>
@@ -35,32 +36,15 @@
       <nav slot="a">
         <Explorer />
       </nav>
-      <main slot="b">
-        <Breadcrumbs />
 
-        <div class="main-content">
-          <PageTransition url={data.url}>
-            <slot />
-          </PageTransition>
-        </div>
-      </main>
+      <MainBody url={data.url} bind:bottomDrawerOpen slot="b"><slot /></MainBody>
     </Splitter>
   </div>
 
-  <Footer />
+  <Footer onProblemsClick={() => (bottomDrawerOpen = !bottomDrawerOpen)} />
 </div>
 
 <style>
-  main {
-    padding: 2rem;
-    flex: 1;
-  }
-
-  .main-content {
-    max-width: 56em;
-    margin: 0 auto;
-  }
-
   .container {
     height: 100%;
 

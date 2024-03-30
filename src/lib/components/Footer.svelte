@@ -3,6 +3,8 @@
   import { AlertTriangle, GitBranch, Info, RefreshCw, Rss, XCircle } from 'lucide-svelte';
   import TextButton from './TextButton.svelte';
   import ThemePicker from './ThemePicker.svelte';
+
+  export let onProblemsClick: () => void;
 </script>
 
 <footer>
@@ -15,12 +17,13 @@
   <span>
     <RefreshCw size="1em" />
   </span>
-  <!-- TODO: make less static? -->
-  <span class="item">
-    <Info size="1em" /> 0
-    <AlertTriangle size="1em" /> 0
-    <XCircle size="1em" /> 0
-  </span>
+  <TextButton on:click={onProblemsClick}>
+    <span class="item">
+      <Info size="1em" /> 0
+      <AlertTriangle size="1em" /> 0
+      <XCircle size="1em" /> 0
+    </span>
+  </TextButton>
   <span class="spacer"></span>
   <ThemePicker />
   <TextButton href={routes.blog.rss} external>
@@ -39,7 +42,7 @@
   footer {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     padding: 2px 12px;
     border-top: 1px solid var(--color-divider);
   }
