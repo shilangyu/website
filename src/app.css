@@ -35,38 +35,6 @@ html {
   --color-accent-primary: #007bff;
   --color-background: #171717;
   --color-hover: #454d55;
-
-  /* shiki syntax highlighting dark mode */
-  & .shiki,
-  & .shiki span {
-    color: var(--shiki-dark) !important;
-    background-color: var(--shiki-dark-bg) !important;
-  }
-}
-
-pre.shiki {
-  overflow-x: auto;
-  /* TODO: right padding does not work when there is overflow */
-  padding: 1rem;
-  border-radius: var(--border-radius);
-  tab-size: 2;
-}
-
-.linkable-heading {
-  all: unset;
-  position: relative;
-
-  &:hover {
-    text-decoration: underline;
-    cursor: pointer;
-
-    &:before {
-      content: '§';
-      width: 0;
-      position: absolute;
-      left: -15px;
-    }
-  }
 }
 
 html,

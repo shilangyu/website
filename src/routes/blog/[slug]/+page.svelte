@@ -107,4 +107,42 @@
     align-items: center;
     gap: 8px;
   }
+
+  :global([color-scheme='dark']) {
+    /* shiki syntax highlighting dark mode */
+    & .shiki,
+    & .shiki span {
+      color: var(--shiki-dark) !important;
+      background-color: var(--shiki-dark-bg) !important;
+    }
+  }
+
+  :global(pre.shiki) {
+    overflow-x: auto;
+    /* TODO: right padding does not work when there is overflow */
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    tab-size: 2;
+  }
+
+  :global(.linkable-heading) {
+    all: unset;
+    position: relative;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+
+      &:before {
+        content: '§';
+        width: 0;
+        position: absolute;
+        left: -15px;
+      }
+    }
+  }
+
+  :global(.math.math-display) {
+    overflow-x: auto;
+  }
 </style>
