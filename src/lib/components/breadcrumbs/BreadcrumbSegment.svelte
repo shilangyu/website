@@ -67,7 +67,7 @@
     bottom: unset;
     right: unset;
     top: unset;
-    border: currentColor solid 1px;
+    border: var(--color-text-primary) solid 1px;
     padding: unset;
     position: absolute;
     width: 300px;

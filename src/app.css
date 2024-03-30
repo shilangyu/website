@@ -1,4 +1,7 @@
-@import '@fontsource/ibm-plex-sans';
+@import '@fontsource/ibm-plex-sans/400';
+@import '@fontsource/ibm-plex-sans/700';
+@import '@fontsource/ibm-plex-sans/400-italic';
+@import '@fontsource/ibm-plex-sans/700-italic';
 @import '@fontsource/jetbrains-mono';
 
 html {
@@ -102,6 +105,7 @@ img {
 
 a {
   text-decoration-style: dashed;
+  color: var(--color-text-primary);
 }
 
 a:hover {
