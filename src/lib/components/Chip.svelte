@@ -8,7 +8,7 @@
 
 <div class="chip">
   <slot />
-  <TextButton on:click={onRemove} icon><X /></TextButton>
+  <TextButton on:click={onRemove} icon><X size="1.5em" /></TextButton>
 </div>
 
 <style>

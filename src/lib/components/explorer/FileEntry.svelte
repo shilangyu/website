@@ -47,7 +47,7 @@
     />
   {/if}
   <a {href} rel={external ? 'external' : undefined}>
-    <div class="icon"><svelte:component this={icon} size={14} /></div>
+    <div class="icon"><svelte:component this={icon} size="1em" /></div>
     {name}
   </a>
 </div>

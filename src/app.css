@@ -10,7 +10,7 @@ html {
   --font-family-mono: 'JetBrains Mono', monospace;
 
   /* shapes */
-  --border-radius: 10px;
+  --border-radius: 0.625rem;
 }
 
 /* We assume one of these will be set */

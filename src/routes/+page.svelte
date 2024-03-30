@@ -20,31 +20,31 @@
   <div class="socials">
     <TextButton href={external.git} external>
       <span class="social">
-        <SimpleIcon data={siGithub} size={16} />
+        <SimpleIcon data={siGithub} size="1em" />
         shilangyu
       </span>
     </TextButton>
     <TextButton href={external.reddit} external>
       <span class="social">
-        <SimpleIcon data={siReddit} size={16} />
+        <SimpleIcon data={siReddit} size="1em" />
         k4kshi
       </span>
     </TextButton>
     <TextButton href={external.hackerNews} external>
       <span class="social">
-        <SimpleIcon data={siYcombinator} size={16} />
+        <SimpleIcon data={siYcombinator} size="1em" />
         shilangyu
       </span>
     </TextButton>
     <TextButton href={external.telegram} external>
       <span class="social">
-        <SimpleIcon data={siTelegram} size={16} />
+        <SimpleIcon data={siTelegram} size="1em" />
         shilangyu
       </span>
     </TextButton>
     <TextButton href={external.email} external>
       <span class="social">
-        <SimpleIcon data={siGmail} size={16} />
+        <SimpleIcon data={siGmail} size="1em" />
         xmarcinmarcin
       </span>
     </TextButton>
