@@ -21,7 +21,7 @@ html {
   --color-text-primary: #000;
   --color-text-secondary: #6c757d;
   --color-divider: #e5e5e5;
-  --color-accent-primary: #007bff;
+  --color-accent-primary: #fd7f58;
   --color-background: #f8f9fa;
   --color-hover: #e9ecef;
 }
@@ -32,7 +32,7 @@ html {
   --color-text-primary: #fff;
   --color-text-secondary: #adb5bd;
   --color-divider: #2b2b2b;
-  --color-accent-primary: #007bff;
+  --color-accent-primary: #fd7f58;
   --color-background: #171717;
   --color-hover: #454d55;
 }

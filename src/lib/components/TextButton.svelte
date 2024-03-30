@@ -39,7 +39,7 @@
     padding: 2px 6px;
   }
   .selected {
-    background-color: var(--color-accent-primary);
+    background-color: var(--color-accent-primary) !important;
   }
 
   .container {
