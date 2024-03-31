@@ -1,16 +1,20 @@
 <script lang="ts">
   import TextButton from '$lib/components/TextButton.svelte';
+  import ThemeResponsive from '$lib/components/ThemeResponsive.svelte';
   import { ChevronDown } from 'lucide-svelte';
   import RatingBar from './RatingBar.svelte';
   import RatingName from './RatingName.svelte';
   import type { LanguageReviewEntry } from './languages';
 
   export let entry: LanguageReviewEntry;
-  const { icon, name, ratings } = entry;
+  const { icon, iconDark, name, ratings } = entry;
 </script>
 
 <div class="card">
-  <img src={icon} alt="{name} logo" class="icon" />
+  <ThemeResponsive>
+    <img slot="light" src={icon} alt="{name} logo" class="icon" />
+    <img slot="dark" src={iconDark ?? icon} alt="{name} logo" class="icon" />
+  </ThemeResponsive>
   <h3>{name}</h3>
   <div class="ratings">
     <RatingName name="Overall" helpText="Feel-based general impression of the language" />
@@ -48,8 +52,13 @@
   }
 
   .icon {
+    object-fit: contain;
     width: 5em;
     height: 5em;
+  }
+
+  h3 {
+    margin: 0.5em 0;
   }
 
   .ratings {
