@@ -21,6 +21,8 @@
     top: -6px;
     left: 50%;
     transform: translate(-50%, -100%);
+    width: max-content;
+    max-width: 200px;
 
     background-color: var(--color-text-primary);
     color: var(--color-background);
