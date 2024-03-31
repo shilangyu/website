@@ -3,11 +3,11 @@
   import Footer from '$lib/components/Footer.svelte';
   import Splitter from '$lib/components/Splitter.svelte';
   import Explorer from '$lib/components/explorer/Explorer.svelte';
+  import '$lib/mdsvex/mdsvex.css';
   import MainBody from './MainBody.svelte';
   // import for the side-effect prefers-color listener
   import '$lib/theme';
   import '../app.css';
-  import '../mdsvex.css';
 
   export let data;
 
