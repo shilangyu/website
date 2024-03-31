@@ -18,7 +18,7 @@
   <button
     class="segment"
     class:highlighted={showModal}
-    style="--gap: {gap}"
+    style:--gap={gap}
     on:click={() => (showModal = true)}
   >
     <span>{getName(entry)}</span>

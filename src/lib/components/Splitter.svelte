@@ -54,7 +54,7 @@
 
 <div
   class="root"
-  style="--extent: {extent}px"
+  style:--extent="{extent}px"
   class:direction-row={direction === 'row'}
   class:direction-column={direction === 'column'}
   class:baseline-slot-a={baselineSlot === 'a'}

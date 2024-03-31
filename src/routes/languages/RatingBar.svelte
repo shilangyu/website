@@ -5,7 +5,7 @@
 </script>
 
 <div class="root">
-  <div class="rating-bar" style="--rating: {rating}" title="{Math.round(rating * 100)} / 100"></div>
+  <div class="rating-bar" style:--rating={rating} title="{Math.round(rating * 100)} / 100"></div>
 </div>
 
 <style>

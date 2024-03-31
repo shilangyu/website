@@ -33,7 +33,7 @@
   $: breadcrumbsId = segments.join('-');
 </script>
 
-<div class="root" style="--gap: {gap}">
+<div class="root" style:--gap={gap}>
   {#each segments as href, i (breadcrumbsId + href)}
     {@const tree = findEntries(href) ?? { entry: explorerTree, entries: [explorerTree] }}
     <BreadcrumbSegment isTrailing={i === segments.length - 1} {...tree} />
