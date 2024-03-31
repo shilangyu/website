@@ -7,6 +7,7 @@
   // import for the side-effect prefers-color listener
   import '$lib/theme';
   import '../app.css';
+  import '../mdsvex.css';
 
   export let data;
 
