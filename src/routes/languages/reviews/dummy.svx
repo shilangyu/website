@@ -1,0 +1,11 @@
+Bla bla bla lengthy review why this language is **awesome** or why it ~~sucks~~!!!!
+
+### Here is some code showing why dart sucks:
+
+```dart
+void main() {
+  for (int i = 0; i < 10; i++) {
+    print('hello ${i + 1}');
+  }
+}
+```
