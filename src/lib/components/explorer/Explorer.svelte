@@ -23,8 +23,13 @@
       },
       {
         icon: BookA,
-        href: routes.languages,
-        children: [],
+        href: routes.languages.self(),
+        children: languages.map((language) => ({
+          icon: BookOpenText,
+          href: routes.languages.language(language),
+          name: language.name,
+          children: [],
+        })),
       },
       {
         icon: Hammer,
@@ -39,6 +44,7 @@
   import { posts } from '$lib/posts';
   import { routes } from '$lib/routes';
   import { BookA, BookOpen, BookOpenText, Hammer, Home, Rss } from 'lucide-svelte';
+  import { languages } from '../../../routes/languages/languages';
   import FileEntry, { type Tree } from './FileEntry.svelte';
 
   export let entries = [explorerTree];

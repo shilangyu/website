@@ -4,6 +4,11 @@
 @import '@fontsource/ibm-plex-sans/700-italic';
 @import '@fontsource/jetbrains-mono';
 
+:root {
+  /* disable default view transitions */
+  view-transition-name: none;
+}
+
 html {
   /* fonts */
   --font-family-sans: 'IBM Plex Sans', sans-serif;

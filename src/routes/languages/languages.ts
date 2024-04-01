@@ -2,6 +2,7 @@ import type { ComponentType } from 'svelte';
 
 export interface LanguageReviewEntry {
   name: string;
+  pathName: string;
   icon: string;
   iconDark?: string;
   ratings: {

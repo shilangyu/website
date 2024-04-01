@@ -4,6 +4,7 @@
 import { base } from '$app/paths';
 import { trailingSlash } from '../routes/+layout';
 import { tagsFilterName } from '../routes/blog/+page.svelte';
+import type { LanguageReviewEntry } from '../routes/languages/languages';
 import type { Post } from './posts';
 
 const trailing = trailingSlash === 'always' ? '/' : '';
@@ -17,7 +18,11 @@ export const routes = {
     rss: base + `/blog/rss.xml` + trailing,
   },
   projects: base + '/projects' + trailing,
-  languages: base + '/languages' + trailing,
+  languages: {
+    self: (lang?: LanguageReviewEntry) =>
+      base + '/languages' + trailing + (lang ? `#${lang.pathName}` : ''),
+    language: (lang: LanguageReviewEntry) => base + `/languages/${lang.pathName}` + trailing,
+  },
 } as const;
 
 export const external = {
