@@ -30,7 +30,7 @@
     "rehype-katex-svelte": "^1.2.0",
     "rehype-slug": "^6.0.0",
     "remark-math": "^3.0.0",
-    "shiki": "^1.2.1",
+    "shiki": "^1.2.2",
     "svelte": "^4.2.11",
     "svelte-check": "^3.6.8",
     "tslib": "^2.4.1",
@@ -42,7 +42,7 @@
     "@fontsource/ibm-plex-sans": "^5.0.19",
     "@fontsource/jetbrains-mono": "^5.0.19",
     "lucide-svelte": "^0.363.0",
-    "simple-icons": "^11.10.0",
+    "simple-icons": "^11.11.0",
     "sveltekit-search-params": "^2.1.2",
     "zod": "^3.22.4"
   }
