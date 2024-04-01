@@ -9,6 +9,12 @@ declare global {
     // interface Platform {}
   }
 
+  declare module '*.svx' {
+    const component: import('svelte').ComponentType;
+    export default component;
+    export const metadata: unknown;
+  }
+
   // view transition API types
   interface ViewTransition {
     finished: Promise<void>;
