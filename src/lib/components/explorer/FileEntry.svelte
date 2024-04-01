@@ -31,7 +31,7 @@
 
   const isDirectory = children.length > 0;
 
-  let expanded = $page.url.pathname.startsWith(href);
+  $: expanded = $page.url.pathname.startsWith(href);
 </script>
 
 <div

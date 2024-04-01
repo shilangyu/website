@@ -133,7 +133,6 @@
     <RatingBar id={viewTransition.ratingExpressivenessBarId} rating={ratings.expressiveness} />
   </div>
 
-  <!-- TODO: the scroll position is not set to zero -->
   <TextButton href={routes.languages.language(entry)}><ChevronDown /></TextButton>
 </div>
 
