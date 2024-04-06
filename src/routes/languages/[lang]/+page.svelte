@@ -11,6 +11,10 @@
   $: ({ icon, iconDark, name, ratings, review } = data);
 </script>
 
+<svelte:head>
+  <title>shilangyu / languages / {name}</title>
+</svelte:head>
+
 <div class="root">
   <ThemeResponsive>
     <img slot="light" src={icon} alt="{name} logo" class="icon" />
