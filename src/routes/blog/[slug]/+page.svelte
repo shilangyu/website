@@ -8,7 +8,7 @@
 
   export let data;
 
-  const { meta, content, name } = data;
+  $: ({ meta, content, name } = data);
 </script>
 
 <svelte:head>

@@ -86,9 +86,9 @@
   import type { LanguageReviewEntry } from './languages';
 
   export let entry: LanguageReviewEntry;
-  const { icon, iconDark, name, pathName, ratings } = entry;
+  $: ({ icon, iconDark, name, pathName, ratings } = entry);
 
-  const viewTransition = viewTransitionData(pathName);
+  $: viewTransition = viewTransitionData(pathName);
 </script>
 
 <div class="card">

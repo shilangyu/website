@@ -8,7 +8,7 @@
 
   export let data;
 
-  const { icon, iconDark, name, ratings, review } = data;
+  $: ({ icon, iconDark, name, ratings, review } = data);
 </script>
 
 <div class="root">
