@@ -4,10 +4,8 @@
   import Splitter from '$lib/components/Splitter.svelte';
   import Explorer from '$lib/components/explorer/Explorer.svelte';
   import '$lib/mdsvex/mdsvex.css';
-  import MainBody from './MainBody.svelte';
-  // import for the side-effect prefers-color listener
-  import '$lib/theme';
   import '../app.css';
+  import MainBody from './MainBody.svelte';
 
   export let data;
 
@@ -23,11 +21,9 @@
     const attribute = 'color-scheme';
     const defaultTheme = 'system';
 
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     const theme = localStorage.getItem(localStorageKey) ?? defaultTheme;
 
-    const scheme = theme === 'system' ? (prefersDark.matches ? 'dark' : 'light') : theme;
-    document.documentElement.setAttribute(attribute, scheme);
+    document.documentElement.setAttribute(attribute, theme);
   </script>
 </svelte:head>
 

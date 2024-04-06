@@ -20,7 +20,14 @@ html {
 
 /* We assume one of these will be set */
 
-[color-scheme='light'] {
+/* Theming is done the following way:
+  The color-scheme attribute on elements decides the color scheme of this subtree. The value can be either light which forces the light theme, dark which forces the dark theme, or system which is by default the light theme unless (prefers-color-scheme: dark) is true, in which case it is dark. Theming is merely a choice of colors for a common set of variables.
+
+  By default the html tag has a color-scheme=system which allows us to be responsive to theming even in non-JS environments. See lib/theme.ts for how one can programically change the color scheme.
+*/
+
+[color-scheme='light'],
+[color-scheme='system'] {
   color-scheme: light;
 
   --color-text-primary: #000;
@@ -31,7 +38,21 @@ html {
   --color-hover: #e9ecef;
 }
 
+@media (prefers-color-scheme: dark) {
+  [color-scheme='system'] {
+    color-scheme: dark;
+
+    --color-text-primary: #fff;
+    --color-text-secondary: #adb5bd;
+    --color-divider: #2b2b2b;
+    --color-accent-primary: #fd7f58;
+    --color-background: #171717;
+    --color-hover: #454d55;
+  }
+}
+
 [color-scheme='dark'] {
+  /* repeat styles from above */
   color-scheme: dark;
 
   --color-text-primary: #fff;

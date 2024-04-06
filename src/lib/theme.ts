@@ -1,5 +1,5 @@
 import { browser } from '$app/environment';
-import { get, writable } from 'svelte/store';
+import { writable } from 'svelte/store';
 
 export type Theme = 'light' | 'dark' | 'system';
 const localStorageKey = 'theme:v1';
@@ -11,20 +11,10 @@ export const theme = writable<Theme>(
 );
 
 if (browser) {
-  // react to system theme changes if the theme is set to system
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-  prefersDark.addEventListener('change', (e) => {
-    if (get(theme) === 'system') {
-      document.documentElement.setAttribute(attribute, e.matches ? 'dark' : 'light');
-    }
-  });
-
-  // sync store with localStorage
+  // sync store with localStorage/html
   theme.subscribe((value) => {
     localStorage.setItem(localStorageKey, value);
 
-    const scheme = value === 'system' ? (prefersDark.matches ? 'dark' : 'light') : value;
-
-    document.documentElement.setAttribute(attribute, scheme);
+    document.documentElement.setAttribute(attribute, value);
   });
 }

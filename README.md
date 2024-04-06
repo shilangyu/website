@@ -1,10 +1,11 @@
 # website
 
+Personal website. Blog, personal info, contact.
+
+Being angry at websites that use JavaScript is stupid. Being angry at websites that work only if JavaScript is present is understandable. Therefore this website is created with progressive enhancement in mind, it provides the best experience possible regardless of browser features or availability of JavaScript.
+
 TODO:
 
 - languages review
 - CV
 - projects
-- improve no-js env
-
-Setup credited to the amazing blog post: https://joyofcode.xyz/sveltekit-markdown-blog
