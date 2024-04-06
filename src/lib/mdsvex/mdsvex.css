@@ -7,6 +7,17 @@
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  [color-scheme='system'] {
+    /* shiki syntax highlighting dark mode */
+    & .shiki,
+    & .shiki span {
+      color: var(--shiki-dark) !important;
+      background-color: var(--shiki-dark-bg) !important;
+    }
+  }
+}
+
 pre.shiki {
   overflow-x: auto;
   /* TODO: right padding does not work when there is overflow */
