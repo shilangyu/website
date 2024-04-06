@@ -16,7 +16,7 @@
 
 <div class="root">
   {#each languages as entry}
-    <div class="card" id={entry.pathName}>
+    <div id={entry.pathName}>
       <LanguageCard {entry} />
     </div>
   {/each}

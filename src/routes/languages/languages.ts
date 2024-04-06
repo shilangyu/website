@@ -19,7 +19,7 @@ import Zig from '$lib/assets/languages/zig_logo.svg';
 import type { ComponentType } from 'svelte';
 import dummyReview from './reviews/dummy.svx';
 
-export interface LanguageReviewEntry {
+export type LanguageReviewEntry = {
   name: string;
   pathName: string;
   icon: string;
@@ -31,7 +31,7 @@ export interface LanguageReviewEntry {
     expressiveness: number;
   };
   review: ComponentType;
-}
+};
 
 export const languages: LanguageReviewEntry[] = [
   {
