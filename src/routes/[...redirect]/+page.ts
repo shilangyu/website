@@ -1,7 +1,7 @@
-import { posts } from '$lib/posts';
 import { external, routes } from '$lib/routes';
 import { normalizeUrl } from '$lib/utils';
 import { error, redirect } from '@sveltejs/kit';
+import { posts } from '../blog/posts';
 import type { EntryGenerator } from './$types';
 
 // When changing the URL of this website, some older links got invalidated. This page redirects old links to the new ones.

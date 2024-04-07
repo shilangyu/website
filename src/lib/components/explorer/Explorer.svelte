@@ -41,9 +41,9 @@
 </script>
 
 <script lang="ts">
-  import { posts } from '$lib/posts';
   import { routes } from '$lib/routes';
   import { BookA, BookOpen, BookOpenText, Hammer, Home, Languages, Rss } from 'lucide-svelte';
+  import { posts } from '../../../routes/blog/posts';
   import { languages } from '../../../routes/languages/languages';
   import FileEntry, { type Tree } from './FileEntry.svelte';
 

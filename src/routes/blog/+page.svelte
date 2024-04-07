@@ -5,10 +5,10 @@
 <script lang="ts">
   import Chip from '$lib/components/Chip.svelte';
   import TextButton from '$lib/components/TextButton.svelte';
-  import { posts } from '$lib/posts';
   import { routes } from '$lib/routes';
   import { formatDate } from '$lib/utils';
   import { queryParam } from 'sveltekit-search-params';
+  import { posts } from './posts';
 
   const tagsFilter = queryParam<string[]>(tagsFilterName, {
     encode: (value) => {

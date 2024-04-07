@@ -4,8 +4,8 @@
 import { base } from '$app/paths';
 import { trailingSlash } from '../routes/+layout';
 import { tagsFilterName } from '../routes/blog/+page.svelte';
+import type { Post } from '../routes/blog/posts';
 import type { LanguageReviewEntry } from '../routes/languages/languages';
-import type { Post } from './posts';
 
 const trailing = trailingSlash === 'always' ? '/' : '';
 

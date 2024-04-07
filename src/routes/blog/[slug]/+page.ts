@@ -1,5 +1,5 @@
-import { posts } from '$lib/posts';
 import { error } from '@sveltejs/kit';
+import { posts } from '../posts';
 import type { EntryGenerator, PageLoad } from './$types';
 
 export const load: PageLoad = async ({ params }) => {

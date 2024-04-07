@@ -25,7 +25,7 @@ export type Post = {
   content: ComponentType;
 };
 
-const postsLoad = import.meta.glob<typeof import('*.svx')>(`../posts/*.svx`, { eager: true });
+const postsLoad = import.meta.glob<typeof import('*.svx')>(`../../posts/*.svx`, { eager: true });
 
 // sorted from newest to oldest
 export const posts = Object.entries(postsLoad)
