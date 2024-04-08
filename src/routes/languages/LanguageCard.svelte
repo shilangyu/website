@@ -145,6 +145,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
+    height: 100%;
   }
 
   .icon {

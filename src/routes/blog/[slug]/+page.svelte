@@ -42,28 +42,28 @@
   <div class="links">
     <TextButton href={external.repository(`src/posts/${name}.svx`)} external>
       <span class="links-item">
-        <SpellCheck2 /> Correct mistake
+        <SpellCheck2 size="1em" /> Correct mistake
       </span>
     </TextButton>
 
     {#if meta.repository}
       <TextButton href={meta.repository} external>
         <span class="links-item">
-          <Code /> Repository
+          <Code size="1em" /> Repository
         </span>
       </TextButton>
     {/if}
     {#if meta.discussion.reddit}
       <TextButton href={meta.discussion.reddit} external>
         <span class="links-item">
-          <SimpleIcon data={siReddit} /> Reddit discussion
+          <SimpleIcon data={siReddit} size="1em" /> Reddit discussion
         </span>
       </TextButton>
     {/if}
     {#if meta.discussion.hackerNews}
       <TextButton href={meta.discussion.hackerNews} external>
         <span class="links-item">
-          <SimpleIcon data={siYcombinator} /> Hacker News discussion
+          <SimpleIcon data={siYcombinator} size="1em" /> Hacker News discussion
         </span>
       </TextButton>
     {/if}

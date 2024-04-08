@@ -3,12 +3,14 @@
 
   import TextButton from './TextButton.svelte';
 
-  export let onRemove: () => void;
+  export let onRemove: (() => void) | undefined = undefined;
 </script>
 
 <div class="chip">
   <slot />
-  <TextButton on:click={onRemove} icon><X size="1.5em" /></TextButton>
+  {#if onRemove}
+    <TextButton on:click={onRemove} icon><X size="1.5em" /></TextButton>
+  {/if}
 </div>
 
 <style>
