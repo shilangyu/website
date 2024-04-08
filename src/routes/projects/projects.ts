@@ -1,16 +1,16 @@
 import Avatar from '$lib/assets/avatar.svg';
-import STMPreview from '$lib/assets/projects/STM_preview.webp';
-import SVMPreview from '$lib/assets/projects/SVM_preview.webp';
-import ComputerGraphicsPreview from '$lib/assets/projects/computer-graphics_preview.webp';
-import DistributedAlgorithmsPreview from '$lib/assets/projects/distributed-algorithms_preview.webp';
-import FormalLangPreview from '$lib/assets/projects/formal-lang_preview.webp';
-import LemmurLogo from '$lib/assets/projects/lemmur_logo.svg';
-import PiGenerationPreview from '$lib/assets/projects/pi-generation_preview.webp';
-import RamRunnerPreview from '$lib/assets/projects/ram-runner_preview.webp';
-import RegisterTransformations from '$lib/assets/projects/register-transformations_preview.webp';
-import ScoopSearchPreview from '$lib/assets/projects/scoop-search_preview.webp';
-import SensorsCoveragePreview from '$lib/assets/projects/sensors-coverage_preview.webp';
-import UniNotesPreview from '$lib/assets/projects/uni-notes_preview.webp';
+import STMPreview from './assets/STM_preview.webp';
+import SVMPreview from './assets/SVM_preview.webp';
+import ComputerGraphicsPreview from './assets/computer-graphics_preview.webp';
+import DistributedAlgorithmsPreview from './assets/distributed-algorithms_preview.webp';
+import FormalLangPreview from './assets/formal-lang_preview.webp';
+import LemmurLogo from './assets/lemmur_logo.svg';
+import PiGenerationPreview from './assets/pi-generation_preview.webp';
+import RamRunnerPreview from './assets/ram-runner_preview.webp';
+import RegisterTransformations from './assets/register-transformations_preview.webp';
+import ScoopSearchPreview from './assets/scoop-search_preview.webp';
+import SensorsCoveragePreview from './assets/sensors-coverage_preview.webp';
+import UniNotesPreview from './assets/uni-notes_preview.webp';
 
 export type ProjectEntry = {
   name: string;
