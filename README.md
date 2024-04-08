@@ -8,4 +8,3 @@ TODO:
 
 - languages review
 - CV
-- projects
