@@ -11,6 +11,7 @@ const trailing = trailingSlash === 'always' ? '/' : '';
 
 export const routes = {
   root: base + '/',
+  resume: base + '/resume.pdf',
   blog: {
     self: (tags: string[] = []) =>
       base + '/blog' + trailing + (tags.length ? `?${tagsFilterName}=${tags.join(',')}` : ''),

@@ -36,13 +36,28 @@
         href: routes.projects,
         children: [],
       },
+      {
+        icon: FileBadge,
+        href: routes.resume,
+        external: true,
+        children: [],
+      },
     ],
   };
 </script>
 
 <script lang="ts">
   import { routes } from '$lib/routes';
-  import { BookA, BookOpen, BookOpenText, Hammer, Home, Languages, Rss } from 'lucide-svelte';
+  import {
+    BookA,
+    BookOpen,
+    BookOpenText,
+    FileBadge,
+    Hammer,
+    Home,
+    Languages,
+    Rss,
+  } from 'lucide-svelte';
   import { posts } from '../../../routes/blog/posts';
   import { languages } from '../../../routes/languages/languages';
   import FileEntry, { type Tree } from './FileEntry.svelte';
