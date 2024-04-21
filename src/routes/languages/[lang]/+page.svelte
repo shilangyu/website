@@ -39,20 +39,10 @@
 
     <RatingName
       name="Relevance"
-      helpText="Whether other languages supersede it in its domain"
+      helpText="Whether other languages don't supersede it in its domain"
       viewTransitionName="lang-rating-relevance-name"
     />
     <RatingBar rating={ratings.relevance} viewTransitionName="lang-rating-relevance-bar" />
-
-    <RatingName
-      name="Expressiveness"
-      helpText="How expressive the language is, how easy it is to create abstractions"
-      viewTransitionName="lang-rating-expressiveness-name"
-    />
-    <RatingBar
-      rating={ratings.expressiveness}
-      viewTransitionName="lang-rating-expressiveness-bar"
-    />
   </div>
 
   <div class="review">

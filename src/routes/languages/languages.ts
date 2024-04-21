@@ -18,6 +18,7 @@ import Scala from './assets/scala_logo.svg';
 import Swift from './assets/swift_logo.svg';
 import Typescript from './assets/typescript_logo.svg';
 import Zig from './assets/zig_logo.svg';
+import dartReview, { metadata as dartReviewMetadata } from './reviews/dart.svx';
 import dummyReview, { metadata as dummyReviewMetadata } from './reviews/dummy.svx';
 
 const languageReviewMetadataSchema = z
@@ -37,7 +38,6 @@ export type LanguageReviewEntry = {
     overall: number;
     tooling: number;
     relevance: number;
-    expressiveness: number;
   };
   review: {
     component: ComponentType;
@@ -55,7 +55,6 @@ export const languages: LanguageReviewEntry[] = [
       overall: Math.random(),
       tooling: Math.random(),
       relevance: Math.random(),
-      expressiveness: Math.random(),
     },
     review: {
       component: dummyReview,
@@ -70,7 +69,6 @@ export const languages: LanguageReviewEntry[] = [
       overall: Math.random(),
       tooling: Math.random(),
       relevance: Math.random(),
-      expressiveness: Math.random(),
     },
     review: {
       component: dummyReview,
@@ -86,7 +84,6 @@ export const languages: LanguageReviewEntry[] = [
       overall: Math.random(),
       tooling: Math.random(),
       relevance: Math.random(),
-      expressiveness: Math.random(),
     },
     review: {
       component: dummyReview,
@@ -98,14 +95,13 @@ export const languages: LanguageReviewEntry[] = [
     pathName: 'dart',
     icon: Dart,
     ratings: {
-      overall: Math.random(),
-      tooling: Math.random(),
-      relevance: Math.random(),
-      expressiveness: Math.random(),
+      overall: 0.7,
+      tooling: 0.95,
+      relevance: 0.9,
     },
     review: {
-      component: dummyReview,
-      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+      component: dartReview,
+      meta: languageReviewMetadataSchema.parse(dartReviewMetadata),
     },
   },
   {
@@ -116,7 +112,6 @@ export const languages: LanguageReviewEntry[] = [
       overall: Math.random(),
       tooling: Math.random(),
       relevance: Math.random(),
-      expressiveness: Math.random(),
     },
     review: {
       component: dummyReview,
@@ -131,7 +126,6 @@ export const languages: LanguageReviewEntry[] = [
       overall: Math.random(),
       tooling: Math.random(),
       relevance: Math.random(),
-      expressiveness: Math.random(),
     },
     review: {
       component: dummyReview,
@@ -147,7 +141,6 @@ export const languages: LanguageReviewEntry[] = [
       overall: Math.random(),
       tooling: Math.random(),
       relevance: Math.random(),
-      expressiveness: Math.random(),
     },
     review: {
       component: dummyReview,
@@ -162,7 +155,6 @@ export const languages: LanguageReviewEntry[] = [
       overall: Math.random(),
       tooling: Math.random(),
       relevance: Math.random(),
-      expressiveness: Math.random(),
     },
     review: {
       component: dummyReview,
@@ -177,7 +169,6 @@ export const languages: LanguageReviewEntry[] = [
       overall: Math.random(),
       tooling: Math.random(),
       relevance: Math.random(),
-      expressiveness: Math.random(),
     },
     review: {
       component: dummyReview,
@@ -192,7 +183,6 @@ export const languages: LanguageReviewEntry[] = [
       overall: Math.random(),
       tooling: Math.random(),
       relevance: Math.random(),
-      expressiveness: Math.random(),
     },
     review: {
       component: dummyReview,
@@ -207,7 +197,6 @@ export const languages: LanguageReviewEntry[] = [
       overall: Math.random(),
       tooling: Math.random(),
       relevance: Math.random(),
-      expressiveness: Math.random(),
     },
     review: {
       component: dummyReview,
@@ -222,7 +211,6 @@ export const languages: LanguageReviewEntry[] = [
       overall: Math.random(),
       tooling: Math.random(),
       relevance: Math.random(),
-      expressiveness: Math.random(),
     },
     review: {
       component: dummyReview,
@@ -237,7 +225,6 @@ export const languages: LanguageReviewEntry[] = [
       overall: Math.random(),
       tooling: Math.random(),
       relevance: Math.random(),
-      expressiveness: Math.random(),
     },
     review: {
       component: dummyReview,
@@ -252,7 +239,6 @@ export const languages: LanguageReviewEntry[] = [
       overall: Math.random(),
       tooling: Math.random(),
       relevance: Math.random(),
-      expressiveness: Math.random(),
     },
     review: {
       component: dummyReview,
@@ -267,7 +253,6 @@ export const languages: LanguageReviewEntry[] = [
       overall: Math.random(),
       tooling: Math.random(),
       relevance: Math.random(),
-      expressiveness: Math.random(),
     },
     review: {
       component: dummyReview,

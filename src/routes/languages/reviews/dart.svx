@@ -1,0 +1,124 @@
+---
+lastUpdated: 2024-04-21
+---
+
+## Simple boring language
+
+I would put Dart the same bucket as Java. It is an OOP language that tries hard to incorporate more functional features because it turns out functional languages have solved many problems that are needlessly complicated in OOP! It now has records, pattern matching, ADTs, and constructors can be treated as functions.
+
+Dart started as an alternative to JavaScript so it had a dynamic nature. I am quite impressed that nowadays (after more than a few breaking changes) Dart can brag about having _sound_ null safety. _Sound_ meaning if the type says a variable cannot be `null`, it cannot be `null` (unlike in other languages, looking at you C# and Kotlin).
+
+I cannot see it ever outgrowing its habitat: Flutter. The language and the compiler has been designed around it being a language for Flutter. This is quite visible, given the great integration and tooling support. But I don't see Flutter dying any time soon: I honestly believe it is currently the best tool for building cross platform applications. So as long as Flutter is relevant, Dart will be relevant as well.
+
+## Tooling
+
+The tooling is great. It has a formatter, linter, package manager, test runner, doc generator, and of course the compiler itself all in a single binary. Meaning you don't have to worry about looking for some third party tool.
+
+The formatter is opinionated, has no configuration options, and produces the same output for inputs that differ only in whitespace. This is exactly what I like.
+
+The linter has a fair amount of rules but is hard to extend. There is an analyzer plugin API, but it requires a lot of boilerplate before you can write your first rule and the support for those plugins is quite limited.
+
+## Things I like
+
+### Cascade operator
+
+A unique feature which I have not yet seen in any other language, namely the cascade operator. One less thing to think about when designing an API: should the methods be chainable? With the cascade operator the caller can decide.
+
+```dart
+instance..method1()..method2()..field = '123';
+// same as
+instance.method1();
+instance.method2();
+instance.field = '123';
+```
+
+## Things I dislike
+
+### Mixins
+
+`mixin`s feel incomplete. There is no composition allowed between them, ruining the whole purpose. This means the following is not allowed:
+
+```dart
+mixin DatabaseMixin {
+  final db = Database();
+
+  Future<void> connect() { /* ... */ }
+  // ...
+}
+
+mixin CacheMixin {
+  final _cache = Map<String, dynamic>();
+
+  T addToCache<T>(String key, T data) {
+    _cache[key] = data;
+    return data;
+  }
+
+  void clearCache() { /* ... */ }
+  // ...
+}
+
+// error: mixins cannot mixin other mixins
+mixin UserMixin with DatabaseMixin, CacheMixin {
+  abstract final String userId;
+
+  Future<User> getUser() {
+    return cache.addToCache('get', db.getUser(userId));
+  }
+
+  Future<RemovedUser> removeUser() {
+    return cache.addToCache('remove', db.removeUser(userId));
+  }
+
+  // ...
+}
+
+class SuperUserRepository with UserMixin {
+  final userId = 'admin';
+}
+```
+
+There is this `mixin ... on ...` clause which would _almost_ do what I want, except `on` can only list a single other type.
+
+### Code generation
+
+Due to a lack of any meta-programming features (reflection is disabled in Flutter), the ecosystem heavily relies on code generation. Want your class to be JSON-serializable? Generate code. Want your class to have a copy method? Generate code! Want your class to be equality-comparable? GENERATE CODE. It doesn't help that the code generator is painfully slow, often slower that compiling the whole project from scratch.
+
+I have been waiting for [macros](https://github.com/dart-lang/language/issues/1482) for 3 years now. This would solve my main gripe with Dart.
+
+### Lack of control over variance
+
+Classic issue with generics. I keep bumping myself into this. Note however that the typesystem does have variance rules (covariant out positions, contravariant in positions), but without explicit annotation on type arguments, this quickly breaks. All type arguments are assumed to be covariant, leading to runtime errors such as:
+
+```dart
+class Consumer<T /* assumed to be covariant, but it is contravariant */> {
+  void handle(T sth) {
+    print('doing $sth');
+  }
+}
+
+main() {
+  // we can upcast it, but we shouldn't be able to, int should be contravariant!
+  Consumer<Object> consumer = Consumer<int>();
+  consumer.handle("wassup"); // Unhandled exception: type 'String' is not a subtype of type 'int' of 'sth'
+}
+```
+
+Which typechecks just fine, but crashes when ran.
+
+The following will not typecheck, showing that the typesystem knows about contravariance:
+
+```dart
+// A value of type 'void Function(int)' can't be assigned to a variable of type 'void Function(Object)'
+void Function(Object) _ = (int _) {};
+```
+
+See [variance hack](https://github.com/shilangyu/dart-variance-hack) for ways to hack around lack of contravariant type arguments in Dart. Granted, Dart [authors really want to work](https://github.com/dart-lang/language/issues/524) on declaration-site variance, but it isn't being prioritized over other features.
+
+### Implementation of interfaces
+
+As with many OOP languages, a class can implement interfaces only at the declaration site. Trait-based protocol implementation is much more powerful and allows to create much more expressive APIs. I won't get into the details here.
+
+### Unchecked exceptions
+
+I truly do not understand the point of exception when their existence is not made known in the typesystem.

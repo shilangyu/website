@@ -8,11 +8,9 @@
     const ratingOverallNameId = `lang-rating-overall-name-${languagePathName}`;
     const ratingToolingNameId = `lang-rating-tooling-name-${languagePathName}`;
     const ratingRelevanceNameId = `lang-rating-relevance-name-${languagePathName}`;
-    const ratingExpressivenessNameId = `lang-rating-expressiveness-name-${languagePathName}`;
     const ratingOverallBarId = `lang-rating-overall-bar-${languagePathName}`;
     const ratingToolingBarId = `lang-rating-tooling-bar-${languagePathName}`;
     const ratingRelevanceBarId = `lang-rating-relevance-bar-${languagePathName}`;
-    const ratingExpressivenessBarId = `lang-rating-expressiveness-bar-${languagePathName}`;
 
     return {
       iconLightId,
@@ -21,11 +19,9 @@
       ratingOverallNameId,
       ratingToolingNameId,
       ratingRelevanceNameId,
-      ratingExpressivenessNameId,
       ratingOverallBarId,
       ratingToolingBarId,
       ratingRelevanceBarId,
-      ratingExpressivenessBarId,
       setTransitionNames() {
         // the transition name should be kept up to date with ./[lang]/+page.svelte
         document.querySelector<HTMLElement>(`#${iconLightId}`)!.style.viewTransitionName =
@@ -39,18 +35,12 @@
           'lang-rating-tooling-name';
         document.querySelector<HTMLElement>(`#${ratingRelevanceNameId}`)!.style.viewTransitionName =
           'lang-rating-relevance-name';
-        document.querySelector<HTMLElement>(
-          `#${ratingExpressivenessNameId}`,
-        )!.style.viewTransitionName = 'lang-rating-expressiveness-name';
         document.querySelector<HTMLElement>(`#${ratingOverallBarId}`)!.style.viewTransitionName =
           'lang-rating-overall-bar';
         document.querySelector<HTMLElement>(`#${ratingToolingBarId}`)!.style.viewTransitionName =
           'lang-rating-tooling-bar';
         document.querySelector<HTMLElement>(`#${ratingRelevanceBarId}`)!.style.viewTransitionName =
           'lang-rating-relevance-bar';
-        document.querySelector<HTMLElement>(
-          `#${ratingExpressivenessBarId}`,
-        )!.style.viewTransitionName = 'lang-rating-expressiveness-bar';
       },
       unsetTransitionNames() {
         const ids = [
@@ -60,11 +50,9 @@
           ratingOverallNameId,
           ratingToolingNameId,
           ratingRelevanceNameId,
-          ratingExpressivenessNameId,
           ratingOverallBarId,
           ratingToolingBarId,
           ratingRelevanceBarId,
-          ratingExpressivenessBarId,
         ];
         for (const id of ids) {
           document
@@ -121,16 +109,9 @@
     <RatingName
       id={viewTransition.ratingRelevanceNameId}
       name="Relevance"
-      helpText="Whether other languages supersede it in its domain"
+      helpText="Whether other languages don't supersede it in its domain"
     />
     <RatingBar id={viewTransition.ratingRelevanceBarId} rating={ratings.relevance} />
-
-    <RatingName
-      id={viewTransition.ratingExpressivenessNameId}
-      name="Expressiveness"
-      helpText="How expressive the language is, how easy it is to create abstractions"
-    />
-    <RatingBar id={viewTransition.ratingExpressivenessBarId} rating={ratings.expressiveness} />
   </div>
 
   <TextButton href={routes.languages.language(entry)}><ChevronDown /></TextButton>
