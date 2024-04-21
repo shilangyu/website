@@ -14,6 +14,11 @@
   fun of it, so many of my reviews are based on side projects, not production code.
 </p>
 
+<p>
+  Please be encouraged to let me know when some information being stated here is incorrect or
+  outdated.
+</p>
+
 <div class="root">
   {#each languages as entry}
     <div id={entry.pathName}>

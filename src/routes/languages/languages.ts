@@ -1,4 +1,5 @@
 import type { ComponentType } from 'svelte';
+import { z } from 'zod';
 import Cpp from './assets/c++_logo.svg';
 import C from './assets/c_logo.svg';
 import Csharp from './assets/csharp_logo.svg';
@@ -17,7 +18,15 @@ import Scala from './assets/scala_logo.svg';
 import Swift from './assets/swift_logo.svg';
 import Typescript from './assets/typescript_logo.svg';
 import Zig from './assets/zig_logo.svg';
-import dummyReview from './reviews/dummy.svx';
+import dummyReview, { metadata as dummyReviewMetadata } from './reviews/dummy.svx';
+
+const languageReviewMetadataSchema = z
+  .object({
+    lastUpdated: z.coerce.date(),
+  })
+  .strict();
+
+export type LanguageReviewMetadata = z.infer<typeof languageReviewMetadataSchema>;
 
 export type LanguageReviewEntry = {
   name: string;
@@ -30,7 +39,10 @@ export type LanguageReviewEntry = {
     relevance: number;
     expressiveness: number;
   };
-  review: ComponentType;
+  review: {
+    component: ComponentType;
+    meta: LanguageReviewMetadata;
+  };
 };
 
 export const languages: LanguageReviewEntry[] = [
@@ -45,7 +57,10 @@ export const languages: LanguageReviewEntry[] = [
       relevance: Math.random(),
       expressiveness: Math.random(),
     },
-    review: dummyReview,
+    review: {
+      component: dummyReview,
+      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+    },
   },
   {
     name: 'Golang',
@@ -57,7 +72,10 @@ export const languages: LanguageReviewEntry[] = [
       relevance: Math.random(),
       expressiveness: Math.random(),
     },
-    review: dummyReview,
+    review: {
+      component: dummyReview,
+      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+    },
   },
   {
     name: 'Julia',
@@ -70,7 +88,10 @@ export const languages: LanguageReviewEntry[] = [
       relevance: Math.random(),
       expressiveness: Math.random(),
     },
-    review: dummyReview,
+    review: {
+      component: dummyReview,
+      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+    },
   },
   {
     name: 'Dart',
@@ -82,7 +103,10 @@ export const languages: LanguageReviewEntry[] = [
       relevance: Math.random(),
       expressiveness: Math.random(),
     },
-    review: dummyReview,
+    review: {
+      component: dummyReview,
+      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+    },
   },
   {
     name: 'Typescript',
@@ -94,7 +118,10 @@ export const languages: LanguageReviewEntry[] = [
       relevance: Math.random(),
       expressiveness: Math.random(),
     },
-    review: dummyReview,
+    review: {
+      component: dummyReview,
+      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+    },
   },
   {
     name: 'Python',
@@ -106,7 +133,10 @@ export const languages: LanguageReviewEntry[] = [
       relevance: Math.random(),
       expressiveness: Math.random(),
     },
-    review: dummyReview,
+    review: {
+      component: dummyReview,
+      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+    },
   },
   {
     name: 'Lean',
@@ -119,7 +149,10 @@ export const languages: LanguageReviewEntry[] = [
       relevance: Math.random(),
       expressiveness: Math.random(),
     },
-    review: dummyReview,
+    review: {
+      component: dummyReview,
+      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+    },
   },
   {
     name: 'Koka',
@@ -131,7 +164,10 @@ export const languages: LanguageReviewEntry[] = [
       relevance: Math.random(),
       expressiveness: Math.random(),
     },
-    review: dummyReview,
+    review: {
+      component: dummyReview,
+      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+    },
   },
   {
     name: 'Scala',
@@ -143,7 +179,10 @@ export const languages: LanguageReviewEntry[] = [
       relevance: Math.random(),
       expressiveness: Math.random(),
     },
-    review: dummyReview,
+    review: {
+      component: dummyReview,
+      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+    },
   },
   {
     name: 'C',
@@ -155,7 +194,10 @@ export const languages: LanguageReviewEntry[] = [
       relevance: Math.random(),
       expressiveness: Math.random(),
     },
-    review: dummyReview,
+    review: {
+      component: dummyReview,
+      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+    },
   },
   {
     name: 'C++',
@@ -167,7 +209,10 @@ export const languages: LanguageReviewEntry[] = [
       relevance: Math.random(),
       expressiveness: Math.random(),
     },
-    review: dummyReview,
+    review: {
+      component: dummyReview,
+      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+    },
   },
   {
     name: 'Nim',
@@ -179,7 +224,10 @@ export const languages: LanguageReviewEntry[] = [
       relevance: Math.random(),
       expressiveness: Math.random(),
     },
-    review: dummyReview,
+    review: {
+      component: dummyReview,
+      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+    },
   },
   {
     name: 'C#',
@@ -191,7 +239,10 @@ export const languages: LanguageReviewEntry[] = [
       relevance: Math.random(),
       expressiveness: Math.random(),
     },
-    review: dummyReview,
+    review: {
+      component: dummyReview,
+      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+    },
   },
   {
     name: 'Zig',
@@ -203,7 +254,10 @@ export const languages: LanguageReviewEntry[] = [
       relevance: Math.random(),
       expressiveness: Math.random(),
     },
-    review: dummyReview,
+    review: {
+      component: dummyReview,
+      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+    },
   },
   {
     name: 'Swift',
@@ -215,6 +269,9 @@ export const languages: LanguageReviewEntry[] = [
       relevance: Math.random(),
       expressiveness: Math.random(),
     },
-    review: dummyReview,
+    review: {
+      component: dummyReview,
+      meta: languageReviewMetadataSchema.parse(dummyReviewMetadata),
+    },
   },
 ];

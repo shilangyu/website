@@ -2,6 +2,7 @@
   import TextButton from '$lib/components/TextButton.svelte';
   import ThemeResponsive from '$lib/components/ThemeResponsive.svelte';
   import { routes } from '$lib/routes';
+  import { formatDate } from '$lib/utils';
   import { ChevronUp } from 'lucide-svelte';
   import RatingBar from '../RatingBar.svelte';
   import RatingName from '../RatingName.svelte';
@@ -55,7 +56,9 @@
   </div>
 
   <div class="review">
-    <svelte:component this={review} />
+    <em>Last updated {formatDate(review.meta.lastUpdated)}</em>
+
+    <svelte:component this={review.component} />
   </div>
 
   <TextButton href={routes.languages.self(data)}><ChevronUp /></TextButton>

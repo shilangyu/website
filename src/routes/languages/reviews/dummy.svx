@@ -1,3 +1,7 @@
+---
+lastUpdated: 2024-04-21
+---
+
 Bla bla bla lengthy review why this language is **awesome** or why it ~~sucks~~!!!!
 
 ### Here is some code showing why dart sucks:
