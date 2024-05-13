@@ -41,7 +41,7 @@
   "dependencies": {
     "@fontsource/ibm-plex-sans": "^5.0.19",
     "@fontsource/jetbrains-mono": "^5.0.19",
-    "lucide-svelte": "^0.377.0",
+    "lucide-svelte": "^0.378.0",
     "simple-icons": "^11.11.0",
     "sveltekit-search-params": "^2.1.2",
     "zod": "^3.22.4"
