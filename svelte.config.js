@@ -5,7 +5,7 @@ import { escapeSvelte, mdsvex } from 'mdsvex';
 import rehypeKatexSvelte from 'rehype-katex-svelte';
 import rehypeSlug from 'rehype-slug';
 import remarkMath from 'remark-math';
-import { getHighlighter } from 'shiki';
+import { createHighlighter } from 'shiki';
 
 const mdsvexExtension = '.svx';
 
@@ -33,6 +33,15 @@ const autoLinkHeadings = () => (tree) => {
   }
 };
 
+/** @type {Array<import('shiki').BundledLanguage>} */
+const langs = ['dart'];
+const [light, dark] = ['catppuccin-latte', 'dracula-soft'];
+const highlighter = await createHighlighter({
+  themes: [light, dark],
+  langs,
+});
+await highlighter.loadLanguage(...langs);
+
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
   extensions: [mdsvexExtension],
@@ -41,14 +50,6 @@ const mdsvexOptions = {
   layout: './src/lib/mdsvex/mdsvex.svelte',
   highlight: {
     highlighter: async (code, lang = 'text') => {
-      /** @type {Array<import('shiki').BundledLanguage>} */
-      const langs = ['dart'];
-      const [light, dark] = ['catppuccin-latte', 'dracula-soft'];
-      const highlighter = await getHighlighter({
-        themes: [light, dark],
-        langs,
-      });
-      await highlighter.loadLanguage(...langs);
       const html = escapeSvelte(
         highlighter.codeToHtml(code, {
           lang,
