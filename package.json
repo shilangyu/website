@@ -12,12 +12,12 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^3.0.4",
-    "@sveltejs/kit": "^2.5.27",
+    "@sveltejs/adapter-static": "^3.0.5",
+    "@sveltejs/kit": "^2.5.28",
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
     "@types/eslint": "^8.56.6",
-    "@typescript-eslint/eslint-plugin": "^8.5.0",
-    "@typescript-eslint/parser": "^8.5.0",
+    "@typescript-eslint/eslint-plugin": "^8.6.0",
+    "@typescript-eslint/parser": "^8.6.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-svelte": "^2.44.0",
@@ -30,19 +30,19 @@
     "rehype-katex-svelte": "^1.2.0",
     "rehype-slug": "^6.0.0",
     "remark-math": "^3.0.0",
-    "shiki": "^1.17.6",
+    "shiki": "^1.18.0",
     "svelte": "^4.2.19",
     "svelte-check": "^4.0.2",
     "tslib": "^2.7.0",
     "typescript": "^5.6.2",
-    "vite": "^5.4.5"
+    "vite": "^5.4.7"
   },
   "type": "module",
   "dependencies": {
     "@fontsource/ibm-plex-sans": "^5.1.0",
     "@fontsource/jetbrains-mono": "^5.1.0",
-    "lucide-svelte": "^0.441.0",
-    "simple-icons": "^13.10.0",
+    "lucide-svelte": "^0.445.0",
+    "simple-icons": "^13.11.0",
     "sveltekit-search-params": "^3.0.0",
     "zod": "^3.22.4"
   }
