@@ -1,7 +1,6 @@
 <script lang="ts" module>
-  import blockquote from './blockquote.svelte';
-  import img from './img.svelte';
-  export { blockquote, img };
+  export { default as blockquote } from './blockquote.svelte';
+  export { default as img } from './img.svelte';
 </script>
 
 <script lang="ts">
