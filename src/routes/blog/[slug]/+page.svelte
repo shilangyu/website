@@ -5,10 +5,15 @@
   import { formatDate } from '$lib/utils';
   import { Code, SpellCheck2 } from 'lucide-svelte';
   import { siReddit, siYcombinator } from 'simple-icons';
+  import type { PageData } from './$types';
 
-  export let data;
+  interface Props {
+    data: PageData;
+  }
 
-  $: ({ meta, content, name } = data);
+  let { data }: Props = $props();
+
+  let { meta, content: Content, name } = $derived(data);
 </script>
 
 <svelte:head>
@@ -36,7 +41,7 @@
   </hgroup>
 
   <div class="content">
-    <svelte:component this={content} />
+    <Content />
   </div>
 
   <div class="links">

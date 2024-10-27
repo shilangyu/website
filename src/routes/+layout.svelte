@@ -5,11 +5,17 @@
   import Explorer from '$lib/components/explorer/Explorer.svelte';
   import '$lib/mdsvex/mdsvex.css';
   import '../app.css';
+  import type { LayoutData } from './$types';
   import MainBody from './MainBody.svelte';
 
-  export let data;
+  interface Props {
+    data: LayoutData;
+    children: import('svelte').Snippet;
+  }
 
-  let bottomDrawerOpen = false;
+  let { data, children }: Props = $props();
+
+  let bottomDrawerOpen = $state(false);
 </script>
 
 <svelte:head>
@@ -30,11 +36,15 @@
 <div class="container">
   <div class="body">
     <Splitter direction="row" extent={300} maxExtent={600} minExtent={200} hideOnSmallScreen>
-      <nav slot="a">
-        <Explorer />
-      </nav>
+      {#snippet a()}
+        <nav>
+          <Explorer />
+        </nav>
+      {/snippet}
 
-      <MainBody url={data.url} bind:bottomDrawerOpen slot="b"><slot /></MainBody>
+      {#snippet b()}
+        <MainBody url={data.url} bind:bottomDrawerOpen>{@render children()}</MainBody>
+      {/snippet}
     </Splitter>
   </div>
 

@@ -1,9 +1,14 @@
 <script lang="ts">
-  export let text: string;
+  interface Props {
+    text: string;
+    children: import('svelte').Snippet;
+  }
+
+  let { text, children }: Props = $props();
 </script>
 
 <div class="root">
-  <slot />
+  {@render children()}
   <span class="tooltip">{text}</span>
 </div>
 

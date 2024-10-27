@@ -1,4 +1,4 @@
-import type { ComponentType } from 'svelte';
+import type { Component } from 'svelte';
 import { z } from 'zod';
 
 const postMetadataSchema = z
@@ -22,7 +22,7 @@ export type PostMetadata = z.infer<typeof postMetadataSchema>;
 export type Post = {
   name: string;
   meta: PostMetadata;
-  content: ComponentType;
+  content: Component;
 };
 
 const postsLoad = import.meta.glob<typeof import('*.svx')>(`../../posts/*.svx`, { eager: true });

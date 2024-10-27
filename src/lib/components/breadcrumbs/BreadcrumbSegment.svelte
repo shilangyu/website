@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
   export const gap = '6px';
 </script>
 
@@ -7,11 +7,15 @@
   import Explorer from '../explorer/Explorer.svelte';
   import { getName, type Tree } from '../explorer/FileEntry.svelte';
 
-  export let isTrailing: boolean;
-  export let entry: Tree;
-  export let entries: Tree[];
+  interface Props {
+    isTrailing: boolean;
+    entry: Tree;
+    entries: Tree[];
+  }
 
-  let showModal = false;
+  let { isTrailing, entry, entries }: Props = $props();
+
+  let showModal = $state(false);
 </script>
 
 <div class="root">
@@ -19,7 +23,7 @@
     class="segment"
     class:highlighted={showModal}
     style:--gap={gap}
-    on:click={() => (showModal = true)}
+    onclick={() => (showModal = true)}
   >
     <span>{getName(entry)}</span>
     {#if !isTrailing}
@@ -28,9 +32,9 @@
   </button>
 
   {#if showModal}
-    <!-- svelte-ignore a11y-no-static-element-interactions -->
-    <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <div class="backdrop" on:click|self={() => (showModal = false)}></div>
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <div class="backdrop" onclick={() => (showModal = false)}></div>
 
     <div class="dialog">
       <Explorer {entries} />

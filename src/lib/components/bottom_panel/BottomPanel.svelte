@@ -1,18 +1,14 @@
 <script lang="ts">
   import PanelTab from './PanelTab.svelte';
+  import { Tabs } from './tabs';
 
-  enum Tabs {
-    Problems = 'PROBLEMS',
-    Output = 'OUTPUT',
-  }
-
-  let selectedTab: Tabs = Tabs.Problems;
+  let selectedTab: Tabs = $state(Tabs.Problems);
 </script>
 
 <div class="root">
   <div class="tabs-row">
     {#each Object.values(Tabs) as tab}
-      <PanelTab title={tab} selected={selectedTab === tab} on:click={() => (selectedTab = tab)} />
+      <PanelTab title={tab} selected={selectedTab === tab} onClick={() => (selectedTab = tab)} />
     {/each}
   </div>
 

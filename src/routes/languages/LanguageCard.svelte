@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
   // this abomination is needed for the transition API. We need an imperative way
   // to attach and detach transition names to elements
   export function viewTransitionData(languagePathName: string) {
@@ -73,22 +73,24 @@
   import RatingName from './RatingName.svelte';
   import type { LanguageReviewEntry } from './languages';
 
-  export let entry: LanguageReviewEntry;
-  $: ({ icon, iconDark, name, pathName, ratings } = entry);
+  interface Props {
+    entry: LanguageReviewEntry;
+  }
 
-  $: viewTransition = viewTransitionData(pathName);
+  let { entry }: Props = $props();
+  let { icon, iconDark, name, pathName, ratings } = $derived(entry);
+
+  let viewTransition = $derived(viewTransitionData(pathName));
 </script>
 
 <div class="card">
   <ThemeResponsive>
-    <img slot="light" src={icon} alt="{name} logo" class="icon" id={viewTransition.iconLightId} />
-    <img
-      slot="dark"
-      src={iconDark ?? icon}
-      alt="{name} logo"
-      class="icon"
-      id={viewTransition.iconDarkId}
-    />
+    {#snippet light()}
+      <img src={icon} alt="{name} logo" class="icon" id={viewTransition.iconLightId} />
+    {/snippet}
+    {#snippet dark()}
+      <img src={iconDark ?? icon} alt="{name} logo" class="icon" id={viewTransition.iconDarkId} />
+    {/snippet}
   </ThemeResponsive>
   <h3 id={viewTransition.nameId}>{name}</h3>
   <div class="ratings">

@@ -3,13 +3,18 @@
 
   import TextButton from './TextButton.svelte';
 
-  export let onRemove: (() => void) | undefined = undefined;
+  interface Props {
+    onRemove?: () => void;
+    children: import('svelte').Snippet;
+  }
+
+  let { onRemove = undefined, children }: Props = $props();
 </script>
 
 <div class="chip">
-  <slot />
+  {@render children()}
   {#if onRemove}
-    <TextButton on:click={onRemove} icon><X size="1.5em" /></TextButton>
+    <TextButton onClick={onRemove} icon><X size="1.5em" /></TextButton>
   {/if}
 </div>
 

@@ -1,27 +1,39 @@
 <script lang="ts">
-  import { browser } from '$app/environment';
+  interface Props {
+    direction: 'row' | 'column';
+    baselineSlot?: 'a' | 'b';
+    minExtent: number;
+    maxExtent: number;
+    extent: number;
+    hideOnSmallScreen?: boolean;
+    hide?: 'a' | 'b';
+    a: import('svelte').Snippet;
+    b: import('svelte').Snippet;
+  }
 
-  export let direction: 'row' | 'column';
-  export let baselineSlot: 'a' | 'b' = 'a';
-  export let minExtent: number;
-  export let maxExtent: number;
-  export let extent: number;
-  export let hideOnSmallScreen = false;
-  export let hide: 'a' | 'b' | undefined = undefined;
+  let {
+    direction,
+    baselineSlot = 'a',
+    minExtent,
+    maxExtent,
+    extent = $bindable(),
+    hideOnSmallScreen = false,
+    hide,
+    a,
+    b,
+  }: Props = $props();
 
   console.assert(minExtent <= extent && extent <= maxExtent);
 
-  let initial: { extent: number; position: number } | undefined = undefined;
+  let initial: { extent: number; position: number } | undefined = $state(undefined);
 
-  $: {
-    if (browser) {
-      if (initial === undefined) {
-        document.body.style.removeProperty('user-select');
-      } else {
-        document.body.style.userSelect = 'none';
-      }
+  $effect(() => {
+    if (initial === undefined) {
+      document.body.style.removeProperty('user-select');
+    } else {
+      document.body.style.userSelect = 'none';
     }
-  }
+  });
 
   function getPosition(event: MouseEvent): number {
     switch (direction) {
@@ -50,7 +62,7 @@
   }
 </script>
 
-<svelte:window on:mouseup={stopDrag} on:mousemove={drag} />
+<svelte:window onmouseup={stopDrag} onmousemove={drag} />
 
 <div
   class="root"
@@ -62,15 +74,15 @@
   class:hide-on-small-screen={hideOnSmallScreen}
 >
   <div class="pane-a" class:hide={hide === 'a'}>
-    <slot name="a" />
+    {@render a()}
   </div>
   <div class="divider" class:hide={hide !== undefined}>
-    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-    <div class="divider-area" on:mousedown={startDrag} role="separator"></div>
+    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+    <div class="divider-area" onmousedown={startDrag} role="separator"></div>
     <div class="divider-indicator" class:dragging={initial !== undefined}></div>
   </div>
   <div class="pane-b" class:hide={hide === 'b'}>
-    <slot name="b" />
+    {@render b()}
   </div>
 </div>
 

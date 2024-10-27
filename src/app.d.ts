@@ -10,7 +10,7 @@ declare global {
   }
 
   declare module '*.svx' {
-    const component: import('svelte').ComponentType;
+    const component: import('svelte').Component;
     export default component;
     export const metadata: unknown;
   }

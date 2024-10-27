@@ -1,4 +1,4 @@
-import type { ComponentType } from 'svelte';
+import type { Component } from 'svelte';
 import { z } from 'zod';
 import Cpp from './assets/c++_logo.svg';
 import C from './assets/c_logo.svg';
@@ -40,7 +40,7 @@ export type LanguageReviewEntry = {
     relevance: number;
   };
   review: {
-    component: ComponentType;
+    component: Component;
     meta: LanguageReviewMetadata;
   };
 };

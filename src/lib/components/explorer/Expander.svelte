@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
   export const expanderSize = 24;
 </script>
 
@@ -6,10 +6,15 @@
   import { ChevronRight } from 'lucide-svelte';
   import TextButton from '../TextButton.svelte';
 
-  export let expanded: boolean;
+  interface Props {
+    expanded: boolean;
+    onClick: () => void;
+  }
+
+  let { expanded, onClick }: Props = $props();
 </script>
 
-<TextButton icon on:click ariaLabel={expanded ? 'Collapse' : 'Expand'}>
+<TextButton icon {onClick} ariaLabel={expanded ? 'Collapse' : 'Expand'}>
   <div class="icon" class:expanded>
     <ChevronRight strokeWidth={1} size={expanderSize} />
   </div>

@@ -1,7 +1,14 @@
-<script lang="ts" context="module">
-  import blockquote from './blockquote.svelte';
-  import img from './img.svelte';
-  export { blockquote, img };
+<script lang="ts" module>
+  export { default as blockquote } from './blockquote.svelte';
+  export { default as img } from './img.svelte';
 </script>
 
-<slot />
+<script lang="ts">
+  interface Props {
+    children: import('svelte').Snippet;
+  }
+
+  let { children }: Props = $props();
+</script>
+
+{@render children()}
