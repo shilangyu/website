@@ -1,9 +1,15 @@
 <script lang="ts">
-  export let id: string | undefined = undefined;
-  export let viewTransitionName: string | undefined = undefined;
-  export let rating: number;
+  interface Props {
+    id?: string;
+    viewTransitionName?: string;
+    rating: number;
+  }
 
-  $: console.assert(rating >= 0 && rating <= 1, 'Rating must be between 0 and 1');
+  let { id = undefined, viewTransitionName = undefined, rating }: Props = $props();
+
+  $effect.pre(() => {
+    console.assert(rating >= 0 && rating <= 1, 'Rating must be between 0 and 1');
+  });
 </script>
 
 <div class="root" {id} style:--viewTransitionName={viewTransitionName}>

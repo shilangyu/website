@@ -1,8 +1,12 @@
 <script lang="ts">
   import type { SimpleIcon } from 'simple-icons';
 
-  export let data: SimpleIcon;
-  export let size: string | number = 24;
+  interface Props {
+    data: SimpleIcon;
+    size?: string | number;
+  }
+
+  let { data, size = 24 }: Props = $props();
 </script>
 
 <svg

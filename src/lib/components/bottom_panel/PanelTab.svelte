@@ -1,9 +1,14 @@
 <script lang="ts">
-  export let title: string;
-  export let selected: boolean;
+  interface Props {
+    title: string;
+    selected: boolean;
+    onClick: () => void;
+  }
+
+  let { title, selected, onClick }: Props = $props();
 </script>
 
-<button class:selected on:click>
+<button class:selected onclick={onClick}>
   {title}
 </button>
 

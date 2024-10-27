@@ -6,10 +6,15 @@
   import { ChevronUp } from 'lucide-svelte';
   import RatingBar from '../RatingBar.svelte';
   import RatingName from '../RatingName.svelte';
+  import type { PageData } from './$types';
 
-  export let data;
+  interface Props {
+    data: PageData;
+  }
 
-  $: ({ icon, iconDark, name, ratings, review } = data);
+  let { data }: Props = $props();
+
+  let { icon, iconDark, name, ratings, review } = $derived(data);
 </script>
 
 <svelte:head>
@@ -18,8 +23,12 @@
 
 <div class="root">
   <ThemeResponsive>
-    <img slot="light" src={icon} alt="{name} logo" class="icon" />
-    <img slot="dark" src={iconDark ?? icon} alt="{name} logo" class="icon" />
+    {#snippet light()}
+      <img src={icon} alt="{name} logo" class="icon" />
+    {/snippet}
+    {#snippet dark()}
+      <img src={iconDark ?? icon} alt="{name} logo" class="icon" />
+    {/snippet}
   </ThemeResponsive>
   <h2>{name}</h2>
   <div class="ratings">
@@ -48,7 +57,7 @@
   <div class="review">
     <em>Last updated {formatDate(review.meta.lastUpdated)}</em>
 
-    <svelte:component this={review.component} />
+    <review.component />
   </div>
 
   <TextButton href={routes.languages.self(data)}><ChevronUp /></TextButton>

@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
   export const tagsFilterName = 'tags';
 </script>
 
@@ -7,21 +7,25 @@
   import TextButton from '$lib/components/TextButton.svelte';
   import { routes } from '$lib/routes';
   import { formatDate } from '$lib/utils';
-  import { queryParam } from 'sveltekit-search-params';
+  import { queryParameters } from 'sveltekit-search-params';
   import { posts } from './posts';
 
-  const tagsFilter = queryParam<string[]>(tagsFilterName, {
-    encode: (value) => {
-      if (value === null || value.length === 0) return undefined;
-      return value.join(',');
+  const filters = queryParameters({
+    tags: {
+      encode: (value) => {
+        if (value === null || value.length === 0) return undefined;
+        return value.join(',');
+      },
+      decode: (value) => value?.split(',') ?? null,
     },
-    decode: (value) => value?.split(',') ?? null,
   });
 
-  $: filteredPosts = posts.filter((post) => {
-    if ($tagsFilter === null || $tagsFilter.length === 0) return true;
-    return $tagsFilter.some((tag) => post.meta.tags.includes(tag));
-  });
+  const filteredPosts = $derived(
+    posts.filter((post) => {
+      if ($filters.tags === null || $filters.tags.length === 0) return true;
+      return $filters.tags.some((tag) => post.meta.tags.includes(tag));
+    }),
+  );
 </script>
 
 <svelte:head>
@@ -34,8 +38,8 @@
 </p>
 
 <div class="tags-filters">
-  {#each $tagsFilter ?? [] as tag}
-    <Chip onRemove={() => ($tagsFilter = ($tagsFilter ?? []).filter((t) => t !== tag))}>
+  {#each $filters.tags ?? [] as tag}
+    <Chip onRemove={() => ($filters.tags = ($filters.tags ?? []).filter((t) => t !== tag))}>
       #{tag}
     </Chip>
   {/each}
@@ -51,8 +55,8 @@
   <div class="tags">
     {#each post.meta.tags as tag}
       <TextButton
-        selected={$tagsFilter?.includes(tag) ?? false}
-        on:click={() => ($tagsFilter = [...new Set([...($tagsFilter ?? []), tag])])}
+        selected={$filters.tags?.includes(tag) ?? false}
+        onClick={() => ($filters.tags = [...new Set([...($filters.tags ?? []), tag])])}
       >
         <span>
           #{tag}

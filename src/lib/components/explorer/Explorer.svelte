@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
   export const explorerTree: Tree = {
     icon: Home,
     href: routes.root,
@@ -62,7 +62,11 @@
   import { languages } from '../../../routes/languages/languages';
   import FileEntry, { type Tree } from './FileEntry.svelte';
 
-  export let entries = [explorerTree];
+  interface Props {
+    entries?: Tree[];
+  }
+
+  let { entries = [explorerTree] }: Props = $props();
 </script>
 
 {#each entries as tree}

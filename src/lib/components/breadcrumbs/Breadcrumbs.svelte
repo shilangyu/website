@@ -23,14 +23,14 @@
   }
 
   // TODO: this does not respect `base`
-  $: segments = [
+  const segments = $derived([
     '/',
     ...normalizeUrl($page.url.pathname)
       .split('/')
       .slice(1)
       .reduce<string[]>((acc, curr) => [...acc, (acc.at(-1) ?? '') + '/' + curr], []),
-  ];
-  $: breadcrumbsId = segments.join('-');
+  ]);
+  const breadcrumbsId = $derived(segments.join('-'));
 </script>
 
 <div class="root" style:--gap={gap}>

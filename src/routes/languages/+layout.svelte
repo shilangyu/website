@@ -2,6 +2,12 @@
   import { onNavigate } from '$app/navigation';
   import { viewTransitionData } from './LanguageCard.svelte';
 
+  interface Props {
+    children: import('svelte').Snippet;
+  }
+
+  let { children }: Props = $props();
+
   onNavigate((navigation) => {
     const langName = navigation.from?.params?.lang || navigation.to?.params?.lang;
 
@@ -35,4 +41,4 @@
   });
 </script>
 
-<slot />
+{@render children()}

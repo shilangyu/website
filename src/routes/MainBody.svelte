@@ -4,8 +4,13 @@
   import BottomPanel from '$lib/components/bottom_panel/BottomPanel.svelte';
   import Breadcrumbs from '$lib/components/breadcrumbs/Breadcrumbs.svelte';
 
-  export let url: string;
-  export let bottomDrawerOpen: boolean;
+  interface Props {
+    url: string;
+    bottomDrawerOpen: boolean;
+    children: import('svelte').Snippet;
+  }
+
+  let { url, bottomDrawerOpen = $bindable(), children }: Props = $props();
 </script>
 
 <Splitter
@@ -16,17 +21,21 @@
   minExtent={100}
   hide={bottomDrawerOpen ? undefined : 'b'}
 >
-  <main slot="a">
-    <Breadcrumbs />
+  {#snippet a()}
+    <main>
+      <Breadcrumbs />
 
-    <div class="main-content">
-      <PageTransition {url}>
-        <slot />
-      </PageTransition>
-    </div>
-  </main>
+      <div class="main-content">
+        <PageTransition {url}>
+          {@render children()}
+        </PageTransition>
+      </div>
+    </main>
+  {/snippet}
 
-  <aside slot="b"><BottomPanel /></aside>
+  {#snippet b()}
+    <aside><BottomPanel /></aside>
+  {/snippet}
 </Splitter>
 
 <style>

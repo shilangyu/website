@@ -1,38 +1,25 @@
 <script lang="ts">
   import { browser } from '$app/environment';
-  import { theme } from '$lib/theme';
+  import { theme } from '$lib/theme.svelte';
   import { Moon, Sun, SunMoon } from 'lucide-svelte';
   import { fly } from 'svelte/transition';
   import TextButton from './TextButton.svelte';
+
+  theme.init();
 </script>
 
-<TextButton
-  on:click={() =>
-    theme.update((val) =>
-      (() => {
-        switch (val) {
-          case 'dark':
-            return 'light';
-          case 'light':
-            return 'system';
-          case 'system':
-            return 'dark';
-        }
-      })(),
-    )}
-  ariaLabel="Toggle theme"
->
+<TextButton onClick={theme.toggle} ariaLabel="Toggle theme">
   <div class="container">
     {#if browser}
-      {#if $theme === 'dark'}
+      {#if theme.value === 'dark'}
         <span class="icon" in:fly={{ y: -10 }} out:fly={{ y: 10 }}>
           <Moon size="1em" />
         </span>
-      {:else if $theme === 'light'}
+      {:else if theme.value === 'light'}
         <span class="icon" in:fly={{ y: -10 }} out:fly={{ y: 10 }}>
           <Sun size="1em" />
         </span>
-      {:else if $theme === 'system'}
+      {:else if theme.value === 'system'}
         <span class="icon" in:fly={{ y: -10 }} out:fly={{ y: 10 }}>
           <SunMoon size="1em" />
         </span>

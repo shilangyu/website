@@ -2,10 +2,14 @@
   import Tooltip from '$lib/components/Tooltip.svelte';
   import { Info } from 'lucide-svelte';
 
-  export let id: string | undefined = undefined;
-  export let viewTransitionName: string | undefined = undefined;
-  export let name: string;
-  export let helpText: string;
+  interface Props {
+    id?: string;
+    viewTransitionName?: string;
+    name: string;
+    helpText: string;
+  }
+
+  let { id = undefined, viewTransitionName = undefined, name, helpText }: Props = $props();
 </script>
 
 <div class="root" {id} style:--viewTransitionName={viewTransitionName}>

@@ -1,5 +1,14 @@
-<span class="light"><slot name="light" /></span>
-<span class="dark"><slot name="dark" /></span>
+<script lang="ts">
+  interface Props {
+    light: import('svelte').Snippet;
+    dark: import('svelte').Snippet;
+  }
+
+  let { light, dark }: Props = $props();
+</script>
+
+<span class="light">{@render light()}</span>
+<span class="dark">{@render dark()}</span>
 
 <style>
   :global([color-scheme='light']) .dark {

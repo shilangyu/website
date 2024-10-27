@@ -1,26 +1,49 @@
 <script lang="ts">
-  export let href: string | undefined = undefined;
-  export let external = false;
-  export let icon = false;
-  export let selected = false;
-  export let ariaLabel: string | undefined = undefined;
+  type Props = (
+    | {
+        href: string;
+        external?: boolean;
+      }
+    | {
+        onClick: () => void;
+      }
+  ) & {
+    icon?: boolean;
+    selected?: boolean;
+    ariaLabel?: string;
+    children: import('svelte').Snippet;
+  };
+
+  let {
+    icon = false,
+    ariaLabel = undefined,
+    selected = false,
+    children,
+    ...rest
+  }: Props = $props();
 </script>
 
-{#if href}
+{#if 'href' in rest}
   <a
-    {href}
+    href={rest.href}
     class="container"
     class:padded={!icon}
     class:selected
     aria-label={ariaLabel}
-    rel={external ? 'external' : undefined}
-    target={external ? '_blank' : undefined}
+    rel={rest.external ? 'external' : undefined}
+    target={rest.external ? '_blank' : undefined}
   >
-    <slot />
+    {@render children()}
   </a>
 {:else}
-  <button class="container" class:padded={!icon} class:selected on:click aria-label={ariaLabel}>
-    <slot />
+  <button
+    class="container"
+    class:padded={!icon}
+    class:selected
+    onclick={rest.onClick}
+    aria-label={ariaLabel}
+  >
+    {@render children()}
   </button>
 {/if}
 

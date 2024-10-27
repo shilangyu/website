@@ -5,14 +5,22 @@
   import { Code, ExternalLink } from 'lucide-svelte';
   import type { ProjectEntry } from './projects';
 
-  export let entry: ProjectEntry;
-  $: ({ name, description, repository, technologies, website, image } = entry);
+  interface Props {
+    entry: ProjectEntry;
+  }
+
+  let { entry }: Props = $props();
+  let { name, description, repository, technologies, website, image } = $derived(entry);
 </script>
 
 <div class="card">
   <ThemeResponsive>
-    <img slot="light" src={image.light} alt={image.alt} class="icon" />
-    <img slot="dark" src={image.dark ?? image.light} alt={image.alt} class="icon" />
+    {#snippet light()}
+      <img src={image.light} alt={image.alt} class="icon" />
+    {/snippet}
+    {#snippet dark()}
+      <img src={image.dark ?? image.light} alt={image.alt} class="icon" />
+    {/snippet}
   </ThemeResponsive>
 
   <h3 class="name">{name}</h3>

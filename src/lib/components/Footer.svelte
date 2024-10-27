@@ -4,7 +4,11 @@
   import TextButton from './TextButton.svelte';
   import ThemePicker from './ThemePicker.svelte';
 
-  export let onProblemsClick: () => void;
+  interface Props {
+    onProblemsClick: () => void;
+  }
+
+  let { onProblemsClick }: Props = $props();
 </script>
 
 <footer>
@@ -17,7 +21,7 @@
   <span>
     <RefreshCw size="1em" />
   </span>
-  <TextButton on:click={onProblemsClick}>
+  <TextButton onClick={onProblemsClick}>
     <span class="item">
       <Info size="1em" /> 0
       <AlertTriangle size="1em" /> 0
