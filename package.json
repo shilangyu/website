@@ -13,10 +13,10 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.5",
-    "@sveltejs/kit": "^2.8.2",
-    "@sveltejs/vite-plugin-svelte": "^4.0.1",
+    "@sveltejs/kit": "^2.8.3",
+    "@sveltejs/vite-plugin-svelte": "^4.0.2",
     "@types/eslint": "^9.0.0",
-    "eslint": "^9.0.0",
+    "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-svelte": "^2.46.0",
     "hast-util-from-string": "^3.0.1",
