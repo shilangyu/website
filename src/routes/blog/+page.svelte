@@ -38,14 +38,14 @@
 </p>
 
 <div class="tags-filters">
-  {#each $filters.tags ?? [] as tag}
+  {#each $filters.tags ?? [] as tag (tag)}
     <Chip onRemove={() => ($filters.tags = ($filters.tags ?? []).filter((t) => t !== tag))}>
       #{tag}
     </Chip>
   {/each}
 </div>
 
-{#each filteredPosts as post}
+{#each filteredPosts as post (post)}
   <h3 class="title"><a href={routes.blog.post(post)}>{post.meta.title}</a></h3>
   • {formatDate(post.meta.date)}
 
@@ -53,7 +53,7 @@
     {post.meta.description}
   </p>
   <div class="tags">
-    {#each post.meta.tags as tag}
+    {#each post.meta.tags as tag (tag)}
       <TextButton
         selected={$filters.tags?.includes(tag) ?? false}
         onClick={() => ($filters.tags = [...new Set([...($filters.tags ?? []), tag])])}

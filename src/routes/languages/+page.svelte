@@ -20,7 +20,7 @@
 </p>
 
 <div class="root">
-  {#each languages as entry}
+  {#each languages as entry (entry.pathName)}
     <div id={entry.pathName}>
       <LanguageCard {entry} />
     </div>

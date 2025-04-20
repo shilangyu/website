@@ -63,7 +63,7 @@
 
 {#if expanded}
   <div transition:slide={{ duration: transitionDuration }}>
-    {#each children as tree}
+    {#each children as tree (tree.href)}
       <FileEntry {tree} depth={depth + 1} />
     {/each}
   </div>

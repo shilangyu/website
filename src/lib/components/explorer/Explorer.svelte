@@ -69,6 +69,6 @@
   let { entries = [explorerTree] }: Props = $props();
 </script>
 
-{#each entries as tree}
+{#each entries as tree (tree.href)}
   <FileEntry {tree} />
 {/each}

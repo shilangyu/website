@@ -29,7 +29,7 @@
   <span class="spacer"></span>
   <div class="meta">
     <div class="technologies">
-      {#each technologies as technology}
+      {#each technologies as technology (technology)}
         <Chip>{technology}</Chip>
       {/each}
     </div>

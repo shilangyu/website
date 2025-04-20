@@ -11,7 +11,7 @@
 <p>A subset of projects that I have contributed to over the years that I find interesting.</p>
 
 <div class="root">
-  {#each projects as entry}
+  {#each projects as entry (entry)}
     <div>
       <ProjectCard {entry} />
     </div>

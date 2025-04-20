@@ -34,7 +34,7 @@
       {/if}
     </p>
     <div class="tags">
-      {#each meta.tags as tag}
+      {#each meta.tags as tag (tag)}
         <a href={routes.blog.self([tag])}>&num;{tag}</a>
       {/each}
     </div>

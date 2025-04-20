@@ -7,7 +7,7 @@
 
 <div class="root">
   <div class="tabs-row">
-    {#each Object.values(Tabs) as tab}
+    {#each Object.values(Tabs) as tab (tab)}
       <PanelTab title={tab} selected={selectedTab === tab} onClick={() => (selectedTab = tab)} />
     {/each}
   </div>
