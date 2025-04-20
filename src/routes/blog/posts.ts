@@ -7,11 +7,11 @@ const postMetadataSchema = z
     description: z.string(),
     date: z.coerce.date(),
     lastUpdated: z.optional(z.coerce.date()),
-    repository: z.optional(z.string().url()),
+    repository: z.optional(z.url()),
     discussion: z
       .object({
-        reddit: z.optional(z.string().url()),
-        hackerNews: z.optional(z.string().url()),
+        reddit: z.optional(z.url()),
+        hackerNews: z.optional(z.url()),
       })
       .default({}),
     tags: z.array(z.string()).min(1),
