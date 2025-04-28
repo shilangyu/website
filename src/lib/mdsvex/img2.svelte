@@ -1,14 +1,24 @@
 <script lang="ts">
+  import ThemeResponsive from '$lib/components/ThemeResponsive.svelte';
+
   interface Props {
     src: string;
     alt: string;
+    darkModeInvert?: boolean;
   }
 
-  let { src, alt }: Props = $props();
+  let { src, alt, darkModeInvert = false }: Props = $props();
 </script>
 
 <figure>
-  <img {src} {alt} />
+  <ThemeResponsive>
+    {#snippet light()}
+      <img {src} {alt} />
+    {/snippet}
+    {#snippet dark()}
+      <img {src} {alt} class:invert={darkModeInvert} />
+    {/snippet}
+  </ThemeResponsive>
   <!-- TODO: this does not render KaTeX -->
   <figcaption aria-hidden="true">{alt}</figcaption>
 </figure>
@@ -28,5 +38,9 @@
     font-size: 0.8em;
     font-style: italic;
     margin: 0 0 0.8em;
+  }
+
+  .invert {
+    filter: invert(1);
   }
 </style>
