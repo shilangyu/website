@@ -16,7 +16,7 @@ export const routes = {
     self: (tags: string[] = []) =>
       base + '/blog' + trailing + (tags.length ? `?${tagsFilterName}=${tags.join(',')}` : ''),
     post: (post: Post) => base + `/blog/${post.name}` + trailing,
-    rss: base + `/blog/rss.xml` + trailing,
+    rss: base + `/blog/rss.xml`,
   },
   projects: base + '/projects' + trailing,
   languages: {
