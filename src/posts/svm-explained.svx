@@ -9,6 +9,10 @@ tags:
 repository: https://github.com/shilangyu/SVM-from-scratch
 ---
 
+<script>
+  import Img from '../lib/mdsvex/img2.svelte';
+</script>
+
 > Disclaimer: this does not aim to fully cover the possibilities of SVM models. It merely describes the basic concepts related to them. Some details are skipped on purpose with the intention of keeping it short.
 
 > You can find a from scratch implementation of an SVM in Julia here: https://github.com/shilangyu/SVM-from-scratch
@@ -21,7 +25,7 @@ The prediction function will be denoted by $p: \mathbb R^d \to \{-1, 1\}$. The o
 
 SVM's goal is to construct a prediction function which will represent a hyperplane that can be used to divide the space into two parts. One SVM model is considered to be better than a different SVM model for the same dataset if the margin (distance) between the hyperplane and the nearest data point is maximized. The nearest data point to the hyperplane is called the _support vector_. Therefore we have a clear metric to optimize.
 
-![A dataset with black and white dots representing two different labels. Three hyperplanes divide the dataset in different ways.](<https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Svm_separating_hyperplanes_(SVG).svg/1920px-Svm_separating_hyperplanes_(SVG).svg.png>)
+<Img alt="A dataset with black and white dots representing two different labels. Three hyperplanes divide the dataset in different ways." src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Svm_separating_hyperplanes_(SVG).svg/1920px-Svm_separating_hyperplanes_(SVG).svg.png" />
 
 Recall the general equation of a hyperplane: $w \cdot x - b = 0$ where $w \in \mathbb R^d$ denotes a normal vector to the hyperplane and $b \in \mathbb R$ is the offset ($\frac{b}{||w||}$ determines the offset from the origin along the normal vector $w$). Since our goal is the find the optimal hyperplane, we end up with $d+1$ trainable parameters ($|w| + 1$). Once the hyperplane is found we can construct two additional parallel hyperplanes which reside at the support vectors of the two classes, $w \cdot x - b = -1$ and $w \cdot x - b = 1$. Then, all points from the dataset adhere to the following
 
@@ -32,7 +36,7 @@ y_i = \begin{cases}
 \end{cases} \implies y_i(w \cdot x - b) \ge 1
 $$
 
-![A dataset separated by a hyperplane normalized around the support vectors.](https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/SVM_margin.png/1920px-SVM_margin.png)
+<Img alt="A dataset separated by a hyperplane normalized around the support vectors." src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/SVM_margin.png/1920px-SVM_margin.png" />
 
 Since $\frac{1}{||w||}$ is the margin and we want to maximize it, the problem can be restated as a minimization problem of $||w||$. Our predictor can be neatly expressed as $p(x) = \text{sign}(w \cdot x - b)$ with an edge case of when $x$ lies perfectly on the hyperplane, then we can just assume that $p(x) = 0$ belongs to one of the two classes. This is called a _hard-margin SVM_ since it works only for perfect datasets which do not have outliers.
 
@@ -101,7 +105,7 @@ $$
 
 Since we are operating in the euclidean space with the dot product as the inner product space, we can rewrite $k$ as $k(x,y) = \varphi(x) \cdot \varphi(y)$. Direct computation of $\varphi$ is not needed, we will only need to find the kernel function. This kernel function will replace dot products used throughout the SVM method.
 
-![A non-linearly separable dataset mapped to a higher dimensional space where a decision boundary can be found with a simple hyperplane using $\varphi(X) = (x_1, x_2, x_1^2 + x_2^2)$.](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Kernel_trick_idea.svg/440px-Kernel_trick_idea.svg.png)
+<Img alt="A non-linearly separable dataset mapped to a higher dimensional space where a decision boundary can be found with a simple hyperplane using $\varphi(X) = (x_1, x_2, x_1^2 + x_2^2)$" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Kernel_trick_idea.svg/440px-Kernel_trick_idea.svg.png" />
 
 Note that if we set $\varphi = \text{id}$ then $k(x, y) = \langle \varphi(x), \varphi(y) \rangle = \langle x, y \rangle = x \cdot y$, which gives us the SVM for linearly separable problems. Now, this problem can be expressed as a primal one and proceed with gradient descent as we did for the linear case. However, for some not precisely known reason the literature about SVMs has converged towards solving it as a Lagrangian dual and, as O. Chapelle (2007) argues, the primal one can provide many advantages. In both the primal and dual problem formulation $\varphi$ is never directly computed, it is always used indirectly through the kernel function. So, to not diverge from literature I will present the dual problem which requires Quadratic Optimization instead of gradient descent.
 

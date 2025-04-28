@@ -2,10 +2,15 @@ import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { selectAll } from 'hast-util-select';
 import { escapeSvelte, mdsvex } from 'mdsvex';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import rehypeKatexSvelte from 'rehype-katex-svelte';
 import rehypeSlug from 'rehype-slug';
 import remarkMath from 'remark-math';
 import { createHighlighter } from 'shiki';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const mdsvexExtension = '.svx';
 
@@ -47,7 +52,7 @@ const mdsvexOptions = {
   extensions: [mdsvexExtension],
   remarkPlugins: [remarkMath],
   rehypePlugins: [rehypeSlug, autoLinkHeadings, [rehypeKatexSvelte, { output: 'html' }]],
-  layout: './src/lib/mdsvex/mdsvex.svelte',
+  layout: join(__dirname, './src/lib/mdsvex/mdsvex.svelte'),
   highlight: {
     highlighter: async (code, lang = 'text') => {
       const html = escapeSvelte(
