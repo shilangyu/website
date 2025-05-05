@@ -12,9 +12,9 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@eslint/compat": "^1.2.8",
+    "@eslint/compat": "^1.2.9",
     "@sveltejs/adapter-static": "^3.0.8",
-    "@sveltejs/kit": "^2.17.2",
+    "@sveltejs/kit": "^2.20.8",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@types/eslint": "^9.0.0",
     "eslint": "^9.15.0",
@@ -31,19 +31,19 @@
     "remark-math": "^3.0.0",
     "shiki": "^3.0.0",
     "svelte": "^5.20.2",
-    "svelte-check": "^4.1.4",
+    "svelte-check": "^4.1.7",
     "tslib": "^2.8.1",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.24.1",
-    "vite": "^6.1.1"
+    "typescript-eslint": "^8.31.1",
+    "vite": "^6.3.4"
   },
   "type": "module",
   "dependencies": {
     "@fontsource/ibm-plex-sans": "^5.1.1",
     "@fontsource/jetbrains-mono": "^5.1.2",
-    "lucide-svelte": "^0.503.0",
+    "lucide-svelte": "^0.507.0",
     "simple-icons": "^14.8.0",
     "sveltekit-search-params": "^3.0.0",
-    "zod": "^4.0.0-beta.20250420T053007"
+    "zod": "^4.0.0-beta.20250505T012514"
   }
 }
