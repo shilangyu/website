@@ -44,6 +44,6 @@
     "lucide-svelte": "^0.511.0",
     "simple-icons": "^14.14.0",
     "sveltekit-search-params": "^3.0.0",
-    "zod": "^4.0.0-beta.20250505T195954"
+    "zod": "^3.25.20"
   }
 }

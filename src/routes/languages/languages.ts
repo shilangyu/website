@@ -1,5 +1,5 @@
 import type { Component } from 'svelte';
-import { z } from 'zod';
+import { z } from 'zod/v4';
 import Cpp from './assets/c++_logo.svg';
 import C from './assets/c_logo.svg';
 import Csharp from './assets/csharp_logo.svg';
