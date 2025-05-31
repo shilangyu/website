@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { page } from '$app/stores';
+  import { page } from '$app/state';
   import { normalizeUrl } from '$lib/utils';
   import { explorerTree } from '../explorer/Explorer.svelte';
   import type { Tree } from '../explorer/FileEntry.svelte';
@@ -25,7 +25,7 @@
   // TODO: this does not respect `base`
   const segments = $derived([
     '/',
-    ...normalizeUrl($page.url.pathname)
+    ...normalizeUrl(page.url.pathname)
       .split('/')
       .slice(1)
       .reduce<string[]>((acc, curr) => [...acc, (acc.at(-1) ?? '') + '/' + curr], []),

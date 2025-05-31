@@ -15,7 +15,7 @@
 </script>
 
 <script lang="ts">
-  import { page } from '$app/stores';
+  import { page } from '$app/state';
   import { slide } from 'svelte/transition';
   import FileEntry from './FileEntry.svelte';
 
@@ -37,13 +37,13 @@
 
   const isDirectory = children.length > 0;
 
-  let expanded = $derived($page.url.pathname.startsWith(href));
+  let expanded = $derived(page.url.pathname.startsWith(href));
 </script>
 
 <div
   class="file-entry"
   style="padding-left: calc({depth} * 0.75rem + {isDirectory ? 0 : expanderSize}px)"
-  class:highlight={isSamePath($page.url.pathname, href)}
+  class:highlight={isSamePath(page.url.pathname, href)}
 >
   {#if isDirectory}
     <Expander
