@@ -10,7 +10,7 @@ export const load: PageLoad = async ({ params, url }) => {
 
   const language = languages.find((l) => l.pathName === langNormalized);
   if (!language) {
-    error(404, `Could not find language ${langNormalized}`);
+    error(404, `Could not find language "${langNormalized}"`);
   }
 
   return language;
