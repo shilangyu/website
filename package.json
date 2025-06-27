@@ -35,13 +35,13 @@
     "tslib": "^2.8.1",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.34.1",
-    "vite": "^6.3.5"
+    "vite": "^7.0.0"
   },
   "type": "module",
   "dependencies": {
     "@fontsource/ibm-plex-sans": "^5.2.6",
     "@fontsource/jetbrains-mono": "^5.2.6",
-    "lucide-svelte": "^0.522.0",
+    "lucide-svelte": "^0.525.0",
     "simple-icons": "^15.3.0",
     "sveltekit-search-params": "^3.0.0",
     "zod": "^3.25.67"
