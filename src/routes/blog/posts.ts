@@ -1,5 +1,5 @@
 import type { Component } from 'svelte';
-import { z } from 'zod/v4';
+import { z } from 'zod';
 
 const postMetadataSchema = z
   .object({
