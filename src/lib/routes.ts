@@ -2,12 +2,9 @@
 // I therefore hardcode things here, hoping this will be improved in the future
 
 import { resolve } from '$app/paths';
-import { trailingSlash } from '../routes/+layout';
 import { tagsFilterName } from '../routes/blog/+page.svelte';
 import type { Post } from '../routes/blog/posts';
 import type { LanguageReviewEntry } from '../routes/languages/languages';
-
-const trailing = trailingSlash === 'always' ? '/' : '';
 
 export const routes = {
   root: resolve('/'),
