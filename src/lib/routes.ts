@@ -1,7 +1,7 @@
 // I am not aware of any consistent way of getting typed routes or getting a list of routes at all
 // I therefore hardcode things here, hoping this will be improved in the future
 
-import { base } from '$app/paths';
+import { resolve } from '$app/paths';
 import { trailingSlash } from '../routes/+layout';
 import { tagsFilterName } from '../routes/blog/+page.svelte';
 import type { Post } from '../routes/blog/posts';
@@ -10,19 +10,18 @@ import type { LanguageReviewEntry } from '../routes/languages/languages';
 const trailing = trailingSlash === 'always' ? '/' : '';
 
 export const routes = {
-  root: base + '/',
-  resume: base + '/resume.pdf',
+  root: resolve('/'),
+  resume: resolve('/resume.pdf'),
   blog: {
     self: (tags: string[] = []) =>
-      base + '/blog' + trailing + (tags.length ? `?${tagsFilterName}=${tags.join(',')}` : ''),
-    post: (post: Post) => base + `/blog/${post.name}` + trailing,
-    rss: base + `/blog/rss.xml`,
+      resolve('/blog') + (tags.length ? `?${tagsFilterName}=${tags.join(',')}` : ''),
+    post: (post: Post) => resolve('/blog/[slug]', { slug: post.name }),
+    rss: resolve(`/blog/rss.xml`),
   },
-  projects: base + '/projects' + trailing,
+  projects: resolve('/projects'),
   languages: {
-    self: (lang?: LanguageReviewEntry) =>
-      base + '/languages' + trailing + (lang ? `#${lang.pathName}` : ''),
-    language: (lang: LanguageReviewEntry) => base + `/languages/${lang.pathName}` + trailing,
+    self: (lang?: LanguageReviewEntry) => resolve('/languages') + (lang ? `#${lang.pathName}` : ''),
+    language: (lang: LanguageReviewEntry) => resolve('/languages/[lang]', { lang: lang.pathName }),
   },
 } as const;
 
