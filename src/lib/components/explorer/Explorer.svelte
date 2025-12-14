@@ -21,16 +21,17 @@
           },
         ],
       },
-      {
-        icon: BookA,
-        href: routes.languages.self(),
-        children: languages.map((language) => ({
-          icon: Languages,
-          href: routes.languages.language(language),
-          name: language.name,
-          children: [],
-        })),
-      },
+      // TODO: bring back when done
+      // {
+      //   icon: BookA,
+      //   href: routes.languages.self(),
+      //   children: languages.map((language) => ({
+      //     icon: Languages,
+      //     href: routes.languages.language(language),
+      //     name: language.name,
+      //     children: [],
+      //   })),
+      // },
       {
         icon: Hammer,
         href: routes.projects,
@@ -48,18 +49,8 @@
 
 <script lang="ts">
   import { routes } from '$lib/routes';
-  import {
-    BookA,
-    BookOpen,
-    BookOpenText,
-    FileBadge,
-    Hammer,
-    Home,
-    Languages,
-    Rss,
-  } from 'lucide-svelte';
+  import { BookOpen, BookOpenText, FileBadge, Hammer, Home, Rss } from 'lucide-svelte';
   import { posts } from '../../../routes/blog/posts';
-  import { languages } from '../../../routes/languages/languages';
   import FileEntry, { type Tree } from './FileEntry.svelte';
 
   interface Props {
