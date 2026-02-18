@@ -26,7 +26,8 @@
     <main>
       <Breadcrumbs />
 
-      <div class="main-content" id={mainContentId}>
+      <!-- tabindex is needed to make the main content focusable for keyboard scrolling -->
+      <div class="main-content" id={mainContentId} tabindex={-1}>
         <PageTransition {url}>
           {@render children()}
         </PageTransition>
