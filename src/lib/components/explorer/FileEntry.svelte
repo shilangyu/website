@@ -30,12 +30,12 @@
 
   let { tree, depth = 0 }: Props = $props();
 
-  const { icon: Icon, href, children, external = false } = tree;
-  const name = getName(tree);
+  const { icon: Icon, href, children, external = false } = $derived(tree);
+  const name = $derived(getName(tree));
 
   const transitionDuration = 200;
 
-  const isDirectory = children.length > 0;
+  const isDirectory = $derived(children.length > 0);
 
   let expanded = $derived(page.url.pathname.startsWith(href));
 </script>

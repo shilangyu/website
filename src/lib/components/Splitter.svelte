@@ -23,7 +23,7 @@
     b,
   }: Props = $props();
 
-  console.assert(minExtent <= extent && extent <= maxExtent);
+  $effect(() => console.assert(minExtent <= extent && extent <= maxExtent));
 
   let initial: { extent: number; position: number } | undefined = $state(undefined);
 
