@@ -49,6 +49,7 @@
   .segment {
     all: unset;
     cursor: pointer;
+    outline: revert;
     display: flex;
     align-items: center;
     gap: var(--gap);

@@ -10,7 +10,7 @@
   };
 
   export function getName(tree: Tree): string {
-    return tree.name || normalizeUrl(tree.href).split('/').pop() || '/';
+    return tree.name ?? normalizeUrl(tree.href).split('/').pop() ?? '/';
   }
 </script>
 

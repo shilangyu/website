@@ -16,6 +16,7 @@
   button {
     all: unset;
     cursor: pointer;
+    outline: revert;
     color: var(--color-text-secondary);
     border-bottom: 1px solid transparent;
 

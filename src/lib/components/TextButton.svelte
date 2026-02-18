@@ -48,14 +48,11 @@
 {/if}
 
 <style>
-  button {
-    all: unset;
-    cursor: pointer;
-  }
-
+  button,
   a {
     all: unset;
     cursor: pointer;
+    outline: revert;
   }
 
   .padded {
