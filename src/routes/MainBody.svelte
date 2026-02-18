@@ -3,6 +3,7 @@
   import Splitter from '$lib/components/Splitter.svelte';
   import BottomPanel from '$lib/components/bottom_panel/BottomPanel.svelte';
   import Breadcrumbs from '$lib/components/breadcrumbs/Breadcrumbs.svelte';
+  import { mainContentId } from './+layout.svelte';
 
   interface Props {
     url: string;
@@ -25,7 +26,7 @@
     <main>
       <Breadcrumbs />
 
-      <div class="main-content">
+      <div class="main-content" id={mainContentId}>
         <PageTransition {url}>
           {@render children()}
         </PageTransition>

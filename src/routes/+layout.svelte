@@ -1,3 +1,7 @@
+<script lang="ts" module>
+  export const mainContentId = 'main-content';
+</script>
+
 <script lang="ts">
   import { base } from '$app/paths';
   import Footer from '$lib/components/Footer.svelte';
@@ -33,6 +37,8 @@
   </script>
 </svelte:head>
 
+<a href="#{mainContentId}" class="jump-to-content">Jump to content</a>
+
 <div class="container">
   <div class="body">
     <Splitter direction="row" extent={300} maxExtent={600} minExtent={200} hideOnSmallScreen>
@@ -62,5 +68,19 @@
   .body {
     overflow: auto;
     flex: 1;
+  }
+
+  /* Copied from Wikipedia */
+  .jump-to-content:not(:focus) {
+    display: block;
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    overflow: hidden;
+    user-select: none;
   }
 </style>
