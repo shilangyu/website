@@ -15,7 +15,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 21
+          node-version: 25
           cache: npm
 
       - name: Install dependencies
@@ -31,6 +31,12 @@ jobs:
       - name: Build
         run: |
           npm run build
+
+      - name: Links checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          workingDirectory: build
+          args: --root-dir "$(pwd)" --verbose --timeout 5 --max-redirects 3 --accept '100..=103,200..=299,403' .
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v4

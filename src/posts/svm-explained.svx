@@ -105,7 +105,7 @@ $$
 
 Since we are operating in the euclidean space with the dot product as the inner product space, we can rewrite $k$ as $k(x,y) = \varphi(x) \cdot \varphi(y)$. Direct computation of $\varphi$ is not needed, we will only need to find the kernel function. This kernel function will replace dot products used throughout the SVM method.
 
-<Img alt="A non-linearly separable dataset mapped to a higher dimensional space where a decision boundary can be found with a simple hyperplane using $\varphi(X) = (x_1, x_2, x_1^2 + x_2^2)$" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Kernel_trick_idea.svg/440px-Kernel_trick_idea.svg.png" />
+<Img alt="A non-linearly separable dataset mapped to a higher dimensional space where a decision boundary can be found with a simple hyperplane using $\varphi(X) = (x_1, x_2, x_1^2 + x_2^2)$" src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Kernel_trick_idea.svg" />
 
 Note that if we set $\varphi = \text{id}$ then $k(x, y) = \langle \varphi(x), \varphi(y) \rangle = \langle x, y \rangle = x \cdot y$, which gives us the SVM for linearly separable problems. Now, this problem can be expressed as a primal one and proceed with gradient descent as we did for the linear case. However, for some not precisely known reason the literature about SVMs has converged towards solving it as a Lagrangian dual and, as O. Chapelle (2007) argues, the primal one can provide many advantages. In both the primal and dual problem formulation $\varphi$ is never directly computed, it is always used indirectly through the kernel function. So, to not diverge from literature I will present the dual problem which requires Quadratic Optimization instead of gradient descent.
 
