@@ -1,0 +1,13 @@
+---
+title: 'Using Typst for my master thesis: an honest review'
+description: >
+  After being completely fed up with the state of LaTeX, join me in my discovery of a serious alternative: Typst. We won't sugarcoat the weak points.
+date: 1999-01-29
+tags:
+  - typesetting
+draft: true
+---
+
+I've been on a crusade against latex. Write a blog post underlining the flaws of latex and how it's often used for simple solutions. Suggest alternatives that are much simpler and can get you the same results
+
+Describe the cool unique parts of my thesis (rocq extraction, margin, theorems, glossary). Describe the strong points of typst and gripes
