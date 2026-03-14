@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Wip from '$lib/assets/work_in_progress.webp';
   import SimpleIcon from '$lib/components/SimpleIcon.svelte';
   import TextButton from '$lib/components/TextButton.svelte';
   import { external, routes } from '$lib/routes';
@@ -39,6 +40,10 @@
       {/each}
     </div>
   </hgroup>
+
+  {#if meta.draft}
+    <img src={Wip} alt="monkey sawing a branch with a saw" width="100%" />
+  {/if}
 
   <div class="content">
     <Content />
