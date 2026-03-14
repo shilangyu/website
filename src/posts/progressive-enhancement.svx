@@ -1,0 +1,16 @@
+---
+title: Progressive enhancement
+description: >
+  Discussion of the philosophy of progressive enhancement and its superiority to complaining about JS for the sake of it.
+date: 1999-01-29
+tags:
+  - web
+draft: true
+---
+
+- [ ] see if there is already a good post about it
+- [ ] mention the unreasonable obsession with JS-free sites
+- [ ] show interactive examples (use the power of mdsvex!) of progressive enhancement
+- [ ] argument for using JS
+- [ ] show examples of what seemingly basic things cannot be achieved without JS
+- [ ] mention that JS frameworks should and are working towards producing progressively enhanced sites (sveltekit)
