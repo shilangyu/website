@@ -15,6 +15,7 @@ const postMetadataSchema = z
       })
       .default({}),
     tags: z.array(z.string()).min(1),
+    draft: z.optional(z.boolean()).default(false),
   })
   .strict();
 
@@ -34,4 +35,5 @@ export const posts = Object.entries(postsLoad)
     meta: postMetadataSchema.parse(raw.metadata),
     content: raw.default,
   }))
+  .filter((post) => !post.meta.draft || import.meta.env.DEV)
   .sort((a, b) => b.meta.date.getTime() - a.meta.date.getTime());
