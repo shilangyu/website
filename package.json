@@ -44,7 +44,7 @@
     "@fontsource/jetbrains-mono": "^5.2.8",
     "globals": "^17.4.0",
     "lucide-svelte": "^1.0.1",
-    "simple-icons": "^16.14.0",
+    "simple-icons": "^16.15.0",
     "sveltekit-search-params": "^3.0.0",
     "zod": "^4.3.6"
   }
