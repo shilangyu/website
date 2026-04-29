@@ -36,7 +36,7 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           workingDirectory: build
-          args: --root-dir "$(pwd)" --verbose --timeout 5 --max-redirects 3 --accept '100..=103,200..=299,403' .
+          args: --root-dir "$(pwd)" --verbose --timeout 5 --max-redirects 3 --accept '100..=103,200..=299,403,429' .
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v5
