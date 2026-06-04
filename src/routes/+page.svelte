@@ -53,14 +53,14 @@
 
 <p>
   My name is <strong title="/ˈmar.t͡ɕin/">Marcin</strong> and I enjoy computer science and mathematics.
-  My current interests are around programming languages, compilers, and more recently formal methods.
-  I am always open to hearing about collaboration opportunities.
+  My current interests are around programming languages, compilers, and formal methods. I am always open
+  to hearing about collaboration opportunities.
 </p>
 
 <p>
-  I am from Warsaw, Poland. It is where I completed my bachelor's at University of Technology.
-  Currently I live in Lausanne, Switzerland where I am doing my master's at EPFL in computer science
-  theory.
+  I am from Warsaw, Poland. It is where I completed my bachelor's at University of Technology. Then
+  I moved to Lausanne, Switzerland for my master's degree at EPFL doing computer science theory. Now
+  I live in München, Germany doing PL research at JetBrains.
 </p>
 
 <p>
