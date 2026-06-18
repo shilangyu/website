@@ -1,0 +1,138 @@
+---
+title: Hacking co-/contra- variant generics
+description: >
+  Small overview of subtyping and variance in Dart motivated by a real example.
+  Then, we hack variance into the language despite not supporting it directly.
+date: 2023-11-17
+tags:
+  - programming languages
+repository: https://github.com/shilangyu/dart-variance-hack
+---
+
+<details>
+<summary>Prerequisite knowledge</summary>
+
+1. `T <: U` denotes that `T` is a subtype of `U`. Similarly `T :> U` means that `T` is a supertype of `U`.
+2. Variance defines how should subtyping behave in presence of type parameters.
+3. A top type is a type that is a supertype of all other types. A bottom type is a type that is the subtype of all other types.
+
+</details>
+
+The Dart programming language does **not** allow programmers to decide on the variance of type parameters. All generics are covariant leading to well-known issues when combined with subtyping:
+
+```dart
+List<int> list = [1, 2, 3];
+
+List<Object> newList = list; // ok because int <: Object so therefore List<int> <: List<Object>
+
+newList.add('oops'); // runtime error
+```
+
+Languages that allow to control variance typically have a mutable and immutable kind of a list with an invariant and covariant type argument respectively. In Dart there is no such thing, so nothing prevents us from these runtime errors. See [subtyping_test.dart](https://github.com/shilangyu/dart-variance-hack/blob/main/test/subtyping_test.dart) and [variance_test.dart](https://github.com/shilangyu/dart-variance-hack/blob/main/test/variance_test.dart) for an introduction to subtyping and variance in Dart.
+
+A popular example where lack of contravariance is detrimental is a consumer class:
+
+```dart
+class Consumer<T> {
+  void handle(T sth) {
+    print('doing $sth');
+  }
+}
+```
+
+If we were to store a list of consumers and later wanted to retrieve those consumers which can accept a type `R`, we would quickly realize it harder than it initially seemed. Naively one could filter this list by those consumers that are subtypes of `Consumer<R>`. Take for example the hierarchy `int <: num <: Object`. If we were to filter by `num` we would get all consumers such that `<: Consumer<num>`. But this is not correct: we cannot pass in a `num` to a consumer which expects an `int`, and yet `Consumer<int> <: Consumer<num>`.
+
+```dart
+class Consumer<T> {
+  void handle(T sth) {
+    print('doing $sth');
+  }
+}
+
+void main() {
+  final List<Consumer<dynamic>> handlers = [
+    Consumer<int>(),
+    Consumer<num>(),
+    Consumer<double>(),
+    Consumer<String>(),
+    Consumer<Object>(),
+  ];
+
+  void sendEvent<T>(T value) {
+    final targets = handlers.whereType<Consumer<T>>();
+    print(targets); // Consumer<int>, Consumer<num>, Consumer<double>
+
+    for (final target in targets) {
+      target.handle(value);
+    }
+  }
+
+  sendEvent<num>(1); // runtime crash! type 'int' is not a subtype of type 'double' of 'sth'
+}
+```
+
+Filtering by `num` (where `int <: num` and `double <: num`) returns all covariant consumers. This program crashes because the literal `1` is an `int`, not a `double`!
+
+In fact we need the reverse relationship, we want all consumers such that `:> Consumer<num>`. Since there is nothing we can do with this problem at the declaration-site, we need to resort to hacking use-site variance. There is one type in Dart that can simulate contravariance: the function type. Arguments of a function are contravariant, so `void Function(num) <: void Function(int)` because `num :> int`. We can use this fact to achieve use-site variance.
+
+```dart
+class Super {}
+
+// Sub <: Super
+class Sub extends Super {}
+
+typedef Contra<T> = void Function(T);
+Contra<T> makeContra<T>() => (T _) {};
+
+typedef Cov<T> = T Function();
+Cov<T> makeCov<T>(T val) => () => val;
+
+typedef Inv<T> = T Function(T);
+Inv<T> makeInv<T>(T val) => (T _) => val;
+```
+
+We first establish a small type hierarchy (`Sub <: Super`) and then create type constructors that reinterpret `T` under some particular variance. Function arguments are contravariant, return types covariant, and if it is at both positions it is invariant. Then we also create helpers for each variance that create a concrete object. Check [variance.dart](https://github.com/shilangyu/dart-variance-hack/blob/main/lib/variance.dart) to see how these objects interact.
+
+Now going back to the consumer pattern, instead of storing a list of consumers alone, we will pair each consumer with a "tag" that exhibits contravariant behavior. Then when looking for compatible consumers we will filter by that tag rather than the consumer type.
+
+```dart
+class Comms {
+  // `Never` is to bottom type (everything is contravariant with it)
+  // `dynamic` is the top type (everything is covariant with it)
+  final List<(Contra<Never>, Consumer<dynamic>)> handlers = [];
+
+  // Pair the consumer with its contravariant tag
+  void addSink<T>(Consumer<T> sink) {
+    final key = makeContra<T>();
+    handlers.add((key, sink));
+  }
+
+  void sendEvent<T>(T value) {
+    final targets = handlers
+        // We filter contravariantly on the tag, and accept everything for the consumer
+        .whereType<(Contra<T>, Consumer<dynamic>)>()
+        .map((e) => e.$2)
+        .toList();
+    print(targets); // Consumer<num>, Consumer<Object>
+
+    for (final target in targets) {
+      target.handle(value);
+    }
+  }
+}
+
+void main() {
+  final comms = Comms();
+  comms.addSink(Consumer<int>());
+  comms.addSink(Consumer<num>());
+  comms.addSink(Consumer<double>());
+  comms.addSink(Consumer<String>());
+  comms.addSink(Consumer<Object>());
+
+  comms.sendEvent<num>(1); // All good!
+}
+```
+
+---
+
+The Dart language has had an experimental feature for [declaration-site variance specifiers](https://github.com/dart-lang/language/issues/524) for a while now. This solves all presented issues and moves the responsibility of correctly specifying variance to the type declaration. See [explicit_variance.dart](https://github.com/shilangyu/dart-variance-hack/blob/main/lib/explicit_variance.dart) for a preview of this feature (run with `--enable-experiment=variance`).
