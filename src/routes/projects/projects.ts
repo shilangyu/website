@@ -5,6 +5,7 @@ import ComputerGraphicsPreview from './assets/computer-graphics_preview.webp';
 import DistributedAlgorithmsPreview from './assets/distributed-algorithms_preview.webp';
 import FormalLangPreview from './assets/formal-lang_preview.webp';
 import LemmurLogo from './assets/lemmur_logo.svg';
+import NfaSandboxPreview from './assets/nfa-sandbox_preview.webp';
 import PiGenerationPreview from './assets/pi-generation_preview.webp';
 import RamRunnerPreview from './assets/ram-runner_preview.webp';
 import RegisterTransformations from './assets/register-transformations_preview.webp';
@@ -26,6 +27,17 @@ export type ProjectEntry = {
 };
 
 export const projects: ProjectEntry[] = [
+  {
+    name: 'nfa-sandbox',
+    description: 'A sandbox for creating, running, and testing NFAs.',
+    repository: 'https://github.com/shilangyu/nfa-sandbox',
+    technologies: ['TypeScript', 'Vanilla.js'],
+    website: 'https://github.shilangyu.dev/nfa-sandbox/',
+    image: {
+      light: NfaSandboxPreview,
+      alt: 'nfa-sandbox interface',
+    },
+  },
   {
     name: 'formal-lang',
     description:
