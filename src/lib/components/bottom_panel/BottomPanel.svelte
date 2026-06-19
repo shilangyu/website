@@ -16,14 +16,15 @@
     {#if selectedTab === Tabs.Problems}
       No problems have been detected.
     {:else if selectedTab === Tabs.Output}
-      <pre>
-EDITOR=nvim
+      <pre>EDITOR=nvim
 VISUAL=code
 SHELL=fish
 OS=Linux/Arch,MacOS
 TERMINAL=alacritty
 TERMINAL_MULTIPLEXER=tmux
-			</pre>
+XDG_CONFIG_HOME=<a href="https://github.com/shilangyu/dotfiles" target="_blank"
+          >https://github.com/shilangyu/dotfiles</a
+        ></pre>
     {/if}
   </div>
 </div>
