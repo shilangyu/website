@@ -33,8 +33,6 @@ XDG_CONFIG_HOME=<a href="https://github.com/shilangyu/dotfiles" target="_blank"
   .root {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
     box-sizing: border-box;
     max-height: 100%;
   }
@@ -42,10 +40,12 @@ XDG_CONFIG_HOME=<a href="https://github.com/shilangyu/dotfiles" target="_blank"
   .tabs-row {
     display: flex;
     gap: 1rem;
+    padding: 1rem 0 0 1rem;
   }
 
   .tab-content {
     flex: 1;
+    padding: 1rem;
     overflow-y: auto;
   }
 

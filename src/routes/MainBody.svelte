@@ -17,7 +17,7 @@
 <Splitter
   direction="column"
   baselineSlot="b"
-  extent={200}
+  extent={220}
   maxExtent={450}
   minExtent={100}
   hide={bottomDrawerOpen ? undefined : 'b'}
