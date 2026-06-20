@@ -32,6 +32,16 @@ export type ProjectEntry = {
 
 export const projects: ProjectEntry[] = [
   {
+    name: 'scoop-search',
+    description: 'A much faster alternative for the search command of the Scoop package manager.',
+    repository: 'https://github.com/shilangyu/scoop-search',
+    technologies: ['Zig', 'Windows', 'Concurrency'],
+    image: {
+      light: ScoopSearchPreview,
+      alt: 'Benchmark showing scoop-search is 350 times faster than scoop search',
+    },
+  },
+  {
     name: 'nfa-sandbox',
     description: 'A sandbox for creating, running, and testing NFAs.',
     repository: 'https://github.com/shilangyu/nfa-sandbox',
@@ -51,6 +61,16 @@ export const projects: ProjectEntry[] = [
       light: StackOrderedTypesPreview,
       dark: StackOrderedTypesPreviewDark,
       alt: 'StackOrderedTypes types and theorems about them',
+    },
+  },
+  {
+    name: 'lemmur',
+    description: 'A client for the Lemmy platform - a federated Reddit alternative. (archive)',
+    repository: 'https://github.com/LemmurOrg/lemmur',
+    technologies: ['Flutter', 'Android', 'iOS'],
+    image: {
+      light: LemmurLogo,
+      alt: "Lemmur's logo",
     },
   },
   {
@@ -74,16 +94,6 @@ export const projects: ProjectEntry[] = [
     image: {
       light: FormalLangPreview,
       alt: 'formal-lang syntax grammar',
-    },
-  },
-  {
-    name: 'scoop-search',
-    description: 'A much faster alternative for the search command of the Scoop package manager.',
-    repository: 'https://github.com/shilangyu/scoop-search',
-    technologies: ['Zig', 'Windows', 'Concurrency'],
-    image: {
-      light: ScoopSearchPreview,
-      alt: 'Benchmark showing scoop-search is 350 times faster than scoop search',
     },
   },
   {
@@ -153,16 +163,6 @@ export const projects: ProjectEntry[] = [
     image: {
       light: RegisterTransformations,
       alt: 'Example of a register transformation from a binary safe single-writer multi-reader register to a multivalue regular single-writer single-reader register',
-    },
-  },
-  {
-    name: 'lemmur',
-    description: 'A client for the Lemmy platform - a federated Reddit alternative. (archive)',
-    repository: 'https://github.com/LemmurOrg/lemmur',
-    technologies: ['Flutter', 'Android', 'iOS'],
-    image: {
-      light: LemmurLogo,
-      alt: "Lemmur's logo",
     },
   },
   {
