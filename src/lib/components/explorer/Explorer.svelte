@@ -1,6 +1,6 @@
 <script lang="ts" module>
   export const explorerTree: Tree = {
-    icon: Home,
+    icon: House,
     href: routes.root,
     children: [
       {
@@ -21,17 +21,18 @@
           },
         ],
       },
-      // TODO: bring back when done
-      // {
-      //   icon: BookA,
-      //   href: routes.languages.self(),
-      //   children: languages.map((language) => ({
-      //     icon: Languages,
-      //     href: routes.languages.language(language),
-      //     name: language.name,
-      //     children: [],
-      //   })),
-      // },
+      {
+        icon: BookA,
+        href: routes.languages.self(),
+        children: languages
+          .filter((language) => !language.review.meta.draft)
+          .map((language) => ({
+            icon: Languages,
+            href: routes.languages.language(language),
+            name: language.name,
+            children: [],
+          })),
+      },
       {
         icon: Hammer,
         href: routes.projects,
@@ -49,8 +50,18 @@
 
 <script lang="ts">
   import { routes } from '$lib/routes';
-  import { BookOpen, BookOpenText, FileBadge, Hammer, Home, Rss } from 'lucide-svelte';
+  import {
+    BookA,
+    BookOpen,
+    BookOpenText,
+    FileBadge,
+    Hammer,
+    House,
+    Languages,
+    Rss,
+  } from 'lucide-svelte';
   import { posts } from '../../../routes/blog/posts';
+  import { languages } from '../../../routes/languages/languages';
   import FileEntry, { type Tree } from './FileEntry.svelte';
 
   interface Props {

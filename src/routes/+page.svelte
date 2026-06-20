@@ -65,7 +65,7 @@
 
 <p>
   Feel free to explore my <a href={routes.blog.self()}>blog</a> and
-  <a href={routes.projects}>projects</a>.
+  <a href={routes.projects}>projects</a>, or <a href={routes.languages.self()}>language reviews</a>.
 </p>
 
 <style>

@@ -24,6 +24,7 @@ import dummyReview, { metadata as dummyReviewMetadata } from './reviews/dummy.sv
 const languageReviewMetadataSchema = z
   .object({
     lastUpdated: z.coerce.date(),
+    draft: z.boolean().default(false),
   })
   .strict();
 

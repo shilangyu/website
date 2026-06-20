@@ -8,10 +8,10 @@
 </svelte:head>
 
 <p>
-  Here one can find a collection of reviews of various programming languages that I had the pleasure
-  (or displeasure) to work with over the years. <strong>Warning</strong>: the reviews are highly
-  subjective and may not reflect the general opinion. I enjoy learning programming languages for the
-  fun of it, so many of my reviews are based on side projects, not production code.
+  Here one can find a collection of comments about various programming languages that I had the
+  pleasure (or displeasure) to work with over the years. <strong>Warning</strong>: the reviews are
+  highly subjective and may not reflect the general opinion. I enjoy learning programming languages
+  for the fun of it, so many of my reviews are based on side projects, not production code.
 </p>
 
 <p>
@@ -21,9 +21,11 @@
 
 <div class="root">
   {#each languages as entry (entry.pathName)}
-    <div id={entry.pathName}>
-      <LanguageCard {entry} />
-    </div>
+    {#if !entry.review.meta.draft}
+      <div id={entry.pathName}>
+        <LanguageCard {entry} />
+      </div>
+    {/if}
   {/each}
 </div>
 
