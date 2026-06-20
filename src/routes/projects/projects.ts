@@ -3,6 +3,8 @@ import STMPreview from './assets/STM_preview.webp';
 import SVMPreview from './assets/SVM_preview.webp';
 import StackOrderedTypesPreviewDark from './assets/StackOrderedTypes_preview-dark.webp';
 import StackOrderedTypesPreview from './assets/StackOrderedTypes_preview.webp';
+import AlphaCalulusTypesPreviewDark from './assets/alpha_calculus_preview-dark.webp';
+import AlphaCalulusTypesPreview from './assets/alpha_calculus_preview.webp';
 import ComputerGraphicsPreview from './assets/computer-graphics_preview.webp';
 import DistributedAlgorithmsPreview from './assets/distributed-algorithms_preview.webp';
 import FormalLangPreview from './assets/formal-lang_preview.webp';
@@ -48,7 +50,18 @@ export const projects: ProjectEntry[] = [
     image: {
       light: StackOrderedTypesPreview,
       dark: StackOrderedTypesPreviewDark,
-      alt: 'StackOrderedTypes definitions and theorems',
+      alt: 'StackOrderedTypes types and theorems about them',
+    },
+  },
+  {
+    name: 'Alpha calculus',
+    description: 'Formalization and proofs for a language extending lambda calculus.',
+    repository: 'https://github.com/shilangyu/alpha_calculus',
+    technologies: ['Lean'],
+    image: {
+      light: AlphaCalulusTypesPreview,
+      dark: AlphaCalulusTypesPreviewDark,
+      alt: 'AlphaCalculus definition of inference and theorems about it',
     },
   },
   {
