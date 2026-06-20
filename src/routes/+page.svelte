@@ -59,8 +59,9 @@
 
 <p>
   I am from Warsaw, Poland. It is where I completed my bachelor's at University of Technology. Then
-  I moved to Lausanne, Switzerland for my master's degree at EPFL doing computer science theory. Now
-  I live in München, Germany doing PL research at JetBrains.
+  I moved to Lausanne, Switzerland for my <a
+    href="https://github.shilangyu.dev/pikevm-systemf/report/final.pdf">master's degree</a
+  > at EPFL doing computer science theory. Now I live in München, Germany doing PL research at JetBrains.
 </p>
 
 <p>
