@@ -1,0 +1,17 @@
+---
+title: Adding lookbehinds to `rust-lang/regex`
+description: An annotated guide to adding captureless lookbehinds to the Rust linear-time regex engine.
+date: 2025-07-15
+repository: https://github.com/shilangyu/rust-regex-systemf
+discussion:
+  hackerNews: https://news.ycombinator.com/item?id=44572273
+tags:
+  - regex
+  - open source
+---
+
+<script>
+  import ExternalPost from '../lib/mdsvex/external-post.svelte';
+</script>
+
+<ExternalPost url="https://systemf.epfl.ch/blog/rust-regex-lookbehinds" />
