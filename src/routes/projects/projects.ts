@@ -1,6 +1,8 @@
 import Avatar from '$lib/assets/avatar.svg';
 import STMPreview from './assets/STM_preview.webp';
 import SVMPreview from './assets/SVM_preview.webp';
+import StackOrderedTypesPreviewDark from './assets/StackOrderedTypes_preview-dark.webp';
+import StackOrderedTypesPreview from './assets/StackOrderedTypes_preview.webp';
 import ComputerGraphicsPreview from './assets/computer-graphics_preview.webp';
 import DistributedAlgorithmsPreview from './assets/distributed-algorithms_preview.webp';
 import FormalLangPreview from './assets/formal-lang_preview.webp';
@@ -36,6 +38,17 @@ export const projects: ProjectEntry[] = [
     image: {
       light: NfaSandboxPreview,
       alt: 'nfa-sandbox interface',
+    },
+  },
+  {
+    name: 'Stack based language with ordered types',
+    description: 'Small formalization of a stack-based language with ordered types.',
+    repository: 'https://github.com/shilangyu/StackOrderedTypes',
+    technologies: ['Lean'],
+    image: {
+      light: StackOrderedTypesPreview,
+      dark: StackOrderedTypesPreviewDark,
+      alt: 'StackOrderedTypes definitions and theorems',
     },
   },
   {
