@@ -16,6 +16,7 @@ export const routes = {
     rss: resolve(`/blog/rss.xml`),
   },
   projects: resolve('/projects'),
+  talks: resolve('/talks'),
   languages: {
     self: (lang?: LanguageReviewEntry) => resolve('/languages') + (lang ? `#${lang.pathName}` : ''),
     language: (lang: LanguageReviewEntry) => resolve('/languages/[lang]', { lang: lang.pathName }),

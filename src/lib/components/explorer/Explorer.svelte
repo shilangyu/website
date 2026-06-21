@@ -39,6 +39,11 @@
         children: [],
       },
       {
+        icon: Presentation,
+        href: routes.talks,
+        children: [],
+      },
+      {
         icon: FileBadge,
         href: routes.resume,
         external: true,
@@ -58,6 +63,7 @@
     Hammer,
     House,
     Languages,
+    Presentation,
     Rss,
   } from 'lucide-svelte';
   import { posts } from '../../../routes/blog/posts';
