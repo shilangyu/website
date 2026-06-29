@@ -22,8 +22,8 @@
 
   const filteredPosts = $derived(
     posts.filter((post) => {
-      if ($filters.tags === null || $filters.tags.length === 0) return true;
-      return $filters.tags.some((tag) => post.meta.tags.includes(tag));
+      if (filters.tags === null || filters.tags.length === 0) return true;
+      return filters.tags.some((tag) => post.meta.tags.includes(tag));
     }),
   );
 </script>
@@ -38,8 +38,8 @@
 </p>
 
 <div class="tags-filters">
-  {#each $filters.tags ?? [] as tag (tag)}
-    <Chip onRemove={() => ($filters.tags = ($filters.tags ?? []).filter((t) => t !== tag))}>
+  {#each filters.tags ?? [] as tag (tag)}
+    <Chip onRemove={() => (filters.tags = (filters.tags ?? []).filter((t) => t !== tag))}>
       #{tag}
     </Chip>
   {/each}
@@ -55,8 +55,8 @@
   <div class="tags">
     {#each post.meta.tags as tag (tag)}
       <TextButton
-        selected={$filters.tags?.includes(tag) ?? false}
-        onClick={() => ($filters.tags = [...new Set([...($filters.tags ?? []), tag])])}
+        selected={filters.tags?.includes(tag) ?? false}
+        onClick={() => (filters.tags = [...new Set([...(filters.tags ?? []), tag])])}
       >
         <span>
           #{tag}
