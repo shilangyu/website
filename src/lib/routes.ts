@@ -9,6 +9,9 @@ import type { LanguageReviewEntry } from '../routes/languages/languages';
 export const routes = {
   root: resolve('/'),
   resume: resolve('/resume.pdf'),
+  random: {
+    wellingtons: resolve('/random/wellingtons.webm'),
+  },
   blog: {
     self: (tags: string[] = []) =>
       resolve('/blog') + (tags.length ? `?${tagsFilterName}=${tags.join(',')}` : ''),
