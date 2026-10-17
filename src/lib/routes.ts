@@ -1,27 +1,27 @@
 // I am not aware of any consistent way of getting typed routes or getting a list of routes at all
 // I therefore hardcode things here, hoping this will be improved in the future
 
-import { resolve } from '$app/paths';
+import { asset, resolve } from '$app/paths';
 import { tagsFilterName } from '../routes/blog/+page.svelte';
 import type { Post } from '../routes/blog/posts';
 import type { LanguageReviewEntry } from '../routes/languages/languages';
 
 export const routes = {
-  root: resolve('/'),
-  resume: resolve('/resume.pdf'),
+  root: resolve(''),
+  resume: asset('resume.pdf'),
   random: {
-    wellingtons: resolve('/random/wellingtons.webm'),
+    wellingtons: asset('random/wellingtons.webm'),
   },
   blog: {
     self: (tags: string[] = []) =>
-      resolve('/blog') + (tags.length ? `?${tagsFilterName}=${tags.join(',')}` : ''),
+      resolve('blog') + (tags.length ? `?${tagsFilterName}=${tags.join(',')}` : ''),
     post: (post: Post) => resolve('/blog/[slug]', { slug: post.name }),
-    rss: resolve(`/blog/rss.xml`),
+    rss: resolve(`blog/rss.xml`),
   },
-  projects: resolve('/projects'),
-  talks: resolve('/talks'),
+  projects: resolve('projects'),
+  talks: resolve('talks'),
   languages: {
-    self: (lang?: LanguageReviewEntry) => resolve('/languages') + (lang ? `#${lang.pathName}` : ''),
+    self: (lang?: LanguageReviewEntry) => resolve('languages') + (lang ? `#${lang.pathName}` : ''),
     language: (lang: LanguageReviewEntry) => resolve('/languages/[lang]', { lang: lang.pathName }),
   },
 } as const;

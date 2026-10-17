@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-  import { base } from '$app/paths';
+  import { resolve } from '$app/paths';
   import Footer from '$lib/components/Footer.svelte';
   import Splitter from '$lib/components/Splitter.svelte';
   import Explorer from '$lib/components/explorer/Explorer.svelte';
@@ -23,7 +23,8 @@
 </script>
 
 <svelte:head>
-  <link rel="alternate" type="application/atom+xml" href="{base}/blog/rss.xml" />
+  <link rel="alternate" type="application/atom+xml" href={resolve('blog/rss.xml')} />
+
   <script lang="ts" type="module">
     // Synchronous script in the head to prevent flashing of the theme
     // should be kept in sync with src/lib/theme.ts

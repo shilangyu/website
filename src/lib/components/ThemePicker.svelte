@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { browser } from '$app/environment';
+  import { browser } from '$app/env';
   import { theme } from '$lib/theme.svelte';
   import { Moon, Sun, SunMoon } from 'lucide-svelte';
   import { fly } from 'svelte/transition';
