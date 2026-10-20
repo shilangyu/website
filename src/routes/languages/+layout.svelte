@@ -9,6 +9,8 @@
   let { children }: Props = $props();
 
   onNavigate((navigation) => {
+    if (navigation.shallow && navigation.type === 'goto') return;
+
     const langName = navigation.from?.params?.lang || navigation.to?.params?.lang;
 
     // if the view transition API is available use it for nice navigation transitions
