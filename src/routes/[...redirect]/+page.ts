@@ -5,8 +5,8 @@ import { posts } from '../blog/posts';
 import type { EntryGenerator } from './$types';
 
 // When changing the URL of this website, some older links got invalidated. This page redirects old links to the new ones.
-const redirects: Record<string, string> = {
-  'SVM-from-scratch': routes.blog.post(posts.find((e) => e.name === 'svm-explained')!),
+const redirects: Record<string, string | { local: string }> = {
+  'SVM-from-scratch': { local: routes.blog.post(posts.find((e) => e.name === 'svm-explained')!) },
   TicTacToe: external.githubPages('TicTacToe'),
   'ram-runner': external.githubPages('ram-runner'),
   'genetic.ts': external.githubPages('genetic.ts'),
@@ -14,9 +14,9 @@ const redirects: Record<string, string> = {
   'formal-lang': external.githubPages('formal-lang'),
   'register-transformations': external.githubPages('register-transformations'),
   'uni-notes': external.githubPages('uni-notes'),
-  'balanced-parentheses-dart-3': routes.blog.post(
-    posts.find((e) => e.name === 'balanced-parentheses-dart-3')!,
-  ),
+  'balanced-parentheses-dart-3': {
+    local: routes.blog.post(posts.find((e) => e.name === 'balanced-parentheses-dart-3')!),
+  },
   'WUT-CG': external.githubPages('WUT-CG'),
   'AaC-pi': external.githubPages('AaC-pi'),
   'AIF-emotion-detection': external.githubPages('AIF-emotion-detection'),
@@ -33,7 +33,10 @@ export function load({ params }) {
 
   if (!destination) error(404, 'Not found');
 
-  redirect(301, normalizeUrl(destination) + (rest.length ? '/' + rest.join('/') : ''));
+  const external = typeof destination === 'string';
+  const url = external ? destination : destination.local;
+
+  redirect(301, normalizeUrl(url) + (rest.length ? '/' + rest.join('/') : ''), { external });
 }
 
 export const entries: EntryGenerator = () => {
