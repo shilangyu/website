@@ -1,4 +1,4 @@
-import Avatar from '$lib/assets/avatar.svg';
+import Avatar from '#lib/assets/avatar.svg';
 import STMPreview from './assets/STM_preview.webp';
 import SVMPreview from './assets/SVM_preview.webp';
 import StackOrderedTypesPreviewDark from './assets/StackOrderedTypes_preview-dark.webp';

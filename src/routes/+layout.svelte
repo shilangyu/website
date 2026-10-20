@@ -4,10 +4,10 @@
 
 <script lang="ts">
   import { resolve } from '$app/paths';
-  import Footer from '$lib/components/Footer.svelte';
-  import Splitter from '$lib/components/Splitter.svelte';
-  import Explorer from '$lib/components/explorer/Explorer.svelte';
-  import '$lib/mdsvex/mdsvex.css';
+  import Footer from '#lib/components/Footer.svelte';
+  import Splitter from '#lib/components/Splitter.svelte';
+  import Explorer from '#lib/components/explorer/Explorer.svelte';
+  import '#lib/mdsvex/mdsvex.css';
   import '../app.css';
   import type { LayoutData } from './$types';
   import MainBody from './MainBody.svelte';

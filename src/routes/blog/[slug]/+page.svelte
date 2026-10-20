@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Wip from '$lib/assets/work_in_progress.webp';
-  import SimpleIcon from '$lib/components/SimpleIcon.svelte';
-  import TextButton from '$lib/components/TextButton.svelte';
-  import { external, routes } from '$lib/routes';
-  import { formatDate } from '$lib/utils';
+  import Wip from '#lib/assets/work_in_progress.webp';
+  import SimpleIcon from '#lib/components/SimpleIcon.svelte';
+  import TextButton from '#lib/components/TextButton.svelte';
+  import { external, routes } from '#lib/routes.ts';
+  import { formatDate } from '#lib/utils.ts';
   import { Code, SpellCheck2 } from 'lucide-svelte';
   import { siReddit, siYcombinator } from 'simple-icons';
   import type { PageData } from './$types';

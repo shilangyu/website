@@ -1,8 +1,8 @@
 <script lang="ts">
-  import PageTransition from '$lib/components/PageTransition.svelte';
-  import Splitter from '$lib/components/Splitter.svelte';
-  import BottomPanel from '$lib/components/bottom_panel/BottomPanel.svelte';
-  import Breadcrumbs from '$lib/components/breadcrumbs/Breadcrumbs.svelte';
+  import PageTransition from '#lib/components/PageTransition.svelte';
+  import Splitter from '#lib/components/Splitter.svelte';
+  import BottomPanel from '#lib/components/bottom_panel/BottomPanel.svelte';
+  import Breadcrumbs from '#lib/components/breadcrumbs/Breadcrumbs.svelte';
   import { mainContentId } from './+layout.svelte';
 
   interface Props {

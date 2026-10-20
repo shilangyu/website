@@ -1,6 +1,6 @@
 <script lang="ts">
+  import { theme } from '#lib/theme.svelte.ts';
   import { browser } from '$app/env';
-  import { theme } from '$lib/theme.svelte';
   import { Moon, Sun, SunMoon } from 'lucide-svelte';
   import { fly } from 'svelte/transition';
   import TextButton from './TextButton.svelte';

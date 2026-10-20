@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Avatar from '$lib/assets/avatar.svg';
-  import SimpleIcon from '$lib/components/SimpleIcon.svelte';
-  import TextButton from '$lib/components/TextButton.svelte';
-  import { external, routes } from '$lib/routes';
+  import Avatar from '#lib/assets/avatar.svg';
+  import SimpleIcon from '#lib/components/SimpleIcon.svelte';
+  import TextButton from '#lib/components/TextButton.svelte';
+  import { external, routes } from '#lib/routes.ts';
   import { siGithub, siGmail, siReddit, siTelegram, siYcombinator } from 'simple-icons';
 </script>
 

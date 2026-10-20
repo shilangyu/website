@@ -47,5 +47,8 @@
     "simple-icons": "^16.26.0",
     "sveltekit-search-params": "^4.0.0",
     "zod": "^4.4.3"
+  },
+  "imports": {
+    "#lib/*": "./src/lib/*"
   }
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { external, routes } from '$lib/routes';
+  import { external, routes } from '#lib/routes.ts';
   import { AlertTriangle, GitBranch, Info, RefreshCw, Rss, XCircle } from 'lucide-svelte';
   import TextButton from './TextButton.svelte';
   import ThemePicker from './ThemePicker.svelte';

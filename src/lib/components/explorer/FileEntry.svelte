@@ -19,7 +19,7 @@
   import { slide } from 'svelte/transition';
   import FileEntry from './FileEntry.svelte';
 
-  import { isSamePath, normalizeUrl } from '$lib/utils';
+  import { isSamePath, normalizeUrl } from '#lib/utils.ts';
   import type { ComponentType, SvelteComponent } from 'svelte';
   import Expander, { expanderSize } from './Expander.svelte';
 

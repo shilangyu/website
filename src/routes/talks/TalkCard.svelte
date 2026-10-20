@@ -1,6 +1,6 @@
 <script lang="ts">
-  import TextButton from '$lib/components/TextButton.svelte';
-  import { formatDate } from '$lib/utils';
+  import TextButton from '#lib/components/TextButton.svelte';
+  import { formatDate } from '#lib/utils.ts';
   import { Wallpaper } from 'lucide-svelte';
   import type { TalkEntry } from './talks';
 

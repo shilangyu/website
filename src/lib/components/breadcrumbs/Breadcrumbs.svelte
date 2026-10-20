@@ -1,6 +1,6 @@
 <script lang="ts">
+  import { normalizeUrl } from '#lib/utils.ts';
   import { page } from '$app/state';
-  import { normalizeUrl } from '$lib/utils';
   import { explorerTree } from '../explorer/Explorer.svelte';
   import type { Tree } from '../explorer/FileEntry.svelte';
   import BreadcrumbSegment, { gap } from './BreadcrumbSegment.svelte';

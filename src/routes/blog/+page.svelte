@@ -3,10 +3,10 @@
 </script>
 
 <script lang="ts">
-  import Chip from '$lib/components/Chip.svelte';
-  import TextButton from '$lib/components/TextButton.svelte';
-  import { routes } from '$lib/routes';
-  import { formatDate } from '$lib/utils';
+  import Chip from '#lib/components/Chip.svelte';
+  import TextButton from '#lib/components/TextButton.svelte';
+  import { routes } from '#lib/routes.ts';
+  import { formatDate } from '#lib/utils.ts';
   import { queryParameters } from 'sveltekit-search-params';
   import { posts } from './posts';
 

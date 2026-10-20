@@ -54,7 +54,7 @@
 </script>
 
 <script lang="ts">
-  import { routes } from '$lib/routes';
+  import { routes } from '#lib/routes.ts';
   import {
     BookA,
     BookOpen,

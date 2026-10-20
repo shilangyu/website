@@ -4,8 +4,8 @@ draft: true
 ---
 
 <script>
-  import Img from '$lib/mdsvex/img2.svelte';
-	import Wip from '$lib/assets/work_in_progress.webp';
+  import Img from '#lib/mdsvex/img2.svelte';
+	import Wip from '#lib/assets/work_in_progress.webp';
 </script>
 
 > This is not written, the rating are random numbers (refresh to see different numbers)

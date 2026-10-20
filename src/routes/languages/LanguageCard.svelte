@@ -65,9 +65,9 @@
 </script>
 
 <script lang="ts">
-  import TextButton from '$lib/components/TextButton.svelte';
-  import ThemeResponsive from '$lib/components/ThemeResponsive.svelte';
-  import { routes } from '$lib/routes';
+  import TextButton from '#lib/components/TextButton.svelte';
+  import ThemeResponsive from '#lib/components/ThemeResponsive.svelte';
+  import { routes } from '#lib/routes.ts';
   import { ChevronDown } from 'lucide-svelte';
   import RatingBar from './RatingBar.svelte';
   import RatingName from './RatingName.svelte';

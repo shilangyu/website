@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ThemeResponsive from '$lib/components/ThemeResponsive.svelte';
+  import ThemeResponsive from '#lib/components/ThemeResponsive.svelte';
 
   interface Props {
     src: string;

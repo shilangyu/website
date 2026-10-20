@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Chip from '$lib/components/Chip.svelte';
-  import TextButton from '$lib/components/TextButton.svelte';
-  import ThemeResponsive from '$lib/components/ThemeResponsive.svelte';
+  import Chip from '#lib/components/Chip.svelte';
+  import TextButton from '#lib/components/TextButton.svelte';
+  import ThemeResponsive from '#lib/components/ThemeResponsive.svelte';
   import { Code, ExternalLink } from 'lucide-svelte';
   import type { ProjectEntry } from './projects';
 

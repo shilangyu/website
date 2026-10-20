@@ -1,8 +1,8 @@
 <script lang="ts">
-  import TextButton from '$lib/components/TextButton.svelte';
-  import ThemeResponsive from '$lib/components/ThemeResponsive.svelte';
-  import { routes } from '$lib/routes';
-  import { formatDate } from '$lib/utils';
+  import TextButton from '#lib/components/TextButton.svelte';
+  import ThemeResponsive from '#lib/components/ThemeResponsive.svelte';
+  import { routes } from '#lib/routes.ts';
+  import { formatDate } from '#lib/utils.ts';
   import { ChevronUp } from 'lucide-svelte';
   import RatingBar from '../RatingBar.svelte';
   import RatingName from '../RatingName.svelte';

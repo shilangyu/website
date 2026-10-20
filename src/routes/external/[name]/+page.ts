@@ -1,5 +1,5 @@
-import { routes } from '$lib/routes';
-import { normalizeUrl } from '$lib/utils';
+import { routes } from '#lib/routes.ts';
+import { normalizeUrl } from '#lib/utils.ts';
 import { error, redirect } from '@sveltejs/kit';
 import type { EntryGenerator } from './$types';
 
