@@ -1,6 +1,6 @@
 <script lang="ts">
   import { external, routes } from '#lib/routes.ts';
-  import { AlertTriangle, GitBranch, Info, RefreshCw, Rss, XCircle } from 'lucide-svelte';
+  import { CircleX, GitBranch, Info, RefreshCw, Rss, TriangleAlert } from 'lucide-svelte';
   import TextButton from './TextButton.svelte';
   import ThemePicker from './ThemePicker.svelte';
 
@@ -24,8 +24,8 @@
   <TextButton onClick={onProblemsClick}>
     <span class="item">
       <Info size="1em" /> 0
-      <AlertTriangle size="1em" /> 0
-      <XCircle size="1em" /> 0
+      <TriangleAlert size="1em" /> 0
+      <CircleX size="1em" /> 0
     </span>
   </TextButton>
   <span class="spacer"></span>
