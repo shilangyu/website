@@ -18,7 +18,7 @@ repository: https://github.com/shilangyu/dart-variance-hack
 
 </details>
 
-The Dart programming language does **not** allow programmers to decide on the variance of type parameters. All generics are covariant leading to well-known issues when combined with subtyping:
+The Dart programming language does _not_ allow programmers to decide on the variance of type parameters. All generics are covariant leading to well-known issues when combined with subtyping:
 
 ```dart
 List<int> list = [1, 2, 3];
@@ -28,7 +28,7 @@ List<Object> newList = list; // ok because int <: Object so therefore List<int> 
 newList.add('oops'); // runtime error
 ```
 
-Languages that allow to control variance typically have a mutable and immutable kind of a list with an invariant and covariant type argument respectively. In Dart there is no such thing, so nothing prevents us from these runtime errors. See [subtyping_test.dart](https://github.com/shilangyu/dart-variance-hack/blob/main/test/subtyping_test.dart) and [variance_test.dart](https://github.com/shilangyu/dart-variance-hack/blob/main/test/variance_test.dart) for an introduction to subtyping and variance in Dart.
+Languages that allow to control variance typically have a mutable and immutable kind of a list with an invariant and covariant type argument respectively. In Dart there is no such thing, so nothing prevents us from these runtime errors. See [subtyping\_test.dart](https://github.com/shilangyu/dart-variance-hack/blob/main/test/subtyping_test.dart) and [variance\_test.dart](https://github.com/shilangyu/dart-variance-hack/blob/main/test/variance_test.dart) for an introduction to subtyping and variance in Dart.
 
 A popular example where lack of contravariance is detrimental is a consumer class:
 
@@ -135,4 +135,4 @@ void main() {
 
 ---
 
-The Dart language has had an experimental feature for [declaration-site variance specifiers](https://github.com/dart-lang/language/issues/524) for a while now. This solves all presented issues and moves the responsibility of correctly specifying variance to the type declaration. See [explicit_variance.dart](https://github.com/shilangyu/dart-variance-hack/blob/main/lib/explicit_variance.dart) for a preview of this feature (run with `--enable-experiment=variance`).
+The Dart language has had an experimental feature for [declaration-site variance specifiers](https://github.com/dart-lang/language/issues/524) for a while now. This solves all presented issues and moves the responsibility of correctly specifying variance to the type declaration. See [explicit\_variance.dart](https://github.com/shilangyu/dart-variance-hack/blob/main/lib/explicit_variance.dart) for a preview of this feature (run with `--enable-experiment=variance`).
